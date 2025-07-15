@@ -19,7 +19,7 @@ const Newsdetail = () => {
 
   return (
     <div className="bg-slate-100">
-    <div className="pt-[4rem] max-w-3/4 mx-auto px-4 text-slate-700">
+    <div className="pt-[4rem] w-11/12 md:max-w-3/4 mx-auto px-4 text-slate-700">
       <h1 className="text-2xl md:text-5xl font-medium mb-4">{news.title}</h1>
       <p className="text-sm text-slate-500 mb-4">{news.date}</p>
       <p className="md:text-xl leading-relaxed text-slate-500 mb-8">{news.content}</p>

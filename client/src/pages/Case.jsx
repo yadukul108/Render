@@ -62,7 +62,7 @@ const Case = () => {
 
       {/* Case Studies Grid */}
         <section className="px-4 md:px-12 py-12 bg-gray-50">
-      <h2 className="text-3xl md:text-4xl font-medium text-center mb-10 text-slate-800">
+      <h2 className=" text-xl md:text-4xl font-medium text-center mb-10 text-slate-800">
         Case Studies
       </h2>
 
@@ -85,7 +85,7 @@ const Case = () => {
                 {/* Left Text Content */}
                <div className="w-full md:w-1/2 p-6 flex flex-col justify-between ">
   <div>
-    <h3 className="text-2xl font-medium text-slate-800 mb-2">{study.title}</h3>
+    <h3 className="text-xl md:text-2xl font-medium text-slate-800 mb-2">{study.title}</h3>
     <p className="text-sm text-gray-600 mb-1">
       <span className="font-medium">Sector:</span> {study.sector}
     </p>
