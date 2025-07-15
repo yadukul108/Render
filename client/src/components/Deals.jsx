@@ -22,6 +22,8 @@ const Deals = () => {
   const [selectedType, setSelectedType] = useState('All');
   const [selectedYear, setSelectedYear] = useState('All');
   const [sortOrder, setSortOrder] = useState('latest');
+  const [selectedDealType, setSelectedDealType] = useState('All');
+
 
   useEffect(() => {
     const fetchTransactions = async () => {
@@ -41,12 +43,15 @@ const Deals = () => {
 
   const types = ['All', ...new Set(transactions.map(t => t.sector))];
   const years = ['All', ...new Set(transactions.map(t => t.year))];
+const dealTypes = ['All', ...new Set(transactions.map(t => t.type_of_deal))];
 
   
     let filtered = transactions.filter(txn =>
-    (selectedType === 'All' || txn.sector === selectedType) &&
-    (selectedYear === 'All' || txn.year === selectedYear)
-  );
+  (selectedType === 'All' || txn.sector === selectedType) &&
+  (selectedYear === 'All' || txn.year === selectedYear) &&
+  (selectedDealType === 'All' || txn.type_of_deal === selectedDealType)
+);
+
 const extractAmount = (amountStr) => {
   if (!amountStr) return 0;
   return parseInt(amountStr.replace(/[^0-9]/g, ''), 10); // removes ₹ and commas
@@ -73,6 +78,20 @@ const extractAmount = (amountStr) => {
 
       {/* Filters */}
      <div className="flex flex-wrap gap-6 text-slate-600 mb-6 justify-center">
+      {/* Filter by Type of Deal */}
+<div>
+  <label className="block text-sm font-medium mb-1">Filter by Type of Deal</label>
+  <select
+    value={selectedDealType}
+    onChange={e => setSelectedDealType(e.target.value)}
+    className="border border-gray-300 rounded px-4 py-2 z-1"
+  >
+    {dealTypes.map((type, idx) => (
+      <option key={idx} value={type}>{type}</option>
+    ))}
+  </select>
+</div>
+
   {/* Filter by Sector */}
   <div>
     <label className="block text-sm font-medium mb-1">Filter by Sector</label>
@@ -121,28 +140,35 @@ const extractAmount = (amountStr) => {
 
 
       {/* Cards */}
-      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 text-slate-600">
-        {filtered.map((txn) => (
-  <Link
-    to={`/transaction/${txn._id}`}  // Assuming MongoDB _id
-    key={txn._id}
-    className="bg-white rounded-lg shadow p-4 max-w-sm w-full text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
-  >
-    <img
-      src={txn.dealPic}
-      alt="Transaction"
-      className="mx-auto h-64 object-cover rounded mb-4"
-    />
-    <h3 className="text-lg font-semibold text-slate-700">
-      Amount: {txn.amount || '—'}
-    </h3>
-    <hr className="my-2 border-slate-700 w-3/4 mx-auto" />
-    <p className="text-sm text-slate-700">Sector: {txn.sector}</p>
-    <p className="text-sm text-slate-700">Year: {txn.year}</p>
-  </Link>
-))}
+    <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 justify-items-center mx-auto text-slate-600">
+  {filtered.map((txn) => (
+    <Link
+      to={`/transaction/${txn._id}`}
+      key={txn._id}
+      className="bg-white rounded-lg shadow w-full max-w-sm transform transition-transform duration-300 hover:scale-105 hover:shadow-xl overflow-hidden"
+    >
+      {/* Image Section */}
+      <img
+        src={txn.dealPic}
+        alt="Transaction"
+        className="w-auto mx-auto h-[15rem] object-cover"
+      />
 
+      {/* Details Section */}
+      <div className="p-4 text-center">
+        <h3 className="text-lg font-semibold text-slate-800">
+          Amount: {txn.amount || '—'}
+        </h3>
+        <hr className="my-2 border-slate-700 w-3/4 mx-auto" />
+        <p className="text-sm text-slate-600">Sector: {txn.sector}</p>
+        <p className="text-sm text-slate-600">Year: {txn.year}</p>
       </div>
+    </Link>
+  ))}
+</div>
+
+
+
 
       {filtered.length === 0 && <p className="text-center mt-6 text-gray-600">No transactions match the selected filters.</p>}
     </div>

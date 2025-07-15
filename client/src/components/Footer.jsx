@@ -27,9 +27,9 @@ const Footer = () => {
         <div>
           <h3 className="text-slate-700 ont-medium text-xl mb-4">Insights</h3>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/case-studies" className="text-slate-600 hover:text-red-600 transition">Case Studies</Link></li>
+            <li><Link to="/case_study" className="text-slate-600 hover:text-red-600 transition">Case Studies</Link></li>
             <li><Link to="/newsletter" className="text-slate-600 hover:text-red-600 transition">Newsletter</Link></li>
-            <li><Link to="/news-updates" className="text-slate-600 hover:text-red-600 transition">News & Updates</Link></li>
+            <li><Link to="/news" className="text-slate-600 hover:text-red-600 transition">News & Updates</Link></li>
           </ul>
         </div>
 

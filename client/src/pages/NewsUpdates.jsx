@@ -3,7 +3,7 @@ import HomeIb from "../assets/HomeIB.jpg";
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import {newsItems} from "../NewsData"
-const Newsletter = () => {
+const NewsUpdates = () => {
     
 
   return (
@@ -17,7 +17,7 @@ const Newsletter = () => {
 
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
           <h1 className="text-4xl md:text-6xl font-medium tracking-wide">Allegro Advisors</h1>
-          <p className="text-3xl md:text-3xl font-medium mt-2">NEWSLETTER</p>
+          <p className="text-3xl md:text-3xl font-medium mt-2">News & Updates</p>
         </div>
       </div>
       <div className="px-6 md:px-12 py-10 text-slate-700">
@@ -49,4 +49,4 @@ const Newsletter = () => {
   );
 };
 
-export default Newsletter;
+export default NewsUpdates;

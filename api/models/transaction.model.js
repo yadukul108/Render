@@ -26,6 +26,22 @@ const transactionSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    type_of_deal: {
+      type: String,
+      required: true,
+    },
+    representing: {
+      type: String,
+      required: true,
+    },
+    party2: {
+      type: String,
+      required: true,
+    },
+    asset: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );

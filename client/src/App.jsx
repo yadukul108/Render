@@ -21,6 +21,8 @@ import ScrollToTopButton from './components/ScrollToTopButton';
 import SignIn from './pages/Signin';
 import Admin from './pages/Admin';
 import PrivateRoute from './components/PrivateRoute';
+import Case from './pages/Case';
+import NewsUpdates from './pages/NewsUpdates';
 const App = () => {
   return (
      <BrowserRouter>
@@ -44,6 +46,8 @@ const App = () => {
         <Route element={<PrivateRoute/>}>
         </Route>
         <Route path="/admin-panel" element={<Admin/>}/>
+        <Route path="/case_study" element={<Case/>}/>
+        <Route path="/news" element={<NewsUpdates/>}/>
       </Routes>
      <ScrollToTopButton/>
     </BrowserRouter>

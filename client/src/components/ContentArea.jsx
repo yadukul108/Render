@@ -22,6 +22,10 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
     dealPic: '',
     sector: '',
     description: '',
+    type_of_deal:'',
+    representing:'',
+    asset:'',
+    party2:'',
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -70,6 +74,10 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
       dealPic: item.dealPic || '',
       sector: item.sector || '',
       description: item.description || '',
+      party2: item.party2 || '',
+      type_of_deal: item.type_of_deal || '',
+      representing: item.representing || '',
+      asset: item.asset || '',
     });
   };
 
@@ -102,7 +110,11 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
             amount: form.amount,
             dealPic: form.dealPic,
             sector: form.sector,
-            description: form.description
+            description: form.description,
+            asset:form.asset,
+            representing:form.representing,
+            type_of_deal:form.type_of_deal,
+            party2:form.party2,
           }
         : {
             heading: form.heading,
@@ -128,6 +140,10 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
         dealPic: '',
         sector: '',
         description: '',
+        type_of_deal:'',
+    representing:'',
+    asset:'',
+    party2:'',
       });
       setIsEditing(false);
       setEditId(null);
@@ -197,6 +213,38 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
               placeholder="Sector"
               className="border p-2 rounded"
             />
+            <input
+              type="text"
+              name="asset"
+              value={form.asset}
+              onChange={handleChange}
+              placeholder="asset"
+              className="border p-2 rounded"
+            />
+            <input
+              type="text"
+              name="party2"
+              value={form.party2}
+              onChange={handleChange}
+              placeholder="party2"
+              className="border p-2 rounded"
+            />
+            <input
+              type="text"
+              name="representing"
+              value={form.representing}
+              onChange={handleChange}
+              placeholder="representing"
+              className="border p-2 rounded"
+            />
+            <input
+              type="text"
+              name="type_of_deal"
+              value={form.type_of_deal}
+              onChange={handleChange}
+              placeholder="type_of_deal"
+              className="border p-2 rounded"
+            />
           </>
         )}
 
@@ -230,6 +278,10 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
                   dealPic: '',
                   sector: '',
                   description: '',
+                  type_of_deal:'',
+    representing:'',
+    asset:'',
+    party2:'',
                 });
               }}
               className="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
