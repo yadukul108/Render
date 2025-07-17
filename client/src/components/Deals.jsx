@@ -156,7 +156,7 @@ const extractAmount = (amountStr) => {
 
       {/* Details Section */}
       <div className="p-4 text-center">
-        <h3 className="text-lg font-semibold text-slate-800">
+        <h3 className="text-lg font-semibold text-slate-700">
           Amount: {txn.amount || '—'}
         </h3>
         <hr className="my-2 border-slate-700 w-3/4 mx-auto" />

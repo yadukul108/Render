@@ -7,7 +7,7 @@ import Awards from '../components/Awards'
 import Stats from '../components/Stats'
 import Footer from '../components/Footer'
 import React, { useRef } from 'react';
-
+import { motion } from "framer-motion";
 //import About from "./About"
 const Home = () => {
   const serviceRef = useRef(null);
@@ -48,7 +48,10 @@ const Home = () => {
           Contact Us
         </Link>
       </div>
+      
       <Cards/>
+       
+      
      <Stats/>
      
  <div ref={serviceRef}>

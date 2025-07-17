@@ -23,6 +23,7 @@ import Admin from './pages/Admin';
 import PrivateRoute from './components/PrivateRoute';
 import Case from './pages/Case';
 import NewsUpdates from './pages/NewsUpdates';
+import Founders from "./components/Founders"
 const App = () => {
   return (
      <BrowserRouter>
@@ -41,6 +42,7 @@ const App = () => {
         <Route path='/investment' element={<Investment/>}/>
         <Route path='/careers' element={<Careers />} />
         <Route path="/teams" element={<Team/>}/>
+        <Route path="/member/:name" element={<Founders/>} />
         <Route path="/awards" element={<Award/>}/>
         <Route path="/signin" element={<SignIn/>}/>
         <Route element={<PrivateRoute/>}>

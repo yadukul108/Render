@@ -7,13 +7,14 @@ import Abhisekh from "../assets/Abhisekh_Shetty.jpeg"
 import Anmol from "../assets/Anmol_Garg.jpeg"
 import Ayush from "../assets/Ayush_Pansari.jpeg"
 import Gaurav from "../assets/Gaurav_Anirkar.jpeg"
+import { useNavigate } from "react-router-dom";
 const teamMembers = [
   {
     name: "Kunal Kashyap",
     designation: "Founder & Managing Director",
     education: "Chartered Accountant",
     description:
-      "Founder of Allegro Capital, Kunal has led the firm since 2002. With 30+ years in global finance, he is known for boardroom expertise and strategic counsel across sectors.",
+      "Kunal Kashyap is the Founder, Chairman, and CEO of Allegro Capital, one of India’s most respected independent investment banks. Since founding the firm in 2002, he has led Allegro’s transformation into a multi-vertical financial services platform, spanning M&A advisory, private equity, capital markets, wealth management, and insurance broking.With over three decades of experience across global finance, Kunal is widely recognized for his strategic foresight, boardroom presence, and trusted counsel to promoters, boards, and institutional investors. Under his leadership, Allegro has executed landmark transactions across sectors such as healthcare, consumer, technology, and financial services—advising global corporations, top-tier private equity funds, and fast-scaling Indian businesses.Kunal has directly led several of Allegro’s marquee mandates, including multi-billion-dollar cross-border acquisitions, large private equity transactions, and strategic partnerships for some of India’s most iconic companies. He also conceptualized and launched Allegro’s wealth management arm, which today manages over ₹1,000 crore in client assets, serving HNIs, family offices, and professionals with tailored portfolio strategies and long-term planning solutions. In parallel, Allegro’s insurance distribution business has emerged as a credible advisory-led platform for life and general insurance solutions.Prior to founding Allegro, Kunal was a Global Partner at Arthur Andersen, where he played leadership roles in the firm’s consulting and financial advisory practice. He also co-founded two entrepreneurial ventures—Celstream Technologies, a pioneering product engineering company, and Andante Foods, a premium foods business—both reflecting his deep interest in innovation, leadership, and long-term value creation.Over the years, Kunal has held independent board roles at global and Indian companies, including GlaxoSmithKline Consumer Healthcare, MetLife India, Cambridge Solutions, Mereo BioPharma (UK), and others. He currently serves as a Board Member of the Mazumdar Shaw Medical Foundation, further reinforcing his commitment to India's healthcare and life sciences ecosystem.A Chartered Accountant by qualification, Kunal blends technical depth with commercial intuition, and brings a rare combination of global professionalism and Indian entrepreneurialism. He is known not only for his dealmaking acumen but also for building enduring client relationships, mentoring future leaders, and shaping Allegro into a firm built on trust, discretion, and deep domain knowledge.",
     image: Person,
     socials: {
       linkedin: "#", // no link provided
@@ -26,7 +27,7 @@ const teamMembers = [
     designation: "Director",
     education: "IIM Ahmedabad, Ujjain Engineering College",
     description:
-      "Rohit brings 17+ years of investment banking experience. Known for his rigorous execution, he has led deals exceeding $2.5B across healthcare, consumer, and industrial sectors.",
+      "Rohit is a Director at Allegro Capital and brings over 13 years of experience in investment banking with deep expertise across healthcare, consumer, and industrial sectors. He has led over 25 transactions aggregating more than USD 2.5 billion in value, covering both M&A and private equity capital raising.Since joining Allegro, Rohit has advised on several marquee transactions, including a USD 1+ billion PE-backed acquisition of 12 hospitals, a USD 150 million growth capital raise for a leading molecular diagnostics player, and a USD 225 million fundraise for a global precision blades manufacturer. He also advised on the USD 150 million majority stake sale of India’s largest oncology platform to a global investor, establishing Allegro’s credentials in complex, multi-party cross-border transactions.Before Allegro, Rohit worked with ICICI Bank’s Investment Banking division, where he gained a strong foundation in transaction structuring, credit evaluation, and deal execution. At Allegro, he plays a leadership role in driving sector strategy, originating mandates, and mentoring the next generation of bankers.Rohit is known for his strategic thinking, rigorous execution, and long-term client relationships — making him a trusted advisor to founders, boards, and institutional investors alike.",
     image: Person,
     socials: {
       linkedin: "https://www.linkedin.com/in/rohit-mehar-629a8aa/",
@@ -39,7 +40,7 @@ const teamMembers = [
     designation: "Director",
     education: "IIM Calcutta, RV College of Engineering",
     description:
-      "Abhishek has 15+ years in healthcare M&A, including Biocon Biologics’ $3.3B Viatris acquisition. A strategic leader with deep sectoral expertise and global deal experience.",
+      "Abhishek is a Director at Allegro Capital and one of the firm’s most senior professionals, having been with the platform since 2009. Over the past 14+ years, he has played a pivotal role in establishing Allegro as a leading advisor in the healthcare and life sciences space, consistently delivering on complex, high-value transactions across M&A, private equity, and capital markets.Abhishek has led the execution of several marquee deals, including advising on Biocon Biologics’ USD 3.3 billion acquisition of Viatris’ biosimilars business — one of the largest M&A transactions in Indian healthcare. He has been a long-standing advisor to the Biocon Group, having also worked on multiple rounds of fundraises for Biocon Biologics from global investors such as KKR, ADQ, and True North, and previously on the IPO of Syngene International. His experience spans the full lifecycle of transactions — from early-stage growth capital to large cross-border acquisitions and public market exits.Abhishek's sharp analytical thinking, technical depth, and measured execution approach have made him a trusted advisor to boards, founders, and global institutions alike. His sector focus includes pharmaceuticals, biologics, diagnostics, hospitals, and emerging health-tech, with cumulative deal experience across over USD 4 billion in transaction value.Prior to Allegro, Abhishek worked as an ASIC Design Engineer at Cisco. His multidisciplinary background enables him to blend strategic insight with operational understanding — a quality that clients deeply value.Abhishek is widely respected for his integrity, long-term orientation, and calm leadership, and continues to play a key role in driving Allegro’s healthcare vertical and mentoring the next generation of investment bankers.",
     image: Abhisekh,
     socials: {
       linkedin: "https://www.linkedin.com/in/abhishek-shetty-574b9313/",
@@ -132,6 +133,7 @@ const teamMembers = [
 ];
 
 const People = () => {
+  const navigate = useNavigate();
   const [selectedMember, setSelectedMember] = useState(null);
   useEffect(() => {
   if (selectedMember) {
@@ -150,18 +152,36 @@ const group2 = teamMembers.slice(3, 5);
 const group3 = teamMembers.slice(5, 9);
 const MemberCard = ({ member, onClick }) => (
   <div
-    className="w-72 bg-slate-50 shadow-md rounded-xl p-4 text-center transition transform hover:scale-105 hover:shadow-xl cursor-pointer"
+    className="w-72 bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer"
     onClick={onClick}
   >
-    <img
-      src={member.image}
-      alt={member.name}
-      className="w-full h-48 object-cover rounded-md mb-4"
-    />
-    <h3 className="text-xl font-medium text-slate-700">{member.name}</h3>
-    <p className="text-sm text-gray-500">{member.designation}</p>
+    {/* Image Section with animated overlay */}
+    <div className="relative group">
+      <img
+        src={member.image}
+        alt={member.name}
+        className="w-full h-56 object-cover"
+      />
+
+      {/* Overlay: grows from center horizontally */}
+    <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+  {/* Expanding overlay from center */}
+  <div className="w-0 h-full bg-blue-300 bg-opacity-50 transition-all duration-500 group-hover:w-full flex items-center justify-center opacity-0 group-hover:opacity-70">
+    {/* Inner content: icon + line - hidden initially, fade in on hover */}
+   <h1 className="text-white text-xl">The minds behind the mission</h1>
+  </div>
+</div>
+
+    </div>
+
+    {/* Text Section */}
+    <div className="p-4 text-center bg-white">
+      <h3 className="text-xl font-semibold text-slate-800">{member.name}</h3>
+      <p className="text-sm text-gray-500">{member.designation}</p>
+    </div>
   </div>
 );
+
 
 
   return (
@@ -173,8 +193,16 @@ const MemberCard = ({ member, onClick }) => (
   {/* First 3 Members */}
   <div className="flex justify-center gap-8 flex-wrap">
     {group1.map((member, index) => (
-      <MemberCard key={index} member={member} onClick={() => setSelectedMember(member)} />
-    ))}
+  <MemberCard
+    key={index}
+    member={member}
+    onClick={() =>
+      navigate(`/member/${member.name.replace(/\s+/g, "-").toLowerCase()}`, {
+        state: { member },
+      })
+    }
+  />
+))}
   </div>
 
   {/* Next 2 Members */}
@@ -186,7 +214,7 @@ const MemberCard = ({ member, onClick }) => (
   </div>
 
   {/* Last 3 Members */}
-<div className="flex flex-wrap justify-center lg:justify-between lg:gap-2 max-w-7xl mx-auto">
+<div className="flex flex-wrap justify-center lg:justify-between gap-8 lg:gap-2 max-w-7xl mx-auto">
   {group3.map((member, index) => (
    
       <MemberCard member={member} onClick={() => setSelectedMember(member)} />
