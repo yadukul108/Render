@@ -12,10 +12,10 @@ const OurPeople = () => {
               alt="Banner"
               className="w-full h-[34rem] object-cover rounded-md grey-tone"
             />
-      <div className=" absolute top-[5rem] text-left max-w-4xl pt-[6rem] px-6 md:px-16"  >
+      <div className=" absolute top-[1rem] md:top-[5rem] text-left max-w-4xl pt-[6rem] px-6 md:px-16"  >
         <p className="text-white text-sm uppercase tracking-wider">Our Team</p>
-        <h1 className="text-2xl md:text-5xl font-bold text-white mt-5">Meet Our Team</h1>
-        <h1 className="text-2xl md:text-4xl font-semibold text-white mt-2">
+        <h1 className="text-3xl md:text-5xl font-bold text-white mt-5">Meet Our Team</h1>
+        <h1 className="text-3xl md:text-4xl font-semibold text-white mt-2">
           Passionate. Proactive. Expert.
         </h1>
         <p className="text-white text-sm md:text-lg mt-4">

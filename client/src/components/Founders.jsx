@@ -28,15 +28,15 @@ const MemberProfile = () => {
       <div className=" rounded-2xl shadow-lg overflow-hidden flex flex-col w-full mt-[2rem] items-center p-6">
         
        
-        <div className="md:w-3/4  flex  p-4">
+        <div className="md:w-3/4  md:flex  p-4">
   <img
     src={Model}
     alt="Team Member"
-    className="w-1/2 object-cover rounded-md mb-4"
+    className="md:w-1/2 object-cover rounded-md mb-4"
   />
   <div className='mx-auto items-center flex flex-col justify-center'>
-    <h2 className="text-4xl font-medium text-slate-700 mb-2">{member.name}</h2>
-  <p className="text-xl text-slate-500  ">{member.designation}, Allegro Advisors</p>
+    <h2 className="text-2xl md:text-4xl font-medium text-slate-700 mb-2">{member.name}</h2>
+  <p className=" text-lg md:text-xl text-slate-500  ">{member.designation}, Allegro Advisors</p>
   
   </div>
 </div>
