@@ -36,14 +36,14 @@ const Home = () => {
       <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 flex gap-4 text-center w-max">
       <button
   onClick={() => serviceRef.current?.scrollIntoView({ behavior: 'smooth' })}
-  className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
+  className="bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-white hover:text-red-700 transition"
 >
   Our Services
 </button>
 
         <Link
           to="/contact-us"
-          className="bg-white text-red-600 border border-red-600 px-4 py-2 rounded hover:bg-gray-100 transition"
+          className="bg-white text-red-600 border border-red-600 px-4 py-2 rounded-xl hover:bg-red-600  hover:text-white transition"
         >
           Contact Us
         </Link>

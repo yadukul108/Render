@@ -145,7 +145,7 @@ const extractAmount = (amountStr) => {
     <Link
       to={`/transaction/${txn._id}`}
       key={txn._id}
-      className="bg-white rounded-lg shadow w-full max-w-sm transform transition-transform duration-300 hover:scale-105 hover:shadow-xl overflow-hidden"
+      className="bg-white rounded-lg shadow w-full max-w-sm transform transition-transform duration-300  hover:shadow-xl overflow-hidden"
     >
       {/* Image Section */}
       <img
@@ -155,14 +155,14 @@ const extractAmount = (amountStr) => {
       />
 
       {/* Details Section */}
-      <div className="p-4 text-center">
-        <h3 className="text-lg font-semibold text-slate-700">
-          Amount: {txn.amount || '—'}
-        </h3>
-        <hr className="my-2 border-slate-700 w-3/4 mx-auto" />
-        <p className="text-sm text-slate-600">Sector: {txn.sector}</p>
-        <p className="text-sm text-slate-600">Year: {txn.year}</p>
-      </div>
+     <div className="p-4 pl-[2rem] text-left text-slate-700">
+  <div className="text-slate-500 text-sm font-medium leading-[130%] mb-1">
+    <span>{txn.sector || '—'}</span> | <span>{txn.year || '—'}</span>
+  </div>
+  <p className="text-sm font-medium leading-[130%] mb-1">Type of Deal: {txn.type_of_deal || '—'}</p>
+  <p className="text-sm font-medium leading-[130%]">Amount: {txn.amount || '—'}</p>
+</div>
+
     </Link>
   ))}
 </div>
