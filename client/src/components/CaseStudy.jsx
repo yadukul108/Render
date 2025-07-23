@@ -21,7 +21,7 @@ const caseStudies = [
 
 const CaseStudies= () => {
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 py-16 bg-slate-100 text-slate-700">
+    <div className="w-full max-w-7xl mx-auto px-4 py-16  text-slate-700">
       {/* Section Header */}
       <div className="text-center mb-12">
         <h2 className="text-2xl md:text-3xl font-medium mb-4">Case Studies</h2>

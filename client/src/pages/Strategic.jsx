@@ -31,7 +31,7 @@ const Strategic = () => {
   },
 ];
   return (
-    <div className='bg-slate-100'>
+    <div className=''>
       <div className="relative w-full h-screen ">
         <img
           src={HomeIb} 

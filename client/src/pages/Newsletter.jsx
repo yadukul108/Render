@@ -7,7 +7,7 @@ const Newsletter = () => {
     
 
   return (
-    <div className='bg-slate-100'>
+    <div className=''>
       <div className="relative w-full h-screen">
         <img
           src={HomeIb} 
@@ -27,7 +27,7 @@ const Newsletter = () => {
   <div key={idx} className="flex flex-col md:flex-row items-start md:items-center justify-between py-4 border-b border-slate-300">
     {/* Left (20%) */}
     <div className="md:w-1/5 mb-2 md:mb-0">
-      <h3 className="text-lg font-semibold">{news.title}</h3>
+      <h3 className="text-xl  text-slate-700 font-medium">{news.title}</h3>
       <p className="text-sm text-slate-500">{news.date}</p>
     </div>
 

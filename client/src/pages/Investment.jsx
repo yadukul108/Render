@@ -31,7 +31,7 @@ const Investment = () => {
   },
 ];
   return (
-    <div className='bg-slate-100'>
+    <div className=''>
       <div className="relative w-full h-[500px] md:h-screen ">
         <img
           src={HomeIb} 

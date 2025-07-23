@@ -73,7 +73,7 @@ const extractAmount = (amountStr) => {
 
 
   return (
-    <div className="p-8 bg-gray-100 rounded-xl">
+    <div className="p-8  rounded-xl">
       <h2 className=" text-2xl md:text-3xl text-slate-800 font-medium mb-6 text-center">All Transaction History</h2>
 
       {/* Filters */}
@@ -145,22 +145,22 @@ const extractAmount = (amountStr) => {
     <Link
       to={`/transaction/${txn._id}`}
       key={txn._id}
-      className="bg-white rounded-lg shadow w-full max-w-sm transform transition-transform duration-300  hover:shadow-xl overflow-hidden"
+      className="bg-white rounded-lg  shadow w-full max-w-sm transform transition-transform duration-300  hover:border-b-red-600 overflow-hidden"
     >
       {/* Image Section */}
       <img
         src={txn.dealPic}
         alt="Transaction"
-        className="w-auto mx-auto h-[15rem] object-cover"
+        className="w-full mx-auto h-[15rem] object-cover"
       />
 
       {/* Details Section */}
-     <div className="p-4 pl-[2rem] text-left text-slate-700">
+     <div className="p-4 pl-[2rem] bg-slate-100 text-left text-slate-700">
   <div className="text-slate-500 text-sm font-medium leading-[130%] mb-1">
     <span>{txn.sector || '—'}</span> | <span>{txn.year || '—'}</span>
   </div>
   <p className="text-sm font-medium leading-[130%] mb-1">Type of Deal: {txn.type_of_deal || '—'}</p>
-  <p className="text-sm font-medium leading-[130%]">Amount: {txn.amount || '—'}</p>
+  <p className="text-sm font-medium leading-[130%]">Amount: {txn.amount || '—'} Cr INR</p>
 </div>
 
     </Link>

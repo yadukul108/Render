@@ -13,7 +13,7 @@ const Home = () => {
   const serviceRef = useRef(null);
 
   return (
-   <div className="relative w-full pt-[3rem] h-[500px] bg-slate-200 " >
+   <div className="relative w-full pt-[3rem] h-[500px] " >
       {/* Background Image */}
       <img
         src={HomeIB}

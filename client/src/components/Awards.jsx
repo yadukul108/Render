@@ -13,7 +13,7 @@ const images = [
 
 const Awards = () => {
   return (
-    <div className='bg-slate-100'>
+    <div className=''>
     <div className="py-10 px-6 max-w-7xl mx-auto ">
       {/* Inline custom Swiper CSS */}
       <style>

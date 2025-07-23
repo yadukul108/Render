@@ -26,7 +26,7 @@ const timelineData = [
 
 const Timeline = () => {
   return (
-    <div className="w-full bg-gray-100 py-16 flex flex-col items-center">
+    <div className="w-full py-16 flex flex-col items-center">
       <h3 className="text-2xl md:text-3xl font-medium text-slate-700 mb-24 relative inline-block">
          Our Milestones
         <span className="absolute bottom-[-5px] left-1/2 w-1/2 h-[3px] bg-gradient-to-r from-red-500 to-red-700 transform -translate-x-1/2"></span>
@@ -43,7 +43,7 @@ const Timeline = () => {
             return (
               <li
                 key={index}
-                className={`relative bg-white shadow-md rounded-lg p-6 w-full md:w-[48%] ${
+                className={`relative bg-white shadow-md border-b-4 border-b-red-500 rounded-lg p-6 w-full md:w-[48%] ${
                   isLeft ? 'md:float-left md:clear-right text-right md:translate-x-[-30px]' : 'md:float-right md:clear-left text-left md:translate-x-[30px]'
                 }`}
               >

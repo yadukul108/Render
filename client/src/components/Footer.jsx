@@ -4,7 +4,7 @@ import logo from "../assets/logo.png"
 import {Link }from "react-router-dom"
 const Footer = () => {
   return (
-    <footer className="bg-slate-100 text-slate-500 pt-12">
+    <footer className="bg-slate-100 text-slate-500 pt-12 w-full">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-5 gap-6">
          <div className="md:col-span-1 flex flex-col items-start">
           <div className="mb-4">

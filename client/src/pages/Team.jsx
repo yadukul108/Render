@@ -5,7 +5,7 @@ import HomeIB from "../assets/HomeIB.jpg"
 const OurPeople = () => {
   return (
     <div>
-    <div className="bg-slate-100 pt-[3rem]  ">
+    <div className=" pt-[3rem]  ">
       {/* New Introduction Section */}
       <img
               src={HomeIB}

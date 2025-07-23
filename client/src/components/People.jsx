@@ -163,14 +163,6 @@ const MemberCard = ({ member, onClick }) => (
         className="w-full h-56 object-cover"
       />
 
-      {/* Overlay: grows from center horizontally */}
-    <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-  {/* Expanding overlay from center */}
-  <div className="w-0 h-full bg-blue-300 bg-opacity-50 transition-all duration-500 group-hover:w-full flex items-center justify-center opacity-0 group-hover:opacity-70">
-    {/* Inner content: icon + line - hidden initially, fade in on hover */}
-   <h1 className="text-white text-xl">The minds behind the mission</h1>
-  </div>
-</div>
 
     </div>
 
@@ -185,7 +177,7 @@ const MemberCard = ({ member, onClick }) => (
 
 
   return (
-    <div className=" min-h-screen bg-slate-100 py-16 px-4 md:px-16">
+    <div className=" min-h-screen  py-16 px-4 md:px-16">
       <h1 className="text-2xl md:text-3xl font-medium  mb-12 text-slate-600">Our People</h1>
 
       {/* Grid Section */}

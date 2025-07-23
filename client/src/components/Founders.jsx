@@ -24,7 +24,7 @@ const MemberProfile = () => {
   }
   
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-100 pt-[3.5rem]">
+    <div className="min-h-screen flex items-center justify-center  pt-[3.5rem]">
       <div className=" rounded-2xl shadow-lg overflow-hidden flex flex-col w-full mt-[2rem] items-center p-6">
         
        
@@ -36,7 +36,7 @@ const MemberProfile = () => {
   />
   <div className='mx-auto items-center flex flex-col justify-center'>
     <h2 className="text-2xl md:text-4xl font-medium text-slate-700 mb-2">{member.name}</h2>
-  <p className=" text-lg md:text-xl text-slate-500  ">{member.designation}, Allegro Advisors</p>
+  <h1 className=" text-lg md:text-2xl text-slate-500  ">{member.designation}, Allegro Advisors</h1>
   
   </div>
 </div>

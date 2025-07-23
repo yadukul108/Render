@@ -30,7 +30,7 @@ const cards = [
 
 const ServicesCards = () => {
   return (
-    <section className="py-18 bg-slate-100">
+    <section className="py-18 ">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-2xl md:text-3xl text-slate-700 mb-10">Our Core Services</h2>
        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">

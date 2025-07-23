@@ -28,7 +28,7 @@ const About = () => {
       
 
       {/* Our Story */}
-      <div className="bg-gray-100 py-12 px-4">
+      <div className=" py-12 px-4">
         <h2 className="text-2xl md:text-3xl text-center font-md text-slate-700 mb-6">Our Story</h2>
         <p className="max-w-3xl mx-auto text-base text-center text-gray-700 mb-10">
           Allegro Advisors began with a vision to empower individuals and businesses through expert financial guidance. Over the years, we have grown into a trusted partner for clients across sectors, building lasting relationships based on integrity, transparency, and results.

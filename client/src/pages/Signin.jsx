@@ -44,7 +44,7 @@ const SignIn = () => {
     }
   };
   return (
-    <div className="min-h-screen flex flex-col md:flex-row bg-slate-100 pt-[3rem]">
+    <div className="min-h-screen flex flex-col md:flex-row  pt-[3rem]">
       {/* Left Side - Logo */}
       <div className="bg-slate-100 md:w-1/2 flex flex-col items-center justify-center p-8">
       <img src={logo} alt="" className="object-cover w-[10rem]" />

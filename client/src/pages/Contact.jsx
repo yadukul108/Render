@@ -5,8 +5,8 @@ import Footer from "../components/Footer"
 const Contact = () => {
   return (
     <div>
-    <section className="min-h-screen bg-slate-100 flex items-center justify-center px-4 py-16">
-      <div className="w-full max-w-6xl bg-white shadow-lg rounded-xl grid grid-cols-1 md:grid-cols-2 overflow-hidden">
+    <section className="min-h-screen  flex items-center justify-center px-4 py-16">
+      <div className="w-full max-w-6xl bg-white rounded-xl grid grid-cols-1 md:grid-cols-2 overflow-hidden">
         
        <div className="relative w-full h-full bg-white rounded-xl shadow-lg overflow-hidden">
   {/* Image */}
@@ -22,14 +22,14 @@ const Contact = () => {
 
   {/* Overlay card at bottom over image */}
   <div className="absolute bottom-0 w-full bg-slate-100 bg-opacity-70 text-slate-700 p-6 text-center">
-    <h2 className="text-xl font-medium mb-2">Allegro Advisors Pvt. Ltd.</h2>
+    <h2 className="text-xl font-medium mb-2">Allegro Capitals Pvt. Ltd.</h2>
     <a
-  href="https://www.google.com/maps?q=Allegro+Advisors+Pvt+Ltd,+123+Business+Avenue,+Koramangala,+Bangalore"
+  href="https://www.google.com/maps/dir//XH8X%2BPV4,+D'Souza+Rd,+Shanthala+Nagar,+Ashok+Nagar,+Bengaluru,+Karnataka+560025/@12.9667455,77.5173059,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae15d62e4f12dd:0x18e99c9546506486!2m2!1d77.5997441!2d12.9668311?entry=ttu&g_ep=EgoyMDI1MDcyMC4wIKXMDSoASAFQAw%3D%3D"
   target="_blank"
   rel="noopener noreferrer"
   className="hover:underline"
 >
-  123 Business Avenue, Koramangala, Bangalore - 560034
+  XH8X+PV4, D'Souza Rd, Shanthala Nagar, Ashok Nagar, Bengaluru, Karnataka 560025
 </a>
 
     <p> +91 98765 43210</p>

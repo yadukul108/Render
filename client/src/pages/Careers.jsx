@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 
 const Careers = () => {
   return (
-    <div className="bg-slate-100 pt-[3rem]">
+    <div className="pt-[3rem]">
    <div className="relative w-full h-screen">
   <img
     src={HomeIb}
@@ -19,10 +19,10 @@ const Careers = () => {
 
   {/* Centered Content */}
   <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
-    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-wide">
+    <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wide">
       Start your career in
     </h1>
-    <p className="text-3xl sm:text-4xl md:text-6xl font-semibold mt-2">
+    <p className="text-3xl sm:text-4xl md:text-5xl font-semibold mt-2">
       Allegro Advisors
     </p>
 
@@ -42,14 +42,14 @@ const Careers = () => {
   </div>
 </div>
 {/* Benefits Section */}
-<section className="bg-slate-100 py-16 px-4 md:px-12">
+<section className=" py-16 px-4 md:px-12">
   <h2 className="text-2xl md:text-3xl font-medium text-center text-slate-800 mb-12">
     Benefits of working with us
   </h2>
 
   <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
     {/* Benefit 1 */}
-    <div className="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition">
+    <div className="bg-slate-100 shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition hover:border-b-4 hover:border-red-600 border-b-transparent">
       <div className="flex justify-center mb-4">
         <DollarSign className="text-red-600" size={32} />
       </div>
@@ -58,7 +58,7 @@ const Careers = () => {
     </div>
 
     {/* Benefit 2 */}
-    <div className="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition">
+    <div className="bg-slate-100 shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition hover:border-b-4 hover:border-red-600 border-b-transparent">
       <div className="flex justify-center mb-4">
         <Users className="text-red-600" size={32} />
       </div>
@@ -67,7 +67,7 @@ const Careers = () => {
     </div>
 
     {/* Benefit 3 */}
-    <div className="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition">
+    <div className="bg-slate-100 shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition hover:border-b-4 hover:border-red-600 border-b-transparent">
       <div className="flex justify-center mb-4">
         <Briefcase className="text-red-600" size={32} />
       </div>
@@ -76,7 +76,7 @@ const Careers = () => {
     </div>
 
     {/* Benefit 4 */}
-    <div className="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition">
+    <div className="bg-slate-100 shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition hover:border-b-4 hover:border-red-600 border-b-transparent">
   <div className="flex justify-center mb-4">
     <Clock className="text-red-600" size={32} />
   </div>
@@ -151,12 +151,12 @@ const Careers = () => {
     {/* Message */}
     <div>
       <label className="block mb-2 text-slate-700 font-medium" htmlFor="message">
-        Why should we hire you?
+        Linkdin id
       </label>
       <textarea
         id="message"
-        rows="5"
-        placeholder="Tell us why you'd be a great fit..."
+        rows="1"
+        placeholder="Linkdin"
         className="w-full border border-slate-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
       ></textarea>
     </div>

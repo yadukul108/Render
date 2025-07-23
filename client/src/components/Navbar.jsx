@@ -174,9 +174,9 @@ const Navbar = () => {
     onClick={() =>
       setOpenDropdown(openDropdown === "whatwedo" ? null : "whatwedo")
     }
-    className="relative inline-flex items-center gap-1 px-4 py-2 text-gray-800 hover:text-red-600 transition"
+    className="relative inline-flex items-center gap-1 px-4 py-2  hover:text-red-600 text-gray-600 transition"
   >
-    What we do
+    <h1 className='text-xl font-medium '>What we do</h1>
     <ChevronDown
       size={18}
       className={`transition-transform duration-300 ${
@@ -188,7 +188,7 @@ const Navbar = () => {
 
   {/* Mega Dropdown */}
   {openDropdown === "whatwedo" && (
-    <div className="fixed left-0 top-[50px] w-screen bg-white shadow-xl transition-all duration-300 z-50">
+    <div className="fixed left-0 top-[60px] w-screen bg-white shadow-xl transition-all duration-300 z-50">
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-4 gap-10">
         {/* Image Column */}
         <div className="col-span-1 flex flex-col justify-center">
@@ -202,7 +202,7 @@ const Navbar = () => {
 
         {/* Column 1 */}
         <div>
-          <h3 className="text-xl font-medium mb-4 text-gray-900">Advisory</h3>
+          <h3 className="text-xl font-medium mb-4 text-gray-800">Advisory</h3>
           <ul className="space-y-2">
             <li>
               <Link
@@ -227,7 +227,7 @@ const Navbar = () => {
 
         {/* Column 2 */}
         <div>
-          <h3 className="text-xl font-medium mb-4 text-gray-900">
+          <h3 className="text-xl font-medium mb-4 text-gray-800">
             Asset & Wealth Management
           </h3>
           <ul className="space-y-2">
@@ -275,9 +275,9 @@ const Navbar = () => {
     onClick={() =>
       setOpenDropdown(openDropdown === "insights" ? null : "insights")
     }
-    className="relative inline-flex items-center gap-1 px-4 py-2 text-gray-800 hover:text-red-600 transition"
+    className="relative inline-flex items-center gap-1 px-4 py-2 text-gray-600 hover:text-red-600 transition"
   >
-    Our Insights
+    <h1 className='text-xl font-medium '>Our Insights</h1>
     <ChevronDown
       size={18}
       className={`transition-transform duration-300 ${
@@ -289,7 +289,7 @@ const Navbar = () => {
 
   {/* Mega Dropdown */}
   {openDropdown === "insights" && (
-    <div className="fixed left-0 top-[50px] w-screen bg-white shadow-xl transition-all duration-300 z-50">
+    <div className="fixed left-0 top-[60px] w-screen bg-white shadow-xl transition-all duration-300 z-50">
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-4 gap-8">
         <div className="w-full h-40 md:h-50 overflow-hidden rounded-2xl">
           <h1 className="text-slate-700 text-5xl">Our Insights</h1>
@@ -298,7 +298,7 @@ const Navbar = () => {
 
         {/* Column 1 */}
         <div>
-          <h3 className="text-xl font-medium mb-4 text-gray-900">
+          <h3 className="text-xl font-medium mb-4 text-gray-800">
             Research & Insights
           </h3>
           <ul className="space-y-2">
@@ -346,9 +346,9 @@ const Navbar = () => {
     onClick={() =>
       setOpenDropdown(openDropdown === "ourfirm" ? null : "ourfirm")
     }
-    className="relative inline-flex items-center gap-1 px-4 py-2 text-gray-800 hover:text-red-600 transition"
+    className="relative inline-flex items-center gap-1 px-4 py-2 text-gray-600 hover:text-red-600 transition"
   >
-    Our Firm
+    <h1 className='text-xl font-medium '>Our Firm</h1>
     <ChevronDown
       size={18}
       className={`transition-transform duration-300 ${
@@ -360,7 +360,7 @@ const Navbar = () => {
 
   {/* Mega Dropdown */}
   {openDropdown === "ourfirm" && (
-    <div className="fixed left-0 top-[50px] w-screen bg-white shadow-xl transition-all duration-300 z-50">
+    <div className="fixed left-0 top-[60px] w-screen bg-white shadow-xl transition-all duration-300 z-50">
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-4 gap-8">
         <div className="w-full h-40 md:h-50 overflow-hidden rounded-2xl">
           <h1 className="text-slate-700 text-5xl">Our Firm</h1>
@@ -369,7 +369,7 @@ const Navbar = () => {
 
         {/* Column 1 */}
         <div>
-          <h3 className="text-xl font-medium mb-4 text-gray-900">Our Firm</h3>
+          <h3 className="text-xl font-medium mb-4 text-gray-800">Our Firm</h3>
           <ul className="space-y-2">
             <li>
               <Link
@@ -403,7 +403,7 @@ const Navbar = () => {
 
         {/* Column 2 */}
         <div>
-          <h3 className="text-xl font-medium mb-4 text-gray-900">Credentials</h3>
+          <h3 className="text-xl font-medium mb-4 text-gray-800">Credentials</h3>
           <ul className="space-y-2">
             <li>
               <Link
@@ -433,9 +433,9 @@ const Navbar = () => {
           </div>
           {/* Right-side Nav Links */}
           <div className="flex items-center space-x-6">
-            <Link to="/" className="nav-link">Home</Link>
-            <Link to="/careers" className="nav-link">Careers</Link>
-            <Link to="/contact-us" className="nav-link">Contact Us</Link>
+            <Link to="/" className="nav-link "><h1 className='text-xl font-medium text-slate-600'>Home</h1></Link>
+            <Link to="/careers" className="nav-link"><h1 className='text-xl font-medium text-slate-600 '>Careers</h1></Link>
+            <Link to="/contact-us" className="nav-link"><h1 className='text-xl font-medium text-slate-600'>Contact Us</h1></Link>
 
           </div>
         </div>
