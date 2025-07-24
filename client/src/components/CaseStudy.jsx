@@ -55,7 +55,7 @@ const CaseStudies= () => {
       <div className="mt-10 flex justify-center">
         <Link
           to="/case-studies"
-          className="text-white text-md font-semibold px-6 py-3 rounded-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 transition duration-300 shadow-md"
+          className="bg-white text-red-600 border border-red-600 px-4 py-2 rounded-xl hover:bg-red-600  hover:text-white transition"
         >
           View More
         </Link>

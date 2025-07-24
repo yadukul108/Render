@@ -188,14 +188,14 @@ const Navbar = () => {
 
   {/* Mega Dropdown */}
   {openDropdown === "whatwedo" && (
-    <div className="fixed left-0 top-[60px] w-screen bg-white shadow-xl transition-all duration-300 z-50">
+    <div className="fixed left-0 top-[52px] w-screen bg-white shadow-xl transition-all duration-300 z-50">
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-4 gap-10">
         {/* Image Column */}
         <div className="col-span-1 flex flex-col justify-center">
           <div className="bg-white overflow-hidden">
             <div className="w-full h-40 md:h-50 overflow-hidden">
               <h1 className="text-slate-700 text-5xl">What We Do</h1>
-              <h3 className="text-slate-400 text-2xl">Allegro Advisors</h3>
+              <h3 className="text-slate-400 text-2xl">Allegro Capitals</h3>
             </div>
           </div>
         </div>
@@ -289,11 +289,11 @@ const Navbar = () => {
 
   {/* Mega Dropdown */}
   {openDropdown === "insights" && (
-    <div className="fixed left-0 top-[60px] w-screen bg-white shadow-xl transition-all duration-300 z-50">
+    <div className="fixed left-0 top-[52px] w-screen bg-white shadow-xl transition-all duration-300 z-50">
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-4 gap-8">
         <div className="w-full h-40 md:h-50 overflow-hidden rounded-2xl">
           <h1 className="text-slate-700 text-5xl">Our Insights</h1>
-          <h3 className="text-slate-400 text-2xl">Allegro Advisors</h3>
+          <h3 className="text-slate-400 text-2xl">Allegro Capitals</h3>
         </div>
 
         {/* Column 1 */}
@@ -360,11 +360,11 @@ const Navbar = () => {
 
   {/* Mega Dropdown */}
   {openDropdown === "ourfirm" && (
-    <div className="fixed left-0 top-[60px] w-screen bg-white shadow-xl transition-all duration-300 z-50">
+    <div className="fixed left-0 top-[52px] w-screen bg-white shadow-xl transition-all duration-300 z-50">
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-4 gap-8">
         <div className="w-full h-40 md:h-50 overflow-hidden rounded-2xl">
           <h1 className="text-slate-700 text-5xl">Our Firm</h1>
-          <h3 className="text-slate-400 text-2xl">Allegro Advisors</h3>
+          <h3 className="text-slate-400 text-2xl">Allegro Capitals</h3>
         </div>
 
         {/* Column 1 */}

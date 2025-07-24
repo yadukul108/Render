@@ -6,30 +6,9 @@ import Mage from "../assets/Manipal (3).png"
 import { Link } from 'react-router-dom';
 import CaseStudies from '../components/CaseStudy';
 import Footer from "../components/Footer"
+import TransactionCarousal from "../components/TransactionCarousal"
 const Strategic = () => {
-    const transactions = [
-  {
-    title: "Acquisition of Medix Ltd.",
-    amount: "$120M",
-    year: "2024",
-    type: "M&A",
-    image: BBL, // Replace with actual image
-  },
-  {
-    title: "Series B Funding – Healtech",
-    amount: "$45M",
-    year: "2023",
-    type: "Equity",
-     image: Mage,
-  },
-  {
-    title: "Debt Advisory for PharmaCorp",
-    amount: "$80M",
-    year: "2022",
-    type: "Debt",
-     image: MAGE,
-  },
-];
+   
   return (
     <div className=''>
       <div className="relative w-full h-screen ">
@@ -68,31 +47,13 @@ const Strategic = () => {
       <h2 className="text-3xl font-medium text-center text-slate-800 mb-10">Transactions</h2>
 
       {/* Cards */}
-      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 justify-items-center">
-        {transactions.map((txn) => (
-          <Link
-            to={`/transaction/${txn.id}`}
-            key={txn.id}
-            className="bg-white rounded-lg shadow p-4 w-80 text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
-          >
-            <img
-              src={txn.image}
-              alt="Transaction"
-              className="w-[14rem] h-[19rem] object-cover rounded mx-auto"
-            />
-            <h3 className="text-lg font-semibold text-slate-700 mt-3">Amount: {txn.amount}</h3>
-            <hr className="my-2 border-slate-700 w-3/4 mx-auto" />
-            <p className="text-sm text-slate-700">Type: {txn.type}</p>
-            <p className="text-sm text-slate-700">Year: {txn.year}</p>
-          </Link>
-        ))}
-      </div>
+      <TransactionCarousal/>
 
       {/* View More Button */}
      <div className="mt-10 flex justify-center">
   <Link
     to="/transactions"
-    className="text-white  font-semibold px-6 py-3 rounded-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 transition duration-300 shadow-md"
+          className="bg-white text-red-600 border border-red-600 px-4 py-2 rounded-xl hover:bg-red-600  hover:text-white transition"
   >
     View More
   </Link>

@@ -108,9 +108,9 @@ const handleFormSubmit = (e) => {
         Case Studies
       </h2>
 
-      <div className="space-y-10 max-w-5xl mx-auto">
+      <div className="space-y-25 max-w-5xl mx-auto">
   {caseStudies.map((study) => (
-    <div key={study._id} className="flex flex-col md:flex-row bg-slate-100 shadow-lg rounded-xl overflow-hidden">
+    <div key={study._id} className="flex flex-col md:flex-row  bg-slate-100 shadow-lg rounded-xl overflow-hidden">
       {/* Left Text Content */}
       <div className="w-full md:w-1/2 p-6 flex flex-col justify-between">
         <div>

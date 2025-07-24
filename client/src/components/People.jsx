@@ -9,45 +9,56 @@ import Ayush from "../assets/Ayush_Pansari.jpeg"
 import Gaurav from "../assets/Gaurav_Anirkar.jpeg"
 import { useNavigate } from "react-router-dom";
 const teamMembers = [
+  
+ {
+  name: "Kunal Kashyap",
+  designation: "Founder, Chairman & CEO",
+  education: "Chartered Accountant",
+  description: null,
+  experienceLeadership: "Founder, Chairman & CEO of Allegro Capital. With over 30 years of experience, Kunal has led Allegro’s evolution into a multi-vertical financial services powerhouse since founding it in 2002. He previously held leadership positions at Arthur Andersen and co-founded Celstream Technologies and Andante Foods.",
+  wealthInsurance: "Spearheaded Allegro’s wealth management arm, managing ₹1,000+ crore in assets across HNIs, family offices, and professionals. He also scaled Allegro’s insurance advisory platform for life and general insurance solutions.",
+  entrepreneurship: "Co-founded Celstream Technologies (product engineering) and Andante Foods (premium foods business), reflecting his focus on innovation and long-term value creation.",
+  boardContribution: "Held independent board roles in companies like GSK Consumer Healthcare, MetLife India, Cambridge Solutions, and Mereo BioPharma. Currently on the board of Mazumdar Shaw Medical Foundation, contributing to healthcare innovation.",
+  educationPhilosophy: "Chartered Accountant by qualification. Combines technical depth with strategic foresight and client trust.",
+  image: Person,
+  socials: {
+    linkedin: "#",
+    twitter: "#",
+    github: "#"
+  }
+},
+
   {
-    name: "Kunal Kashyap",
-    designation: "Founder & Managing Director",
-    education: "Chartered Accountant",
-    description:
-      "Kunal Kashyap is the Founder, Chairman, and CEO of Allegro Capital, one of India’s most respected independent investment banks. Since founding the firm in 2002, he has led Allegro’s transformation into a multi-vertical financial services platform, spanning M&A advisory, private equity, capital markets, wealth management, and insurance broking.With over three decades of experience across global finance, Kunal is widely recognized for his strategic foresight, boardroom presence, and trusted counsel to promoters, boards, and institutional investors. Under his leadership, Allegro has executed landmark transactions across sectors such as healthcare, consumer, technology, and financial services—advising global corporations, top-tier private equity funds, and fast-scaling Indian businesses.Kunal has directly led several of Allegro’s marquee mandates, including multi-billion-dollar cross-border acquisitions, large private equity transactions, and strategic partnerships for some of India’s most iconic companies. He also conceptualized and launched Allegro’s wealth management arm, which today manages over ₹1,000 crore in client assets, serving HNIs, family offices, and professionals with tailored portfolio strategies and long-term planning solutions. In parallel, Allegro’s insurance distribution business has emerged as a credible advisory-led platform for life and general insurance solutions.Prior to founding Allegro, Kunal was a Global Partner at Arthur Andersen, where he played leadership roles in the firm’s consulting and financial advisory practice. He also co-founded two entrepreneurial ventures—Celstream Technologies, a pioneering product engineering company, and Andante Foods, a premium foods business—both reflecting his deep interest in innovation, leadership, and long-term value creation.Over the years, Kunal has held independent board roles at global and Indian companies, including GlaxoSmithKline Consumer Healthcare, MetLife India, Cambridge Solutions, Mereo BioPharma (UK), and others. He currently serves as a Board Member of the Mazumdar Shaw Medical Foundation, further reinforcing his commitment to India's healthcare and life sciences ecosystem.A Chartered Accountant by qualification, Kunal blends technical depth with commercial intuition, and brings a rare combination of global professionalism and Indian entrepreneurialism. He is known not only for his dealmaking acumen but also for building enduring client relationships, mentoring future leaders, and shaping Allegro into a firm built on trust, discretion, and deep domain knowledge.",
-    image: Person,
-    socials: {
-      linkedin: "#", // no link provided
-      twitter: "#",
-      github: "#",
-    },
-  },
-  {
-    name: "Rohit Meher",
-    designation: "Director",
-    education: "IIM Ahmedabad, Ujjain Engineering College",
-    description:
-      "Rohit is a Director at Allegro Capital and brings over 13 years of experience in investment banking with deep expertise across healthcare, consumer, and industrial sectors. He has led over 25 transactions aggregating more than USD 2.5 billion in value, covering both M&A and private equity capital raising.Since joining Allegro, Rohit has advised on several marquee transactions, including a USD 1+ billion PE-backed acquisition of 12 hospitals, a USD 150 million growth capital raise for a leading molecular diagnostics player, and a USD 225 million fundraise for a global precision blades manufacturer. He also advised on the USD 150 million majority stake sale of India’s largest oncology platform to a global investor, establishing Allegro’s credentials in complex, multi-party cross-border transactions.Before Allegro, Rohit worked with ICICI Bank’s Investment Banking division, where he gained a strong foundation in transaction structuring, credit evaluation, and deal execution. At Allegro, he plays a leadership role in driving sector strategy, originating mandates, and mentoring the next generation of bankers.Rohit is known for his strategic thinking, rigorous execution, and long-term client relationships — making him a trusted advisor to founders, boards, and institutional investors alike.",
-    image: Person,
-    socials: {
-      linkedin: "https://www.linkedin.com/in/rohit-mehar-629a8aa/",
-      twitter: "#",
-      github: "#",
-    },
-  },
-  {
-    name: "Abhishek Shetty",
-    designation: "Director",
-    education: "IIM Calcutta, RV College of Engineering",
-    description:
-      "Abhishek is a Director at Allegro Capital and one of the firm’s most senior professionals, having been with the platform since 2009. Over the past 14+ years, he has played a pivotal role in establishing Allegro as a leading advisor in the healthcare and life sciences space, consistently delivering on complex, high-value transactions across M&A, private equity, and capital markets.Abhishek has led the execution of several marquee deals, including advising on Biocon Biologics’ USD 3.3 billion acquisition of Viatris’ biosimilars business — one of the largest M&A transactions in Indian healthcare. He has been a long-standing advisor to the Biocon Group, having also worked on multiple rounds of fundraises for Biocon Biologics from global investors such as KKR, ADQ, and True North, and previously on the IPO of Syngene International. His experience spans the full lifecycle of transactions — from early-stage growth capital to large cross-border acquisitions and public market exits.Abhishek's sharp analytical thinking, technical depth, and measured execution approach have made him a trusted advisor to boards, founders, and global institutions alike. His sector focus includes pharmaceuticals, biologics, diagnostics, hospitals, and emerging health-tech, with cumulative deal experience across over USD 4 billion in transaction value.Prior to Allegro, Abhishek worked as an ASIC Design Engineer at Cisco. His multidisciplinary background enables him to blend strategic insight with operational understanding — a quality that clients deeply value.Abhishek is widely respected for his integrity, long-term orientation, and calm leadership, and continues to play a key role in driving Allegro’s healthcare vertical and mentoring the next generation of investment bankers.",
-    image: Abhisekh,
-    socials: {
-      linkedin: "https://www.linkedin.com/in/abhishek-shetty-574b9313/",
-      twitter: "#",
-      github: "#",
-    },
-  },
+  name: "Rohit Meher",
+  designation: "Director",
+  education: "IIM Ahmedabad, Ujjain Engineering College",
+  description: null,
+  experienceLeadership: "Director at Allegro Capital with over 13 years of investment banking experience. He has led and executed 25+ high-value transactions worth more than $2.5 billion, spanning sectors such as healthcare, industrials, and infrastructure. Rohit brings a hands-on leadership style to complex deal structuring, negotiation, and closure. Prior to Allegro, he was part of ICICI Bank’s Investment Banking team, where he gained deep experience in M&A, structured finance, and capital markets.",
+  boardContribution: "Rohit is a trusted advisor to entrepreneurs, boards, and institutional investors. He is known for his ability to synthesize financial insights with strategic foresight. His work regularly influences boardroom decision-making, especially in high-growth and transformational phases of companies. He has been involved in key governance-level discussions and brings integrity and precision to all board-level interactions.",
+  educationPhilosophy: "Rohit holds an MBA from IIM Ahmedabad and a B.E. from Ujjain Engineering College. He combines engineering logic with financial acumen to provide sharp, actionable advice. He is widely regarded for his methodical approach, mentorship of junior professionals, and ability to see the big picture while diving deep into transaction details.",
+  image: Person,
+  socials: {
+    linkedin: "https://www.linkedin.com/in/rohit-mehar-629a8aa/",
+    twitter: "#",
+    github: "#"
+  }
+},
+{
+  name: "Abhishek Shetty",
+  designation: "Director",
+  education: "IIM Calcutta, RV College of Engineering",
+  description: null,
+  experienceLeadership: "Abhishek has been with Allegro Capital since 2009, making him one of the firm's longest-serving professionals. As a Director, he has played a pivotal role in establishing Allegro’s reputation in healthcare, life sciences, and consumer sectors. His deep sectoral knowledge and client-first approach have helped close several marquee transactions. Prior to Allegro, he worked as an ASIC Design Engineer at Cisco, giving him a unique blend of technical and financial expertise.",
+  boardContribution: "Over the years, Abhishek has advised board members, CXOs, and founders on strategic capital raises, mergers, and acquisitions, collectively valued at over $4 billion. He is known for his credibility in the boardroom, where his calm demeanor, analytical rigor, and long-term orientation stand out. He has contributed to defining capital structures and strategic roadmaps in high-impact engagements.",
+  educationPhilosophy: "Abhishek is an alumnus of IIM Calcutta and RV College of Engineering. His engineering background enhances his ability to bring structured thinking and innovation to financial strategy. He is a firm believer in integrity, trust-building, and lifelong learning. He also mentors younger professionals and believes in creating a supportive team culture anchored in excellence.",
+  image: Abhisekh,
+  socials: {
+    linkedin: "https://www.linkedin.com/in/abhishek-shetty-574b9313/",
+    twitter: "#",
+    github: "#"
+  }
+}
+,
   {
     name: "Ayush Pansari",
     designation: "Vice-President",

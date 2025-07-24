@@ -160,12 +160,12 @@ const Careers = () => {
         className="w-full border border-slate-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
       ></textarea>
     </div>
-
+    <p className='text-xl text-slate-700 '>We will reach to you</p>
     {/* Submit Button */}
     <div className="text-center">
       <button
         type="submit"
-        className="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg transition duration-300"
+        className="bg-red-600 hover:bg-red-700 text-white font-medium px-4 py-2 rounded-lg transition duration-300"
       >
         Submit Application
       </button>
