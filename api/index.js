@@ -1,34 +1,39 @@
-import express from "express";
+import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
-import newsletterRoutes from "./routes/newsletter.route.js";
+import newsletterRoutes from './routes/newsletter.route.js';
 import transactionRoutes from './routes/transaction.route.js';
+import applyRoutes from './routes/apply.route.js';
+import cors from 'cors';
 
-const app=express();
+
 dotenv.config();
 
+const app = express(); 
 
 app.use(express.json());
+app.use(cors());
+
+// MongoDB Connection
 mongoose
   .connect(process.env.MONGO)
   .then(() => {
-    console.log('MongoDb is connected');
+    console.log('MongoDB is connected');
   })
   .catch((err) => {
-    console.log(err);
+    console.error(err);
   });
 
-app.listen(3000, ()=>{
-    console.log("Server is running on port 3000!");
-})
-
-
+// Routes
 app.use('/api/user', userRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/newsletter', newsletterRoutes);
 app.use('/api/transactions', transactionRoutes);
-app.use('/api/newsletter',newsletterRoutes);
+app.use('/api', applyRoutes);
+
+// Error handler middleware
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   const message = err.message || 'Internal Server Error';
@@ -37,4 +42,9 @@ app.use((err, req, res, next) => {
     statusCode,
     message,
   });
+});
+
+// Start server
+app.listen(3000, () => {
+  console.log('Server is running on port 3000!');
 });

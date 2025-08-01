@@ -7,6 +7,11 @@ const transactionSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    isFeatured: {
+  type: Boolean,
+  default: false,
+},
+
     year: {
       type: String,
       required: true,
@@ -17,30 +22,43 @@ const transactionSchema = new mongoose.Schema(
     description:{
       type:String,
     },
-    dealPic: {
+    representingPic: {
+      type: String,
+      default:
+        'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
+    },
+    party2Pic: {
+      type: String,
+      default:
+        'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
+    },
+    assetPic: {
+      type: String,
+      default:
+        'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
+    },
+    mainPic: {
       type: String,
       default:
         'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
     },
     sector: {
       type: String,
-      required: true,
+     
     },
     type_of_deal: {
       type: String,
-      required: true,
+      
     },
     representing: {
       type: String,
-      required: true,
     },
     party2: {
       type: String,
-      required: true,
     },
     asset: {
       type: String,
-      required: true,
+      
     },
   },
   { timestamps: true }

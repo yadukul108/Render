@@ -56,7 +56,7 @@ const Footer = () => {
 
       {/* Bottom Footer Text */}
       <div className="mt-10 text-center text-sm text-slate-600">
-        © {new Date().getFullYear()} Allegro Advisors. All rights reserved.
+        © {new Date().getFullYear()} Allegro Capital. All rights reserved.
       </div>
 
       {/* Social Media Section */}

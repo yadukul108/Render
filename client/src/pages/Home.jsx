@@ -1,5 +1,5 @@
 
-import HomeIB from "../assets/HomeIB.jpg"
+import HomeIB from "../assets/office4.jpg"
 import {Link} from "react-router-dom"
 import Cards from '../components/Cards'
 import ServicesCards from '../components/ServicesCards'
@@ -8,9 +8,10 @@ import Stats from '../components/Stats'
 import Footer from '../components/Footer'
 import React, { useRef } from 'react';
 import { motion } from "framer-motion";
-//import About from "./About"
+ 
 const Home = () => {
   const serviceRef = useRef(null);
+
 
   return (
    <div className="relative w-full pt-[3rem] h-[500px] " >
@@ -18,7 +19,7 @@ const Home = () => {
       <img
         src={HomeIB}
         alt="Banner"
-        className="w-full h-[34rem] object-cover rounded-md grey-tone"
+        className="w-full h-[35rem] object-cover rounded-md grey-tone"
       />
 
       {/* Top-Left Text */}
@@ -27,7 +28,7 @@ const Home = () => {
     An Independent Full-Service Investment Bank
   </h2>
   <p className="text-base md:text-lg mt-1 drop-shadow-md w-auto md:w-[50rem]">
-    Allegro Advisors is a leading healthcare investment bank in India, providing comprehensive financial solutions to meet the diverse needs of our clients.
+    Allegro Capital is a leading healthcare investment bank in India, providing comprehensive financial solutions to meet the diverse needs of our clients.
   </p>
 </div>
 
@@ -54,10 +55,9 @@ const Home = () => {
       
      <Stats/>
      
- <div ref={serviceRef}>
+ <div ref={serviceRef} className="">
   <ServicesCards />
 </div>
-
   <Awards/>
  <Footer/>
     </div>

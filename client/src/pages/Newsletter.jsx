@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeIb from "../assets/HomeIB.jpg";
+import HomeIb from "../assets/AllegroOffice1.jpg";
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import {newsItems} from "../NewsData"
@@ -15,10 +15,12 @@ const Newsletter = () => {
           className="absolute inset-0 w-full h-full object-cover grey-tone"
         />
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
-          <h1 className="text-4xl md:text-6xl font-medium tracking-wide">Allegro Advisors</h1>
-          <p className="text-3xl md:text-3xl font-medium mt-2">NEWSLETTER</p>
-        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+    <div className="bg-white/10 backdrop-blur-sm px-8 py-6 rounded-xl border border-white/10 text-white text-center">
+      <h1 className="text-4xl md:text-6xl font-medium tracking-wide">Allegro Capital</h1>
+      <p className="text-2xl md:text-3xl font-medium mt-2">NEWSLETTER</p>
+    </div>
+  </div>
       </div>
       <div className="px-6 md:px-12 py-10 text-slate-700">
   <h2 className="text-2xl md:text-3xl font-medium mb-8 text-center text-slate-800">Latest News</h2>

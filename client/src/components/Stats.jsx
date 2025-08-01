@@ -9,7 +9,7 @@ const statsData = [
 
 const Stats = () => {
   return (
-    <div className=" py-12">
+    <div className=" pt-12">
 
     <div  className="max-w-7xl mx-auto px-6  ">
       <h1 className=" text-2xl md:text-3xl text-slate-700 mb-10 ">Key Statistics</h1>

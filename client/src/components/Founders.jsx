@@ -35,7 +35,7 @@ const MemberProfile = () => {
           <div className="mx-auto items-center flex flex-col justify-center text-center md:text-left">
             <h2 className="text-2xl md:text-4xl font-medium text-slate-700 mb-2">{member.name}</h2>
             <h1 className="text-lg md:text-2xl text-slate-500 max-w-full">
-              {member.designation}, Allegro Capitals
+              {member.designation}, Allegro Capital
             </h1>
             <p className="text-md text-slate-600 mt-2 italic">{member.education}</p>
           </div>

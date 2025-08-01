@@ -29,7 +29,7 @@ const Cards = () => {
           {cards.map((card, index) => (
             <div
               key={index}
-className="group bg-white rounded-xl  p-6 transition-transform duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-red-500 hover:to-red-700 shadow-[0_4px_20px_rgba(239,68,68,0.6)]"
+className="group bg-white rounded-xl  p-6 transition-transform duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-red-500 hover:to-red-700 shadow-[0_4px_20px_rgba(50,68,68,0.6)]"
             >
               <card.icon className="h-8 w-8 text-red-600 group-hover:text-white mb-4" />
               <p className="text-[1rem] md:text-lg font-medium text-slate-600 group-hover:text-white mb-2">

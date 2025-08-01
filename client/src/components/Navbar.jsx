@@ -195,7 +195,7 @@ const Navbar = () => {
           <div className="bg-white overflow-hidden">
             <div className="w-full h-40 md:h-50 overflow-hidden">
               <h1 className="text-slate-700 text-5xl">What We Do</h1>
-              <h3 className="text-slate-400 text-2xl">Allegro Capitals</h3>
+              <h3 className="text-slate-400 text-2xl">Allegro Capital</h3>
             </div>
           </div>
         </div>
@@ -293,7 +293,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-4 gap-8">
         <div className="w-full h-40 md:h-50 overflow-hidden rounded-2xl">
           <h1 className="text-slate-700 text-5xl">Our Insights</h1>
-          <h3 className="text-slate-400 text-2xl">Allegro Capitals</h3>
+          <h3 className="text-slate-400 text-2xl">Allegro Capital</h3>
         </div>
 
         {/* Column 1 */}
@@ -364,7 +364,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-4 gap-8">
         <div className="w-full h-40 md:h-50 overflow-hidden rounded-2xl">
           <h1 className="text-slate-700 text-5xl">Our Firm</h1>
-          <h3 className="text-slate-400 text-2xl">Allegro Capitals</h3>
+          <h3 className="text-slate-400 text-2xl">Allegro Capital</h3>
         </div>
 
         {/* Column 1 */}

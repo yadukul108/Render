@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const ContentArea = ({ selected }) => {
   const [data, setData] = useState([]);
@@ -7,7 +7,8 @@ const ContentArea = ({ selected }) => {
   const isNewsletter = selected === 'Newsletter';
   const [currentPage, setCurrentPage] = useState(1);
 const itemsPerPage = 10;
-
+const [statusMessage, setStatusMessage] = useState('');
+const formRef = useRef(null);
 // Calculate visible data
 const indexOfLastItem = currentPage * itemsPerPage;
 const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -18,8 +19,12 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
   const [form, setForm] = useState({
     heading: '',
     year: '',
+    isFeatured:'',
     amount: '',
-    dealPic: '',
+    mainPic: '',
+     representingPic: '',
+      party2Pic: '',
+       assetPic: '',
     sector: '',
     description: '',
     type_of_deal:'',
@@ -59,6 +64,7 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
       const res = await fetch(endpoint, { method: 'DELETE' });
       if (!res.ok) throw new Error('Failed to delete');
       fetchData();
+     
     } catch (err) {
       console.error(err);
     }
@@ -70,8 +76,12 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
     setForm({
       heading: item.heading,
       year: item.year,
+      isFeatured:item.isFeatured,
       amount: item.amount || '',
-      dealPic: item.dealPic || '',
+     mainPic: item.mainPic || '',
+      representingPic: item.representingPic || '',
+      party2Pic: item.party2Pic || '',
+      assetPic: item.assetPic || '',
       sector: item.sector || '',
       description: item.description || '',
       party2: item.party2 || '',
@@ -79,79 +89,91 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
       representing: item.representing || '',
       asset: item.asset || '',
     });
+    setTimeout(() => {
+    formRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, 100);
   };
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const { name, type, files, value } = e.target;
+  if (type === 'file') {
+    setForm((prevForm) => ({
+      ...prevForm,
+      [name]: files[0], // store the File object
+    }));
+  } else {
+    setForm((prevForm) => ({
+      ...prevForm,
+      [name]: value,
+    }));
+  }
+};
+
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      let url = '';
-      let method = '';
+  e.preventDefault();
+  try {
+    let url = '';
+    let method = isEditing ? 'PUT' : 'POST';
 
-      if (isTransaction) {
-        url = isEditing
-          ? `/api/transactions/updateTransaction/${editId}`
-          : '/api/transactions/createTransaction';
-      } else if (isNewsletter) {
-        url = isEditing
-          ? `/api/newsletter/updateNewsletter/${editId}`
-          : '/api/newsletter/createNewsletter';
-      }
-
-      method = isEditing ? 'PUT' : 'POST';
-
-      const relevantForm = isTransaction
-        ? {
-            heading: form.heading,
-            year: form.year,
-            amount: form.amount,
-            dealPic: form.dealPic,
-            sector: form.sector,
-            description: form.description,
-            asset:form.asset,
-            representing:form.representing,
-            type_of_deal:form.type_of_deal,
-            party2:form.party2,
-          }
-        : {
-            heading: form.heading,
-            year: form.year,
-            description: form.description,
-          };
-
-      const res = await fetch(url, {
-        method,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(relevantForm),
-      });
-
-      if (!res.ok) throw new Error('Failed to submit form');
-
-      // Reset
-      setForm({
-        heading: '',
-        year: '',
-        amount: '',
-        dealPic: '',
-        sector: '',
-        description: '',
-        type_of_deal:'',
-    representing:'',
-    asset:'',
-    party2:'',
-      });
-      setIsEditing(false);
-      setEditId(null);
-      fetchData();
-    } catch (err) {
-      console.error(err);
+    if (isTransaction) {
+      url = isEditing
+        ? `/api/transactions/updateTransaction/${editId}`
+        : '/api/transactions/createTransaction';
+    } else if (isNewsletter) {
+      url = isEditing
+        ? `/api/newsletter/updateNewsletter/${editId}`
+        : '/api/newsletter/createNewsletter';
     }
-  };
+
+    const formData = new FormData();
+    for (const key in form) {
+      if (form[key]) formData.append(key, form[key]);
+    }
+
+    const res = await fetch(url, {
+      method,
+      body: formData,
+    });
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      alert("Submission failed: " + errorText);
+      throw new Error('Failed to submit form');
+    }
+
+    // Show success message
+    setStatusMessage(
+      isEditing ? 'Transaction updated successfully!' : 'Transaction created successfully!'
+    );
+
+    // Clear message after 3 seconds
+    setTimeout(() => setStatusMessage(''), 3000);
+
+    // Reset form
+    setForm({
+      heading: '',
+      year: '',
+      isFeatured: '',
+      amount: '',
+      mainPic: '',
+      representingPic: '',
+      party2Pic: '',
+      assetPic: '',
+      sector: '',
+      description: '',
+      type_of_deal: '',
+      representing: '',
+      asset: '',
+      party2: '',
+    });
+    setIsEditing(false);
+    setEditId(null);
+    fetchData();
+  } catch (err) {
+    console.error(err);
+  }
+};
 
   useEffect(() => {
     if (selected === 'Transactions' || selected === 'Newsletter') {
@@ -162,12 +184,21 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
   return (
     <div className="flex-1 p-8 ml-[16rem] bg-gray-100 overflow-auto">
       <h1 className="text-2xl font-semibold mb-6">{selected}</h1>
-
+ {/* Status Message */}
+  {statusMessage && (
+    <div className="mb-4 p-3 rounded text-white bg-green-600">
+      {statusMessage}
+    </div>
+  )}
       {/* Add / Edit Form */}
       <form
+      ref={formRef}
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-lg shadow mb-8 grid grid-cols-1 md:grid-cols-2 gap-4"
       >
+         <label htmlFor="heading" className="font-medium text-gray-700">
+  Heading 
+</label>
         <input
           type="text"
           name="heading"
@@ -177,6 +208,9 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
           required
           className="border p-2 rounded"
         />
+         <label htmlFor="year" className="font-medium text-gray-700">
+  Year 
+</label>
         <input
           type="text"
           name="year"
@@ -189,6 +223,9 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
 
         {isTransaction && (
           <>
+          <label htmlFor="amount" className="font-medium text-gray-700">
+  Amount
+</label>
             <input
               type="text"
               name="amount"
@@ -197,14 +234,67 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
               placeholder="Amount"
               className="border p-2 rounded"
             />
+            <label htmlFor="isFeatured" className="font-medium text-gray-700">
+  Is Featured
+</label>
+<select
+  name="isFeatured"
+  value={form.isFeatured}
+  onChange={handleChange}
+  className="border p-2 rounded"
+>
+  <option value="">Select an option</option>
+  <option value="true">Yes</option>
+  <option value="false">No</option>
+</select>
+
+            <label htmlFor="mainPic" className="font-medium text-gray-700">
+  Main card picture
+</label>
             <input
-              type="text"
-              name="dealPic"
-              value={form.dealPic}
-              onChange={handleChange}
-              placeholder="Image URL"
-              className="border p-2 rounded"
-            />
+  type="file"
+  name="mainPic"
+  accept="image/*"
+  onChange={handleChange}
+  className="border p-2 rounded"
+/>
+
+             <label htmlFor="representingPic" className="font-medium text-gray-700">
+  Representing card picture
+</label>
+            <input
+  type="file"
+  name="representingPic"
+  accept="image/*"
+  onChange={handleChange}
+  className="border p-2 rounded"
+/>
+
+             <label htmlFor="party2Pic" className="font-medium text-gray-700">
+  Counter party card picture
+</label>
+            <input
+  type="file"
+  name="party2Pic"
+  accept="image/*"
+  onChange={handleChange}
+  className="border p-2 rounded"
+/>
+
+            <label htmlFor="assetPic" className="font-medium text-gray-700">
+  Asset card picture
+</label>
+           <input
+  type="file"
+  name="assetPic"
+  accept="image/*"
+  onChange={handleChange}
+  className="border p-2 rounded"
+/>
+
+            <label htmlFor="sector" className="font-medium text-gray-700">
+  Sector
+</label>
             <input
               type="text"
               name="sector"
@@ -213,6 +303,9 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
               placeholder="Sector"
               className="border p-2 rounded"
             />
+            <label htmlFor="asset" className="font-medium text-gray-700">
+  Asset
+</label>
             <input
               type="text"
               name="asset"
@@ -221,6 +314,9 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
               placeholder="asset"
               className="border p-2 rounded"
             />
+            <label htmlFor="party2" className="font-medium text-gray-700">
+  Counter Party
+</label>
             <input
               type="text"
               name="party2"
@@ -229,6 +325,9 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
               placeholder="party2"
               className="border p-2 rounded"
             />
+            <label htmlFor="representing" className="font-medium text-gray-700">
+  Representing 
+</label>
             <input
               type="text"
               name="representing"
@@ -237,6 +336,9 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
               placeholder="representing"
               className="border p-2 rounded"
             />
+             <label htmlFor="type_of_deal" className="font-medium text-gray-700">
+  Type of Deal 
+</label>
             <input
               type="text"
               name="type_of_deal"
@@ -247,7 +349,9 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
             />
           </>
         )}
-
+   <label htmlFor="description" className="font-medium text-gray-700">
+  Description 
+</label>
           <textarea
             name="description"
             value={form.description}
@@ -274,8 +378,12 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
                 setForm({
                   heading: '',
                   year: '',
+                  isFeatured:'',
                   amount: '',
-                  dealPic: '',
+                  mainPic: '',
+      representingPic: '',
+      party2Pic: '',
+      assetPic: '',
                   sector: '',
                   description: '',
                   type_of_deal:'',
@@ -296,7 +404,7 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
       {loading ? (
   <p>Loading...</p>
 ) : currentItems.length > 0 ? (
- <div className="overflow-x-auto">
+ <div className="">
   <table className="min-w-full bg-white shadow-md rounded-lg">
     <thead>
       <tr>
@@ -307,7 +415,7 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
               key={key}
               className={`
                 text-left py-2 px-4 border-b bg-gray-200 capitalize
-                ${key === 'heading' || key === 'description' ? 'w-[16rem]' : 'w-[10rem]'}
+                ${key === 'heading' || key === 'description' ? '' : ''}
                 truncate
               `}
             >
@@ -323,14 +431,20 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
           {Object.entries(item)
             .filter(([key]) => key !== '_id' && key !== '__v')
             .map(([key, val]) => (
-              <td
-                key={key}
-                title={String(val)}
-                className={`
-                  py-2 px-4 border-b truncate overflow-hidden whitespace-nowrap
-                  ${key === 'heading' || key === 'description' ? 'w-[16rem]' : 'w-[10rem]'}
-                `}
-              >
+             <td
+  key={key}
+  title={String(val)}
+  className={`
+    py-2 px-4 border-b
+    ${key === 'description' ? 'max-w-[200px] truncate whitespace-nowrap overflow-hidden' : ''}
+    ${key === 'heading' ? 'max-w-[150px] truncate whitespace-nowrap overflow-hidden' : ''}
+    ${key === 'mainPic' ? 'max-w-[150px] truncate whitespace-nowrap overflow-hidden' : ''}
+     ${key === 'representingPic' ? 'max-w-[150px] truncate whitespace-nowrap overflow-hidden' : ''}
+      ${key === 'party2Pic' ? 'max-w-[150px] truncate whitespace-nowrap overflow-hidden' : ''}
+       ${key === 'assetPic' ? 'max-w-[150px] truncate whitespace-nowrap overflow-hidden' : ''}
+  `}
+>
+
                 {typeof val === 'string' && val.startsWith('http') ? (
                   <img
                     src={val}

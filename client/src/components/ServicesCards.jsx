@@ -1,16 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; 
-import PrivateIB from '../assets/PrivateBanking.jpeg';
-import CorporateFinance from "../assets/CorporateIB.jpeg";
-import FamilyIB from "../assets/FamilyIB.jpeg";
 
+import { Link } from 'react-router-dom'; 
+import PrivateIB from '../assets/Office2.jpg';
+import CorporateFinance from "../assets/office3.jpg";
+import FamilyIB from "../assets/AllegroOffice1.jpg";
 const cards = [
   {
     image: CorporateFinance,
-    heading: "Investing Banking",
+    heading: "Investment Banking",
     description:
       "We provide strategic advisory services, including mergers and acquisitions, capital raising, and financial restructuring.",
     link: "/investment",
+    
   },
   {
     image: PrivateIB,
@@ -18,55 +19,157 @@ const cards = [
     description:
       "Our private banking services offer personalized wealth management, investment advice, and financial planning for high-net-worth individuals.",
     link: "/strategic-advisory",
+    
   },
   {
     image: FamilyIB,
-    heading: "Wealth Mangement",
+    heading: "Wealth Management",
     description:
       "We cater to the unique needs of affluent families, providing comprehensive wealth management, estate planning, and philanthropic advisory.",
     link: "/about",
+    
   },
 ];
 
 const ServicesCards = () => {
   return (
-    <section className="py-18 ">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-2xl md:text-3xl text-slate-700 mb-10">Our Core Services</h2>
-       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-  {cards.map((card, index) => (
-    <div
-      key={index}
-      className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-transform transform hover:scale-105 overflow-hidden duration-300"
-    >
-      {/* Image */}
-      <img
-        src={card.image}
-        alt={card.heading}
-        loading="lazy"
-        className="w-full h-40 object-cover grey-tone"
-      />
-
-      {/* Text section with border bottom on hover */}
-      <div className="p-6 border-b-4 border-transparent group-hover:border-red-600 transition-all duration-300">
-        <p className="text-[1rem] md:text-lg font-medium mb-2 text-slate-600">
-          {card.heading}
-        </p>
-        <p className="text-sm mb-4 text-slate-500">
-          {card.description}
-        </p>
-        <Link
-          to={card.link}
-          className="text-red-600 hover:underline text-sm font-medium"
-        >
-          Learn More →
-        </Link>
+    <section className="py-20  relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
-    </div>
-  ))}
-</div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative ">
+        {/* Enhanced heading section */}
+        <div className="text-center mb-16 opacity-0 animate-fade-in-up">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium bg-gradient-to-r from-slate-800 via-slate-700 to-slate-600 bg-clip-text text-transparent mb-4">
+            Our Core Services
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto rounded-full mb-6"></div>
+          <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+            Discover our comprehensive suite of financial services designed to elevate your business and wealth management strategy
+          </p>
+        </div>
 
+        {/* Cards grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+          {cards.map((card, index) => (
+            <div
+              key={index}
+              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 opacity-0 animate-fade-in-up cursor-pointer"
+              style={{ animationDelay: `${index * 200}ms` }}
+              onClick={() => window.location.href = card.link}
+            >
+              {/* Image container with overlay */}
+              <div className="relative h-48 sm:h-52 lg:h-56 overflow-hidden">
+                <img
+                  src={card.image}
+                  alt={card.heading}
+                  loading="lazy"
+                  className="w-full h-full object-cover "
+                />
+                
+                {/* Gradient overlay */}
+                <div className={`absolute inset-0 bg-gradient-to-t ${card.color} opacity-0 group-hover:opacity-80 transition-opacity duration-500`}></div>
+                
+                {/* Floating icon */}
+                <div className="absolute top-4 right-4 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Content section */}
+              <div className="p-6 sm:p-8 relative">
+                {/* Animated border */}
+                <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-red-500 to-red-600 group-hover:w-full transition-all duration-500 ease-out"></div>
+                
+                <h3 className="text-xl sm:text-2xl font-medium text-slate-800 mb-3 group-hover:text-slate-900 transition-colors duration-300">
+                  {card.heading}
+                </h3>
+                
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 line-clamp-3">
+                  {card.description}
+                </p>
+                
+                {/* Enhanced CTA */}
+                <div className="inline-flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold text-sm sm:text-base group/link transition-all duration-300">
+                  <span className="relative">
+                    Learn More
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 group-hover/link:w-full transition-all duration-300"></span>
+                  </span>
+                  <svg 
+                    className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-300" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Hover glow effect */}
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                <div className="absolute inset-0 rounded-2xl shadow-2xl bg-gradient-to-r from-red-500/10 via-purple-500/10 to-blue-500/10"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom CTA section */}
+        <div className="text-center mt-16 opacity-0 animate-fade-in-up" style={{ animationDelay: '800ms' }}>
+          <div className="inline-flex items-center gap-4 px-8 py-4 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20">
+            <span className="text-slate-600 font-medium">Ready to get started?</span>
+            <button 
+              onClick={() => window.location.href = '/contact-us'}
+              className="px-6 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-semibold"
+            >
+              Contact Us
+            </button>
+          </div>
+        </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out forwards;
+        }
+        
+        .line-clamp-3 {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+          .animate-fade-in-up {
+            animation-delay: 0ms !important;
+          }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+          .animate-fade-in-up,
+          .group:hover {
+            animation: none;
+            transition: none;
+          }
+        }
+      `}</style>
     </section>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react'
-import contactIMG from "../assets/HomeIB.jpg"
+import contactIMG from "../assets/office4.jpg"
 import logo from "../assets/logo.png"
 import Footer from "../components/Footer"
 const Contact = () => {
@@ -22,7 +22,7 @@ const Contact = () => {
 
   {/* Overlay card at bottom over image */}
   <div className="absolute bottom-0 w-full bg-slate-100 bg-opacity-70 text-slate-700 p-6 text-center">
-    <h2 className="text-xl font-medium mb-2">Allegro Capitals Pvt. Ltd.</h2>
+    <h2 className="text-xl font-medium mb-2">Allegro Capital Pvt. Ltd.</h2>
     <a
   href="https://www.google.com/maps/dir//XH8X%2BPV4,+D'Souza+Rd,+Shanthala+Nagar,+Ashok+Nagar,+Bengaluru,+Karnataka+560025/@12.9667455,77.5173059,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae15d62e4f12dd:0x18e99c9546506486!2m2!1d77.5997441!2d12.9668311?entry=ttu&g_ep=EgoyMDI1MDcyMC4wIKXMDSoASAFQAw%3D%3D"
   target="_blank"

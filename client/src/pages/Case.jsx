@@ -1,5 +1,5 @@
 import {React, useState} from 'react'
-import HomeIb from "../assets/HomeIB.jpg"
+import HomeIb from "../assets/office3.jpg"
 import Footer from '../components/Footer'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -90,16 +90,19 @@ const handleFormSubmit = (e) => {
   return (
     <div className=''>
       {/* Hero Section */}
-      <div className="relative w-full h-[60vh] md:h-screen">
+       <div className="relative w-full h-screen">
         <img
-          src={HomeIb}
-          alt="Case Studies Background"
+          src={HomeIb} 
+          alt="Newsletter Background"
           className="absolute inset-0 w-full h-full object-cover grey-tone"
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
-          <h1 className="text-3xl md:text-6xl font-medium tracking-wide">Allegro Advisors</h1>
-          <p className="text-xl md:text-3xl font-medium mt-2">Case Studies</p>
-        </div>
+
+        <div className="absolute inset-0 flex items-center justify-center">
+    <div className="bg-white/10 backdrop-blur-sm px-8 py-6 rounded-xl border border-white/10 text-white text-center">
+      <h1 className="text-4xl md:text-6xl font-medium tracking-wide">Allegro Capital</h1>
+      <p className="text-2xl md:text-3xl font-medium mt-2">Case Studies</p>
+    </div>
+  </div>
       </div>
 
       {/* Case Studies Grid */}

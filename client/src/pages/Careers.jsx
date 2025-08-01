@@ -1,180 +1,152 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import HomeIb from '../assets/HomeIB.jpg'; // Replace with your hero image path
+import React, { useState } from 'react';
+import HomeIb from '../assets/AllegroOffice1.jpg';
 import { DollarSign, Users, Briefcase, Clock } from 'lucide-react';
 import Footer from '../components/Footer';
 
 const Careers = () => {
+  const [loading, setLoading] = useState(false);
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    linkedin: '',
+    resume: null,
+  });
+
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    if (name === 'resume') {
+      setFormData({ ...formData, resume: files[0] });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+  };
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+
+  const payload = new FormData();
+  payload.append('name', formData.name);
+  payload.append('email', formData.email);
+  payload.append('phone', formData.phone);
+  payload.append('linkedin', formData.linkedin);
+  payload.append('resume', formData.resume);
+
+  try {
+    const response = await fetch('/api/apply', {
+      method: 'POST',
+      body: payload,
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+      alert(data.message);
+      setFormData({ name: '', email: '', phone: '', linkedin: '', resume: null });
+    } else {
+      alert(data.message || 'Failed to submit. Please try again.');
+    }
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    alert('An error occurred while submitting the form.');
+  } finally {
+    setLoading(false);
+  }
+};
+
   return (
     <div className="pt-[3rem]">
-   <div className="relative w-full h-screen">
-  <img
-    src={HomeIb}
-    alt="Newsletter Background"
-    className="absolute inset-0 w-full h-full object-cover grey-tone"
-  />
-
-  {/* Overlay */}
-  <div className="absolute inset-0"></div>
-
-  {/* Centered Content */}
-  <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
-    <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wide">
-      Start your career in
-    </h1>
-    <p className="text-3xl sm:text-4xl md:text-5xl font-semibold mt-2">
-      Allegro Advisors
-    </p>
-
-    {/* Buttons */}
-    <div className="mt-8 flex flex-col sm:flex-row gap-4">
-      <a href="/about">
-        <button className="bg-whitetext-slate-600 hover:bg-red-700 hover:text-white px-6 py-3 rounded font-semibold transition duration-300 w-full sm:w-auto">
-          About Us
-        </button>
-      </a>
-      <a href="/apply">
-        <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded font-semibold transition duration-300 w-full sm:w-auto">
-          Apply Now
-        </button>
-      </a>
-    </div>
-  </div>
-</div>
-{/* Benefits Section */}
-<section className=" py-16 px-4 md:px-12">
-  <h2 className="text-2xl md:text-3xl font-medium text-center text-slate-800 mb-12">
-    Benefits of working with us
-  </h2>
-
-  <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
-    {/* Benefit 1 */}
-    <div className="bg-slate-100 shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition hover:border-b-4 hover:border-red-600 border-b-transparent">
-      <div className="flex justify-center mb-4">
-        <DollarSign className="text-red-600" size={32} />
+      {/* ---------- Hero Section ---------- */}
+      <div className="relative w-full h-screen">
+        <img src={HomeIb} alt="Newsletter Background" className="absolute inset-0 w-full h-full object-cover grey-tone" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-wide">Start your career in</h1>
+          <p className="text-3xl sm:text-4xl md:text-5xl font-medium mt-2">Allegro Capital</p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <a href="/about">
+              <button className="bg-white text-slate-600 hover:bg-red-700 hover:text-white px-6 py-3 rounded font-medium transition duration-300 w-full sm:w-auto">About Us</button>
+            </a>
+            <a href="#apply-now">
+              <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded font-medium transition duration-300 w-full sm:w-auto">Apply Now</button>
+            </a>
+          </div>
+        </div>
       </div>
-      <h3 className="text-lg md:text-xl font-medium text-slate-800 mb-2">Competitive Salary</h3>
-      <p className="text-slate-600  text-[0.9rem]">Get paid well for your skills! We offer competitive salary + benefits.</p>
+
+      {/* ---------- Benefits ---------- */}
+      <section className="py-16 px-4 md:px-12">
+        <h2 className="text-2xl md:text-3xl font-medium text-center text-slate-800 mb-12">Benefits of working with us</h2>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+          {[
+            { icon: DollarSign, title: 'Competitive Salary',    text: 'Get paid well for your skills! We offer competitive salary + benefits.' },
+            { icon: Users,      title: 'Collaborative Team',    text: 'Work with talented professionals in a growth‑focused environment.' },
+            { icon: Briefcase,  title: 'Career Growth',        text: 'We support your development with learning, mentorship, and projects.' },
+            { icon: Clock,      title: 'Global Market Exposure', text: 'Work on high‑impact financial projects and gain global insights.' },
+          ].map(({ icon: Icon, title, text }, i) => (
+            <div key={i} className="bg-slate-100 shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition hover:border-b-4 hover:border-red-600 border-b-transparent">
+              <div className="flex justify-center mb-4"><Icon className="text-red-600" size={32} /></div>
+              <h3 className="text-lg md:text-xl font-medium text-slate-800 mb-2">{title}</h3>
+              <p className="text-slate-600 text-[0.9rem]">{text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ---------- Application Form ---------- */}
+      <section id="apply-now" className="bg-white py-16 px-4 md:px-12">
+        <h2 className="text-2xl md:text-3xl font-medium text-center text-slate-800 mb-12">Apply Now</h2>
+
+        <form onSubmit={handleSubmit} className="max-w-3xl mx-auto grid gap-6" encType="multipart/form-data">
+          <div>
+            <label className="block mb-2 text-slate-700 font-medium">Full Name</label>
+            <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="Your full name" className="w-full border border-slate-300 px-4 py-3 rounded-lg" />
+          </div>
+          <div>
+            <label className="block mb-2 text-slate-700 font-medium">Email Address</label>
+            <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="you@example.com" className="w-full border border-slate-300 px-4 py-3 rounded-lg" />
+          </div>
+          <div>
+            <label className="block mb-2 text-slate-700 font-medium">Phone Number</label>
+            <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required placeholder="+91 9876543210" className="w-full border border-slate-300 px-4 py-3 rounded-lg" />
+          </div>
+          <div>
+            <label className="block mb-2 text-slate-700 font-medium">Upload Resume</label>
+            <input type="file" name="resume" onChange={handleChange} required className="w-full border border-slate-300 px-4 py-2 rounded-lg file:bg-red-600 file:text-white file:border-none file:px-4 file:py-2 file:rounded file:cursor-pointer" />
+          </div>
+          <div>
+            <label className="block mb-2 text-slate-700 font-medium">LinkedIn URL</label>
+            <input type="url" name="linkedin" value={formData.linkedin} onChange={handleChange} placeholder="https://linkedin.com/in/yourname" className="w-full border border-slate-300 px-4 py-3 rounded-lg" />
+          </div>
+
+          
+          <div className="text-center">
+           <button
+  type="submit"
+  disabled={loading}
+  className={`${
+    loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-red-600 hover:bg-red-700'
+  } text-white font-medium px-4 py-2 rounded-lg transition duration-300 flex items-center justify-center`}
+>
+  {loading ? (
+    <svg className="animate-spin h-5 w-5 text-white mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+      <path
+        className="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+      ></path>
+    </svg>
+  ) : null}
+  {loading ? 'Submitting...' : 'Submit Application'}
+</button>
+
+          </div>
+        </form>
+      </section>
+
+      <Footer />
     </div>
-
-    {/* Benefit 2 */}
-    <div className="bg-slate-100 shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition hover:border-b-4 hover:border-red-600 border-b-transparent">
-      <div className="flex justify-center mb-4">
-        <Users className="text-red-600" size={32} />
-      </div>
-      <h3 className="text-lg md:text-xl font-medium text-slate-800 mb-2">Collaborative Team</h3>
-      <p className="text-slate-600  text-[0.9rem]">Work with talented professionals in a growth-focused environment.</p>
-    </div>
-
-    {/* Benefit 3 */}
-    <div className="bg-slate-100 shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition hover:border-b-4 hover:border-red-600 border-b-transparent">
-      <div className="flex justify-center mb-4">
-        <Briefcase className="text-red-600" size={32} />
-      </div>
-      <h3 className="text-lg md:text-xl font-medium text-slate-800 mb-2">Career Growth</h3>
-      <p className="text-slate-600  text-[0.9rem]">We support your development with learning, mentorship, and projects.</p>
-    </div>
-
-    {/* Benefit 4 */}
-    <div className="bg-slate-100 shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition hover:border-b-4 hover:border-red-600 border-b-transparent">
-  <div className="flex justify-center mb-4">
-    <Clock className="text-red-600" size={32} />
-  </div>
-  <h3 className="text-lg md:text-xl font-medium text-slate-800 mb-2">Global Market Exposure</h3>
-  <p className="text-slate-600 text-[0.9rem]">Work on high-impact financial projects and gain insights into international markets and investment strategies.</p>
-</div>
-
-  </div>
-</section>
-<section className="bg-white py-16 px-4 md:px-12">
-  <h2 className="text-2xl md:text-3xl font-medium text-center text-slate-800 mb-12">
-    Apply Now
-  </h2>
-
-  <form className="max-w-3xl mx-auto grid gap-6">
-    {/* Full Name */}
-    <div>
-      <label className="block mb-2 text-slate-700 font-medium" htmlFor="name">
-        Full Name
-      </label>
-      <input
-        type="text"
-        id="name"
-        placeholder="Your full name"
-        className="w-full border border-slate-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-        required
-      />
-    </div>
-
-    {/* Email */}
-    <div>
-      <label className="block mb-2 text-slate-700 font-medium" htmlFor="email">
-        Email Address
-      </label>
-      <input
-        type="email"
-        id="email"
-        placeholder="you@example.com"
-        className="w-full border border-slate-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-        required
-      />
-    </div>
-
-    {/* Phone */}
-    <div>
-      <label className="block mb-2 text-slate-700 font-medium" htmlFor="phone">
-        Phone Number
-      </label>
-      <input
-        type="tel"
-        id="phone"
-        placeholder="+91 9876543210"
-        className="w-full border border-slate-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-        required
-      />
-    </div>
-
-    {/* Resume Upload */}
-    <div>
-      <label className="block mb-2 text-slate-700 font-medium" htmlFor="resume">
-        Upload Resume
-      </label>
-      <input
-        type="file"
-        id="resume"
-        className="w-full border border-slate-300 px-4 py-2 rounded-lg file:bg-red-600 file:text-white file:border-none file:px-4 file:py-2 file:rounded file:cursor-pointer"
-        accept=".pdf,.doc,.docx"
-        required
-      />
-    </div>
-
-    {/* Message */}
-    <div>
-      <label className="block mb-2 text-slate-700 font-medium" htmlFor="message">
-        Linkdin id
-      </label>
-      <textarea
-        id="message"
-        rows="1"
-        placeholder="Linkdin"
-        className="w-full border border-slate-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-      ></textarea>
-    </div>
-    <p className='text-xl text-slate-700 '>We will reach to you</p>
-    {/* Submit Button */}
-    <div className="text-center">
-      <button
-        type="submit"
-        className="bg-red-600 hover:bg-red-700 text-white font-medium px-4 py-2 rounded-lg transition duration-300"
-      >
-        Submit Application
-      </button>
-    </div>
-  </form>
-</section>
-<Footer/>
-
-</div>
   );
 };
 

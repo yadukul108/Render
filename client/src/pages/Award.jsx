@@ -1,5 +1,5 @@
 import React from "react";
-import HomeIb from "../assets/HomeIB.jpg";
+import HomeIb from "../assets/office2.jpg";
 import Footer from "../components/Footer";
 import awardImage from "../assets/Awards.jpg"; // Replace with actual image
 
@@ -38,7 +38,7 @@ const AwardsAchievements = () => {
           className="absolute inset-0 w-full h-full object-cover grey-tone"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
-          <h1 className="text-4xl md:text-6xl font-medium tracking-wide">Allegro Capitals</h1>
+          <h1 className="text-4xl md:text-6xl font-medium tracking-wide">Allegro Capital</h1>
           <p className="text-3xl mt-2">Awards & Achievements</p>
         </div>
       </div>
