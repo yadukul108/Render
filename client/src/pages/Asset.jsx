@@ -54,9 +54,9 @@ const Asset = () => {
           </div>
         </div>
       </div>
-
+<h1 className='text-center text-slate-700 mt-16 font-medium text-2xl md:text-4xl'>Asset Management</h1>
       {/* Value Proposition Towers */}
-       <h1 className="text-xl md:text-2xl font-medium mt-16 text-slate-600 max-w-3xl mx-auto text-center">"We are business owners, not traders. We use the Market to acquire great businesses at fair prices and sell when prices exceed their worth"
+       <h1 className=" md:text-2xl font-medium mt-6 text-slate-600 max-w-3xl mx-auto text-center">"We are business owners, not traders. We use the Market to acquire great businesses at fair prices and sell when prices exceed their worth"
 </h1>
       <div className=" py-20 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6">

@@ -54,7 +54,7 @@ const ReturnsChart = () => {
 
   return (
     <div className=" py-16">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto md:px-6">
         {/* Header Section */}
         <div className="text-center mb-16">
          
@@ -62,7 +62,7 @@ const ReturnsChart = () => {
             Returns since Inception
           </h2>
           
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="md:text-xl text-slate-600 max-w-3xl mx-auto">
             Demonstrating consistent outperformance across our specialized portfolio management services
           </p>
         </div>
@@ -81,11 +81,11 @@ const ReturnsChart = () => {
         </div>
 
         {/* Performance Highlights */}
-        <div className="mt-16 bg-slate-100 rounded-3xl p-12 relative overflow-hidden">
+        <div className="mt-16 bg-slate-100 rounded-3xl p-4 md:p-12 relative overflow-hidden">
          
           <div className="relative text-center">
             <img src={logo} alt=""  className="w-20 h-16 mx-auto"/>
-            <h3 className="text-3xl font-medium text-slate-700 mb-6">
+            <h3 className="text-2xl md:text-3xl font-medium text-slate-700 mb-6">
               Consistent Alpha Generation
             </h3>
             
@@ -103,7 +103,7 @@ const ReturnsChart = () => {
               </div>
             </div>
             
-            <p className="text-slate-600 mt-8 text-lg max-w-2xl mx-auto">
+            <p className="text-slate-600 mt-8 md:text-lg max-w-2xl mx-auto">
               Our disciplined investment approach and deep market expertise consistently deliver 
               superior risk-adjusted returns for our clients.
             </p>

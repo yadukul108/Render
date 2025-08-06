@@ -19,7 +19,7 @@ const Home = () => {
       <img
         src={HomeIB}
         alt="Banner"
-        className="w-full h-[35rem] object-cover rounded-md grey-tone"
+        className="w-full h-[38rem] object-cover rounded-md grey-tone"
       />
 
       {/* Top-Left Text */}

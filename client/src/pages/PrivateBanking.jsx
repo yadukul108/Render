@@ -56,7 +56,7 @@ const PrivateBankingPage = () => {
 
 
         <h1 className='text-center text-slate-700 mt-16 font-medium text-2xl md:text-4xl'>Private Banking</h1>
-        <h1 className='text-center text-slate-600 font-medium mt-6 text-xl md:text-2xl max-w-5xl mx-auto'>Providing unbiased wealth management solutions tailored for families across generations, ensuring continuity and growth of family wealth through strategic planning and personalized advisory.</h1>
+        <h1 className='text-center text-slate-600 font-medium mt-6 md:text-2xl max-w-5xl mx-auto'>Providing unbiased wealth management solutions tailored for families across generations, ensuring continuity and growth of family wealth through strategic planning and personalized advisory.</h1>
       {/* Value Proposition Towers */}
       <div className=" py-14 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
@@ -69,8 +69,8 @@ const PrivateBankingPage = () => {
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 ">
                     <CheckCircle className="w-8 h-8 text-red-600" />
                   </div>
-                  <h1 className="text-3xl font-medium mb-2">Tailored</h1>
-                  <h1 className="text-2xl font-medium">Solutions</h1>
+                  <h1 className="text-2xl md:text-3xl font-medium mb-2">Tailored</h1>
+                  <h1 className="text-xl md:text-2xl font-medium">Solutions</h1>
                 </div>
               </div>
               <div className="bg-white p-6 rounded-b-3xl shadow-xl border-t-4 border-red-600">
@@ -88,8 +88,8 @@ const PrivateBankingPage = () => {
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 ">
                     <Shield className="w-8 h-8 text-slate-900" />
                   </div>
-                  <h3 className="text-3xl font-medium mb-2">Independent</h3>
-                  <h3 className="text-2xl font-medium">Informed, Innovative</h3>
+                  <h3 className="text-2xl md:text-3xl font-medium mb-2">Independent</h3>
+                  <h3 className="text-xl md:text-2xl font-medium">Informed, Innovative</h3>
                 </div>
               </div>
               <div className="bg-white p-6 rounded-b-3xl shadow-xl border-t-4 border-slate-900">
@@ -107,8 +107,8 @@ const PrivateBankingPage = () => {
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 ">
                     <Star className="w-8 h-8 text-red-600" />
                   </div>
-                  <h3 className="text-3xl font-medium mb-2">Committed</h3>
-                  <h3 className="text-2xl font-medium">Long-Term Success</h3>
+                  <h3 className="text-2xl md:text-3xl font-medium mb-2">Committed</h3>
+                  <h3 className="text-xl md:text-2xl font-medium">Long-Term Success</h3>
                 </div>
               </div>
               <div className="bg-white p-6 rounded-b-3xl shadow-xl border-t-4 border-red-600">
@@ -178,7 +178,7 @@ const PrivateBankingPage = () => {
         {/* Call to Action Section */}
         <div className="mt-20 text-center">
          <div
-  className="rounded-3xl p-12 relative overflow-hidden bg-cover bg-center "
+  className="rounded-3xl md:p-12 relative overflow-hidden bg-cover bg-center "
   style={{ backgroundImage: `url(${HomeIb})`  }}
 
 >
@@ -187,7 +187,7 @@ const PrivateBankingPage = () => {
     <h2 className="text-2xl md:text-4xl font-[600] text-slate-600 mb-6 text-center">
       Ready to Transform Your Financial Future?
     </h2>
-    <p className="text-xl text-slate-500 mb-8 max-w-3xl mx-auto text-center">
+    <p className="md:text-xl text-slate-500 mb-8 max-w-3xl mx-auto text-center">
       Experience personalized wealth management with India's pioneering fee-based private banking services.
     </p>
     <div className="flex flex-col sm:flex-row gap-4 justify-center">
