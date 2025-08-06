@@ -1,5 +1,5 @@
 import React from "react";
-import HomeIb from "../assets/office2.jpg";
+import HomeIb from "../assets/Office2.jpg";
 import Footer from "../components/Footer";
 import awardImage from "../assets/Awards.jpg"; // Replace with actual image
 
