@@ -87,13 +87,13 @@ const TransactionDetail = () => {
                     }}
                   >
                     {/* Card container */}
-                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-white/20">
+                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl w-[15rem] mx-auto overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-white/20">
                       {/* Image with overlay */}
-                      <div className="relative overflow-hidden">
+                      <div className="relative h-[5rem] overflow-hidden">
                         <img
                           src={imageShowing}
                           alt={value}
-                          className=" w-full object-cover "
+                          className=" w-auto  object-cover "
                         />
                        
                       </div>
@@ -102,7 +102,7 @@ const TransactionDetail = () => {
                       <div className="p-6 relative">
                         <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-red-500 to-red-600 group-hover:w-full transition-all duration-500 ease-out"></div>
                         
-                        <h3 className="text-xl font-medium text-slate-800 mb-2 group-hover:text-slate-900 transition-colors duration-300">
+                        <h3 className="text-xl font-medium text-slate-600 mb-2 group-hover:text-slate-900 transition-colors duration-300">
                           {value}
                         </h3>
                         <p className="text-slate-600 font-medium flex items-center gap-2">
@@ -176,7 +176,7 @@ const TransactionDetail = () => {
             <div className="flex-1">
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20 relative overflow-hidden">
                 {/* Background decoration */}
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 opacity-20"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-pink-200 to-red-500 opacity-20"></div>
                 
                 {/* Content */}
                 <div className="relative">
@@ -204,17 +204,17 @@ const TransactionDetail = () => {
                       <div className="relative">
                         <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-red-500 to-transparent opacity-30 rounded-full"></div>
                         <div className="pl-6">
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eum, nihil ipsa, delectus distinctio quasi asperiores minima corporis possimus animi quis odit eaque unde harum debitis vero amet, qui vel odio eius autem voluptatibus? In dolore, consequuntur asperiores nihil error libero animi atque similique quisquam. Nobis expedita culpa beatae unde adipisci quas sed dolor accusantium perferendis earum quisquam tempore dolore saepe odit, impedit vel. Dolor dolorum blanditiis explicabo saepe repudiandae quisquam ipsa?
+                          {txn.description}
                         </div>
                       </div>
                       
-                      <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-6 border-l-4 border-red-500">
+                      {/* <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-6 border-l-4 border-red-500">
                         Facere, architecto laudantium, molestias veritatis nam unde suscipit accusantium iste perspiciatis explicabo debitis provident officia quis ratione corrupti eaque nisi eveniet quo consectetur nemo totam iusto vel distinctio sequi. Reiciendis ipsum aspernatur quidem fuga laudantium similique ratione perferendis doloremque dicta assumenda explicabo, quia nesciunt ea impedit nihil eveniet id inventore consectetur quos adipisci suscipit minus quas omnis fugit!
-                      </div>
+                      </div> */}
                       
-                      <div>
+                      {/* <div>
                         Nobis sint dolor dolores ratione dolorem. Atque, veritatis autem placeat voluptas officia enim corporis architecto, ab dolor rem quam sed tenetur nesciunt repellat porro cum alias minima provident debitis, at inventore doloremque. Temporibus iure, esse saepe tempora quaerat, vitae perspiciatis eaque exercitationem, quod in cum porro necessitatibus sapiente voluptates aliquid impedit ut obcaecati nulla. Optio est, enim consectetur adipisci fugit dolor ullam id error ad voluptates eos debitis voluptate a.
-                      </div>
+                      </div> */}
                     </div>
                   </div>
 
@@ -226,7 +226,7 @@ const TransactionDetail = () => {
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {[
-                        { label: "Transaction Value", value: `₹${txn.amount} Cr INR` },
+                        { label: "Transaction Value", value: `₹${txn.amount} Cr` },
                         { label: "Deal Structure", value: txn.type_of_deal },
                         { label: "Industry Sector", value: txn.sector },
                         { label: "Completion Year", value: txn.year }

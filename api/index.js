@@ -6,6 +6,7 @@ import authRoutes from './routes/auth.route.js';
 import newsletterRoutes from './routes/newsletter.route.js';
 import transactionRoutes from './routes/transaction.route.js';
 import applyRoutes from './routes/apply.route.js';
+import contactRoutes from './routes/contact.route.js';
 import cors from 'cors';
 
 
@@ -32,7 +33,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/newsletter', newsletterRoutes);
 app.use('/api/transactions', transactionRoutes);
 app.use('/api', applyRoutes);
-
+app.use('/api', contactRoutes);
 // Error handler middleware
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;

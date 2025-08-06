@@ -24,6 +24,8 @@ import PrivateRoute from './components/PrivateRoute';
 import Case from './pages/Case';
 import NewsUpdates from './pages/NewsUpdates';
 import Founders from "./components/Founders"
+import PrivateBanking from './pages/PrivateBanking';
+import Asset from './pages/Asset';
 const App = () => {
   return (
      <BrowserRouter>
@@ -50,6 +52,8 @@ const App = () => {
         <Route path="/admin-panel" element={<Admin/>}/>
         <Route path="/case_study" element={<Case/>}/>
         <Route path="/news" element={<NewsUpdates/>}/>
+        <Route path="/private-banking" element={<PrivateBanking/>}/>
+        <Route path="/asset-management" element={<Asset/>}/>
       </Routes>
      <ScrollToTopButton/>
     </BrowserRouter>

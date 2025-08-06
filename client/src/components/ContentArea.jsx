@@ -156,10 +156,10 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
       year: '',
       isFeatured: '',
       amount: '',
-      mainPic: '',
-      representingPic: '',
-      party2Pic: '',
-      assetPic: '',
+      mainPic: null,
+      representingPic: null,
+      party2Pic: null,
+      assetPic: null,
       sector: '',
       description: '',
       type_of_deal: '',
@@ -380,10 +380,10 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
                   year: '',
                   isFeatured:'',
                   amount: '',
-                  mainPic: '',
-      representingPic: '',
-      party2Pic: '',
-      assetPic: '',
+                  mainPic: null,
+      representingPic: null,
+      party2Pic: null,
+      assetPic: null,
                   sector: '',
                   description: '',
                   type_of_deal:'',
@@ -415,7 +415,7 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
               key={key}
               className={`
                 text-left py-2 px-4 border-b bg-gray-200 capitalize
-                ${key === 'heading' || key === 'description' ? '' : ''}
+                
                 truncate
               `}
             >

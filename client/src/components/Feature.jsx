@@ -142,13 +142,14 @@ const Feature = () => {
                   
                   {/* Amount */}
                   <div className="bg-gradient-to-br from-blue-50 to-slate-100 p-4 rounded-xl border border-slate-200">
-                    <div className="text-[1rem] lg:text-xl font-semibold text-slate-700 mb-1">
-                      {deals[currentIndex]?.amount} Cr INR
-                    </div>
-                    <div className="text-sm font-medium text-slate-600 uppercase tracking-wide">
-                     Value
-                    </div>
-                  </div>
+  <div className="text-[1rem] lg:text-xl font-semibold text-slate-700 mb-1">
+    {deals[currentIndex]?.amount ? `${deals[currentIndex].amount} Cr INR` : 'Undisclosed'}
+  </div>
+  <div className="text-sm font-medium text-slate-600 uppercase tracking-wide">
+    Value
+  </div>
+</div>
+
 
                   {/* Year */}
                    <div className="bg-gradient-to-br from-blue-50 to-slate-100 p-4 rounded-xl border border-slate-200">

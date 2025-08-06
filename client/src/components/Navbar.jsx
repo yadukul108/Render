@@ -14,11 +14,11 @@ const sidebarMenus = [
         ]
       },
       {
-        section: "Asset & Wealth Management",
+        section: "Wealth Management",
         links: [
-          { label: "Private Banking", to: "/services/private-equity" },
-          { label: "Asset Management", to: "/services/funding" },
-          { label: "Investor Login", to: "/services/ipo" }
+          { label: "Private Banking", to: "/private-banking" },
+          { label: "Asset Management", to: "/asset-management" },
+          { label: "Investor Login", to: "/ipo" }
         ]
       }
     ]
@@ -228,12 +228,12 @@ const Navbar = () => {
         {/* Column 2 */}
         <div>
           <h3 className="text-xl font-medium mb-4 text-gray-800">
-            Asset & Wealth Management
+            Wealth Management
           </h3>
           <ul className="space-y-2">
             <li>
               <Link
-                to="/services/private-equity"
+                to="/private-banking"
                 onClick={() => setOpenDropdown(null)}
                 className="text-slate-700 hover:text-red-600"
               >
@@ -242,7 +242,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/services/funding"
+                to="/asset-management"
                 onClick={() => setOpenDropdown(null)}
                 className="text-slate-700 hover:text-red-600"
               >
@@ -251,7 +251,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/services/ipo"
+                to="/ipo"
                 onClick={() => setOpenDropdown(null)}
                 className="text-slate-700 hover:text-red-600"
               >

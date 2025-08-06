@@ -113,7 +113,7 @@ const ServicesCards = () => {
 
               {/* Hover glow effect */}
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                <div className="absolute inset-0 rounded-2xl shadow-2xl bg-gradient-to-r from-red-500/10 via-purple-500/10 to-blue-500/10"></div>
+                <div className="absolute inset-0 rounded-2xl shadow-2xl bg-gradient-to-r from-slate-600/10 via-blue-100/10 to-blue-500/10"></div>
               </div>
             </div>
           ))}

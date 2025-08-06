@@ -13,6 +13,7 @@
     "@emailjs/browser": "^4.4.1",
     "@reduxjs/toolkit": "^2.8.2",
     "@tailwindcss/vite": "^4.1.8",
+    "allegro": "file:..",
     "framer-motion": "^12.23.5",
     "lucide-react": "^0.514.0",
     "motion": "^12.16.0",
