@@ -6,7 +6,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import {useRef} from "react"
-import { Link } from 'react-router-dom';
+
 
 const Case = () => {
   const [showForm, setShowForm] = useState(false);
@@ -85,8 +85,6 @@ const handleFormSubmit = (e) => {
       description: 'Provided financial restructuring and advisory support leading to 40% YoY growth.A strategic acquisition aimed at expanding market reach and technological capabilities.',
     },
   ];
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
   return (
     <div className=''>
       {/* Hero Section */}

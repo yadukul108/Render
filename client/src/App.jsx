@@ -26,6 +26,7 @@ import NewsUpdates from './pages/NewsUpdates';
 import Founders from "./components/Founders"
 import PrivateBanking from './pages/PrivateBanking';
 import Asset from './pages/Asset';
+import AssetReports from './pages/ReportsAsset';
 const App = () => {
   return (
      <BrowserRouter>
@@ -54,6 +55,7 @@ const App = () => {
         <Route path="/news" element={<NewsUpdates/>}/>
         <Route path="/private-banking" element={<PrivateBanking/>}/>
         <Route path="/asset-management" element={<Asset/>}/>
+        <Route path="/reports" element={<AssetReports/>}/>
       </Routes>
      <ScrollToTopButton/>
     </BrowserRouter>

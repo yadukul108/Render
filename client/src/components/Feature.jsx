@@ -94,10 +94,9 @@ const Feature = () => {
     <div className="w-full max-w-6xl mx-auto py-12 px-4">
       {/* Header */}
       <div className="text-center mb-12">
-        <h2 className="text-xl lg:text-3xl font-medium bg-gradient-to-r from-gray-700 to-gray-600 bg-clip-text text-transparent ">
+        <h2 className="text-2xl lg:text-3xl font-medium bg-gradient-to-r from-gray-700 to-gray-600 bg-clip-text text-transparent ">
           Featured Investment Deals
         </h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-red-700 mx-auto rounded-full"></div>
       </div>
 
       <div className="relative group">

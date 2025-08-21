@@ -8,8 +8,8 @@ import transactionRoutes from './routes/transaction.route.js';
 import applyRoutes from './routes/apply.route.js';
 import contactRoutes from './routes/contact.route.js';
 import cors from 'cors';
-
-
+import assetRoutes from "./routes/asset.route.js";
+import downloadRoutes from "./routes/download.route.js";
 dotenv.config();
 
 const app = express(); 
@@ -27,7 +27,13 @@ mongoose
     console.error(err);
   });
 
+
 // Routes
+
+
+app.use("/api/download", downloadRoutes);
+
+app.use("/api/assets", assetRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/newsletter', newsletterRoutes);

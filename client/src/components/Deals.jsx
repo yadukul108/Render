@@ -74,11 +74,11 @@ const extractAmount = (amountStr) => {
       <div className="relative p-4 sm:p-8 max-w-7xl mx-auto">
         {/* Enhanced Header */}
         <div className="text-center mb-12 opacity-0 animate-fade-in-up">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium bg-gradient-to-r from-slate-800 via-slate-700 to-slate-600 bg-clip-text text-transparent mb-4">
+          <h2 className="text-2xl sm:text-2xl lg:text-3xl font-medium bg-gradient-to-r from-slate-800 via-slate-700 to-slate-600 bg-clip-text text-transparent mb-4">
             All Transaction History
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto rounded-full mb-6"></div>
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 md:text-lg max-w-2xl mx-auto leading-relaxed">
             Explore our comprehensive portfolio of successful deals and transactions
           </p>
         </div>
@@ -167,7 +167,7 @@ const extractAmount = (amountStr) => {
                     src={txn.mainPic}
                     alt="Transaction"
                     loading="lazy"
-                    className="w-auto h-auto object-cover"
+                    className="w-auto h-auto object-cover mx-auto"
                   />
                   
                  

@@ -64,12 +64,12 @@ const TransactionDetail = () => {
               </h1>
               <div className="w-12 h-1 bg-gradient-to-r from-red-600 to-transparent rounded-full"></div>
             </div>
-            <p className="text-slate-600 text-lg">Comprehensive deal overview and analysis</p>
+            <p className="text-slate-600 md:text-lg">Comprehensive deal overview and analysis</p>
           </div>
 
           {/* Enhanced Top Row Images */}
           <div className="mb-16 opacity-0 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-            <div className="flex flex-col lg:flex-row justify-around gap-8 w-4/5 mx-auto">
+            <div className="flex flex-col md:flex-row justify-around gap-8 w-4/5 mx-auto">
               {[
                 { label: "Representing", value: txn.representing, imageShowing: txn.representingPic },
                 { label: "Counter Party", value: txn.party2 , imageShowing: txn.party2Pic},
@@ -87,25 +87,25 @@ const TransactionDetail = () => {
                     }}
                   >
                     {/* Card container */}
-                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl w-[15rem] mx-auto overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-white/20">
+                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:w-[15rem] mx-auto overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-white/20">
                       {/* Image with overlay */}
-                      <div className="relative h-[5rem] overflow-hidden">
+                      <div className="relative md:h-[5rem] overflow-hidden">
                         <img
                           src={imageShowing}
                           alt={value}
-                          className=" w-auto  object-cover "
+                          className=" md:w-auto w-[12rem] object-cover  "
                         />
                        
                       </div>
 
                       {/* Content */}
-                      <div className="p-6 relative">
+                      <div className="p-3 md:p-6 relative">
                         <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-red-500 to-red-600 group-hover:w-full transition-all duration-500 ease-out"></div>
                         
-                        <h3 className="text-xl font-medium text-slate-600 mb-2 group-hover:text-slate-900 transition-colors duration-300">
+                        <h3 className="md:text-xl font-medium text-slate-600 mb-2 group-hover:text-slate-900 transition-colors duration-300">
                           {value}
                         </h3>
-                        <p className="text-slate-600 font-medium flex items-center gap-2">
+                        <p className="text-slate-600 font-medium flex items-center gap-2 text-sm">
                           <div className="w-2 h-2 bg-red-600 rounded-full"></div>
                           {label}
                         </p>
@@ -117,10 +117,10 @@ const TransactionDetail = () => {
           </div>
 
           {/* Enhanced Details Section */}
-          <div className="flex flex-col xl:flex-row gap-8 w-full opacity-0 animate-fade-in-up" style={{ animationDelay: '800ms' }}>
+          <div className="flex flex-col md:flex-row gap-8 w-full opacity-0 animate-fade-in-up" style={{ animationDelay: '800ms' }}>
             {/* Enhanced Left Box */}
-            <div className="w-full xl:w-80 xl:sticky xl:top-8 h-fit">
-              <div className="bg-white/90 backdrop-blur-sm shadow-xl rounded-2xl p-8 border border-white/20 relative overflow-hidden">
+            <div className="w-full md:w-80 xl:sticky xl:top-8 h-fit">
+              <div className="bg-white/90 backdrop-blur-sm shadow-xl rounded-2xl p-4 md:p-8 border border-white/20 relative overflow-hidden">
                 {/* Background pattern */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-500/5 to-blue-500/5 rounded-full -translate-y-16 translate-x-16"></div>
                 
@@ -136,10 +136,10 @@ const TransactionDetail = () => {
                     </div>
                   </div>
 
-                  <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent mb-6"></div>
+                  <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent md:mb-6"></div>
 
                   {/* Enhanced Info Fields */}
-                  <div className="space-y-6">
+                  <div className="md:space-y-6">
                     {[
                       { label: "Sector", value: txn.sector,},
                       { label: "Type of Deal", value: txn.type_of_deal, },
@@ -159,7 +159,7 @@ const TransactionDetail = () => {
                   </div>
 
                   {/* Enhanced Contact Button */}
-                  <button className="mt-8 w-full group relative overflow-hidden px-6 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                  <button className="mt-8 w-full group relative overflow-hidden md:px-6 py-2 md:py-4 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                     <div className="absolute inset-0 bg-gradient-to-r from-red-700 to-red-800 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                     <div className="relative flex items-center justify-center gap-2">
                       <svg className="w-5 h-5 transform group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -174,7 +174,7 @@ const TransactionDetail = () => {
 
             {/* Enhanced Right Box */}
             <div className="flex-1">
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20 relative overflow-hidden">
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 md:p-8 shadow-lg border border-white/20 relative overflow-hidden">
                 {/* Background decoration */}
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-pink-200 to-red-500 opacity-20"></div>
                 
@@ -193,7 +193,7 @@ const TransactionDetail = () => {
                       </h2>
                     </div>
                     
-                    <h3 className="text-xl md:text-2xl font-medium text-slate-700 mb-6 leading-relaxed">
+                    <h3 className="text-xl md:text-2xl font-medium text-slate-700 md:mb-6 leading-relaxed">
                       {txn.heading}
                     </h3>
                   </div>
@@ -203,24 +203,18 @@ const TransactionDetail = () => {
                     <div className="text-slate-600 text-base md:text-lg leading-relaxed space-y-6 whitespace-pre-line">
                       <div className="relative">
                         <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-red-500 to-transparent opacity-30 rounded-full"></div>
-                        <div className="pl-6">
+                        <div className=" pl-3 md:pl-6">
                           {txn.description}
                         </div>
                       </div>
                       
-                      {/* <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-6 border-l-4 border-red-500">
-                        Facere, architecto laudantium, molestias veritatis nam unde suscipit accusantium iste perspiciatis explicabo debitis provident officia quis ratione corrupti eaque nisi eveniet quo consectetur nemo totam iusto vel distinctio sequi. Reiciendis ipsum aspernatur quidem fuga laudantium similique ratione perferendis doloremque dicta assumenda explicabo, quia nesciunt ea impedit nihil eveniet id inventore consectetur quos adipisci suscipit minus quas omnis fugit!
-                      </div> */}
-                      
-                      {/* <div>
-                        Nobis sint dolor dolores ratione dolorem. Atque, veritatis autem placeat voluptas officia enim corporis architecto, ab dolor rem quam sed tenetur nesciunt repellat porro cum alias minima provident debitis, at inventore doloremque. Temporibus iure, esse saepe tempora quaerat, vitae perspiciatis eaque exercitationem, quod in cum porro necessitatibus sapiente voluptates aliquid impedit ut obcaecati nulla. Optio est, enim consectetur adipisci fugit dolor ullam id error ad voluptates eos debitis voluptate a.
-                      </div> */}
+                     
                     </div>
                   </div>
 
                   {/* Key Highlights Section */}
-                  <div className="mt-10 p-6 bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl border border-slate-200">
-                    <h4 className="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                  <div className="mt-10 p-3 md:p-6 bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl border border-slate-200">
+                    <h4 className="text-[1rem] md:text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
                       <div className="w-2 h-2 bg-red-600 rounded-full"></div>
                       Key Highlights
                     </h4>

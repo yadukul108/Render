@@ -1,6 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 h1, h2, h3{
   font-family: 'EB Garamond', serif;
 }
@@ -17,18 +16,18 @@ html {
   text-align: center;
 }
 .swiper-pagination-bullet {
-  background-color: #94a3b8; /* Tailwind slate-400 */
+  background-color: #94a3b8; 
   opacity: 1;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #dc2626; /* Tailwind red-600 */
+  background-color: #dc2626; 
 }
 
 .nav-link {
   position: relative;
   padding-bottom: 4px;
-  color: #1f2937; /* Tailwind's gray-800 */
+  color: #1f2937; 
   text-decoration: none;
 }
 
@@ -44,7 +43,7 @@ html {
   transform: translateX(-50%);
   width: 0%;
   height: 2px;
-  background-color: #dc2626; /* Tailwind's red-600 */
+  background-color: #dc2626; 
   transition: width 0.3s ease-in-out;
 }
 

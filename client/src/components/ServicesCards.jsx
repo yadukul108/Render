@@ -121,7 +121,7 @@ const ServicesCards = () => {
 
         {/* Bottom CTA section */}
         <div className="text-center mt-16 opacity-0 animate-fade-in-up" style={{ animationDelay: '800ms' }}>
-          <div className="flex flex-col md:inline-flex items-center gap-4 py-2 md:px-8 md:py-4 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20">
+          <div className="flex flex-col md:inline-flex items-center gap-4 py-2 md:px-8 md:py-4 ">
             <span className="text-slate-600 font-medium ">Ready to get started?</span>
             <button 
               onClick={() => window.location.href = '/contact-us'}
