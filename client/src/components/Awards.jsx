@@ -14,7 +14,7 @@ const images = [
 const Awards = () => {
   return (
     <div className=''>
-    <div className="py-10 px-6 max-w-7xl mx-auto ">
+    <div className="md:py-10 px-6 max-w-7xl mx-auto ">
       {/* Inline custom Swiper CSS */}
       <style>
         {`
@@ -33,7 +33,7 @@ const Awards = () => {
         `}
       </style>
 
-      <h2 className="text-2xl md:text-3xl font-md mb-6 w-11/12 text-gray-800">Awards & Achievements</h2>
+      <h2 className="text-2xl md:text-3xl font-md mb-6 text-gray-700 text-center">Awards & Achievements</h2>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}

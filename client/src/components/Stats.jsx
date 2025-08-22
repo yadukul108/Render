@@ -9,10 +9,10 @@ const statsData = [
 
 const Stats = () => {
   return (
-    <div className=" pt-12">
+    <div className=" md:pt-12">
 
     <div  className="max-w-7xl mx-auto px-6  ">
-      <h1 className=" text-2xl md:text-3xl text-slate-700 mb-10 ">Key Statistics</h1>
+      <h1 className=" text-2xl md:text-3xl text-slate-700 mb-10 text-center ">Key Statistics</h1>
       <div className="flex flex-wrap w-3/4 mx-auto justify-between gap-10">
         {statsData.map((stat, index) => (
           <div key={index} className="text-center w-full sm:w-auto">

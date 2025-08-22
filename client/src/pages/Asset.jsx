@@ -65,7 +65,7 @@ const [selectedFeature, setSelectedFeature] = useState(0);
             
             {/* Tower 1 - Tailored Solutions */}
             <div className="group relative">
-              <div className=" text-slate-700 p-8 rounded-t-3xl transform transition-all duration-500 shadow-xl">
+              <div className=" text-slate-700 p-6 md:p-8 rounded-t-3xl transform transition-all duration-500 shadow-xl">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto md:mb-4 ">
                     <CheckCircle className="w-8 h-8 text-red-600" />
@@ -73,7 +73,7 @@ const [selectedFeature, setSelectedFeature] = useState(0);
                   <h1 className="text-2xl font-medium md:mb-2">Discipline and Fundamentals</h1>
                 </div>
               </div>
-              <div className="bg-white p-6 rounded-b-3xl shadow-xl border-t-4 border-red-600">
+              <div className="bg-white p-3 md:p-6 rounded-b-3xl shadow-xl border-t-4 border-red-600">
                 <p className="text-slate-700 text-center font-medium text-sm  md:text-[1rem] ">
                   The core of our strategy lies in unwavering discipline and strong investment fundamentals
                 </p>
@@ -85,7 +85,7 @@ const [selectedFeature, setSelectedFeature] = useState(0);
 
             {/* Tower 3 - Committed */}
             <div className="group relative">
-              <div className=" text-slate-700 p-8 rounded-t-3xl transform transition-all duration-500 shadow-xl">
+              <div className=" text-slate-700 p-6 md:p-8 rounded-t-3xl transform transition-all duration-500 shadow-xl">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto md:mb-4 ">
                     <Star className="w-8 h-8 text-red-600" />
@@ -94,7 +94,7 @@ const [selectedFeature, setSelectedFeature] = useState(0);
                   
                 </div>
               </div>
-              <div className="bg-white p-6 rounded-b-3xl shadow-xl border-t-4 border-red-600">
+              <div className="bg-white p-3 md:p-6 rounded-b-3xl shadow-xl border-t-4 border-red-600">
                 <p className="text-slate-700 text-center font-medium text-sm  md:text-[1rem] ">
                 We have outperformed the market in both our Health and High Growth PMS strategies
 

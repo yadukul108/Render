@@ -42,12 +42,12 @@ const ServicesCards = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative ">
         {/* Enhanced heading section */}
-        <div className="text-center mb-16 opacity-0 animate-fade-in-up">
-          <h2 className="text-2xl lg:text-3xl font-medium bg-gradient-to-r from-slate-800 via-slate-700 to-slate-600 bg-clip-text text-transparent mb-4">
+        <div className="text-center mb-10 md:mb-16 opacity-0 animate-fade-in-up">
+          <h2 className="text-2xl lg:text-3xl font-medium bg-gradient-to-r from-slate-800 via-slate-700 to-slate-600 bg-clip-text text-transparent md:mb-4">
             Our Core Services
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto rounded-full mb-6"></div>
-          <p className="text-slate-600 md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto rounded-full mb-3 md:mb-6"></div>
+          <p className="text-slate-600 text-sm md:text-lg max-w-2xl mx-auto leading-relaxed">
             Discover our comprehensive suite of financial services designed to elevate your business and wealth management strategy
           </p>
         </div>
@@ -120,7 +120,7 @@ const ServicesCards = () => {
         </div>
 
         {/* Bottom CTA section */}
-        <div className="text-center mt-16 opacity-0 animate-fade-in-up" style={{ animationDelay: '800ms' }}>
+        <div className="text-center mt-8 md:mt-16 opacity-0 animate-fade-in-up" style={{ animationDelay: '800ms' }}>
           <div className="flex flex-col md:inline-flex items-center gap-4 py-2 md:px-8 md:py-4 ">
             <span className="text-slate-600 font-medium ">Ready to get started?</span>
             <button 

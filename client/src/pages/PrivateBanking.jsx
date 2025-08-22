@@ -63,13 +63,13 @@ const [selectedFeature, setSelectedFeature] = useState(0);
         <h1 className='text-center text-slate-700 mt-8 md:mt-16 font-medium text-2xl md:text-4xl'>Private Banking</h1>
         <h1 className='text-center text-slate-600 p-1 font-medium mt-2 md:mt-6 md:text-2xl max-w-5xl mx-auto'>"Providing unbiased wealth management solutions tailored for families across generations, ensuring continuity and growth of family wealth through strategic planning and personalized advisory."</h1>
       {/* Value Proposition Towers */}
-      <div className=" py-14 relative overflow-hidden">
+      <div className=" py-8 md:py-14 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Tower 1 - Tailored Solutions */}
             <div className="group relative">
-              <div className=" text-slate-700 p-8 rounded-t-3xl transform transition-all duration-500 shadow-xl">
+              <div className=" text-slate-700 p-6 md:p-8 rounded-t-3xl transform transition-all duration-500 shadow-xl">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto md:mb-4 ">
                     <CheckCircle className="w-8 h-8 text-red-600" />
@@ -78,7 +78,7 @@ const [selectedFeature, setSelectedFeature] = useState(0);
                   <h1 className="text-xl md:text-2xl font-medium">Solutions</h1>
                 </div>
               </div>
-              <div className="bg-white p-6 rounded-b-3xl shadow-xl border-t-4 border-red-600">
+              <div className="bg-white p-3 md:p-6 rounded-b-3xl shadow-xl border-t-4 border-red-600">
                 <p className="text-slate-700 text-center text-sm  md:text-[1rem] font-medium">
                   Bespoke financial strategies designed specifically for your unique needs and goals
                 </p>
@@ -88,7 +88,7 @@ const [selectedFeature, setSelectedFeature] = useState(0);
 
             {/* Tower 2 - Independent */}
             <div className="group relative">
-              <div className=" text-slate-700 p-8 rounded-t-3xl transform transition-all duration-500 shadow-xl">
+              <div className=" text-slate-700 p-6 md:p-8 rounded-t-3xl transform transition-all duration-500 shadow-xl">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto md:mb-4 ">
                     <Shield className="w-8 h-8 text-red-600" />
@@ -97,7 +97,7 @@ const [selectedFeature, setSelectedFeature] = useState(0);
                   <h3 className="text-xl md:text-2xl font-medium">Informed, Innovative</h3>
                 </div>
               </div>
-              <div className="bg-white p-6 rounded-b-3xl shadow-xl border-t-4 border-red-600">
+              <div className="bg-white p-3 md:p-6 rounded-b-3xl shadow-xl border-t-4 border-red-600">
                 <p className="text-slate-700 text-center text-sm  md:text-[1rem] font-medium">
                   Unbiased advice with cutting-edge insights and innovative approaches to wealth management
                 </p>
@@ -107,7 +107,7 @@ const [selectedFeature, setSelectedFeature] = useState(0);
 
             {/* Tower 3 - Committed */}
             <div className="group relative">
-              <div className=" text-slate-700 p-8 rounded-t-3xl transform transition-all duration-500 shadow-xl">
+              <div className=" text-slate-700 p-6 md:p-8 rounded-t-3xl transform transition-all duration-500 shadow-xl">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto md:mb-4 ">
                     <Star className="w-8 h-8 text-red-600" />
@@ -116,7 +116,7 @@ const [selectedFeature, setSelectedFeature] = useState(0);
                   <h3 className="text-xl md:text-2xl font-medium">Long-Term Success</h3>
                 </div>
               </div>
-              <div className="bg-white p-6 rounded-b-3xl shadow-xl border-t-4 border-red-600">
+              <div className="bg-white p-3 md:p-6 rounded-b-3xl shadow-xl border-t-4 border-red-600">
                 <p className="text-slate-700 text-center text-sm  md:text-[1rem] font-medium">
                   Dedicated partnership focused on achieving your long-term financial objectives
                 </p>

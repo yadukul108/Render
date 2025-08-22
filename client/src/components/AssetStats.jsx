@@ -160,7 +160,7 @@ const ReturnsChart = () => {
 
               {/* Performance Chart */}
               <div className="border-t border-slate-200 pt-6">
-                <h4 className="text-xl md:text-2xl font-medium text-slate-700 mb-6">Performance Comparison</h4>
+                <h2 className="text-xl md:text-2xl font-medium text-slate-700 mb-6">Performance Comparison</h2>
                 <ChartSection data={currentPMS.chartData} />
               </div>
 
