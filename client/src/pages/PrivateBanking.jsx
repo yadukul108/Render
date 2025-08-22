@@ -134,62 +134,118 @@ const [selectedFeature, setSelectedFeature] = useState(0);
       <div className="max-w-7xl mx-auto px-6 py-14">
         <h1 className='text-center text-slate-700  mb-10 font-medium text-2xl md:text-4xl'>Our Features</h1>
          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-       {/* Left Side - Feature Headings */}
-       <div className="lg:col-span-2 space-y-6">
-         {features.map((feature, index) => (
-           <button
-             key={index}
-             onClick={() => setSelectedFeature(index)}
-             className={`w-full text-left p-4 rounded-xl transition-all duration-300 ${
-               selectedFeature === index
-                 ? 'bg-slate-700 text-white shadow-lg transform '
-                 : 'bg-slate-100 text-slate-700 hover:bg-slate-200 hover:transform hover:scale-102'
-             }`}
-           >
-             <div className="flex items-center gap-3">
-               <span className="text-2xl">{feature.icon}</span>
-               <p className=" md:text-lg font-medium">{feature.title}</p>
-             </div>
-           </button>
-         ))}
-       </div>
+  {/* Desktop Layout */}
+  <div className="hidden lg:block lg:col-span-2 space-y-6">
+    {features.map((feature, index) => (
+      <button
+        key={index}
+        onClick={() => setSelectedFeature(index)}
+        className={`w-full text-left p-4 rounded-xl transition-all duration-300 ${
+          selectedFeature === index
+            ? 'bg-slate-700 text-white shadow-lg transform '
+            : 'bg-slate-100 text-slate-700 hover:bg-slate-200 hover:transform hover:scale-102'
+        }`}
+      >
+        <div className="flex items-center gap-3">
+          <span className="text-2xl">{feature.icon}</span>
+          <p className=" md:text-lg font-medium">{feature.title}</p>
+        </div>
+      </button>
+    ))}
+  </div>
 
-       {/* Right Side - Selected Feature Card */}
-       <div className="lg:col-span-3">
-         <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-slate-200 h-full transition-all duration-500 transform hover:shadow-2xl">
-           {/* Icon */}
-           <div className="inline-flex p-4 rounded-xl bg-slate-700 text-white mb-6">
-             <span className="text-3xl">{features[selectedFeature].icon}</span>
-           </div>
+  {/* Mobile Layout - Features with expandable content */}
+  <div className="lg:hidden space-y-4">
+    {features.map((feature, index) => (
+      <div key={index} className="space-y-4">
+        <button
+          onClick={() => setSelectedFeature(selectedFeature === index ? -1 : index)}
+          className={`w-full text-left p-4 rounded-xl transition-all duration-300 ${
+            selectedFeature === index
+              ? 'bg-slate-700 text-white shadow-lg'
+              : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+          }`}
+        >
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">{feature.icon}</span>
+              <p className="md:text-lg font-medium">{feature.title}</p>
+            </div>
+           
+          </div>
+        </button>
+        
+        {/* Mobile Feature Content */}
+        {selectedFeature === index && (
+          <div className="bg-white rounded-2xl p-6 shadow-xl border border-slate-200 transition-all duration-500 animate-fade-in">
+            {/* Icon */}
+            <div className="inline-flex p-4 rounded-xl bg-slate-700 text-white mb-6">
+              <span className="text-3xl">{feature.icon}</span>
+            </div>
 
-           {/* Title */}
-           <h3 className=" text-xl md:text-2xl font-medium text-slate-800 mb-4">
-             {features[selectedFeature].title}
-           </h3>
+            {/* Title */}
+            <h3 className="text-xl font-medium text-slate-800 mb-4">
+              {feature.title}
+            </h3>
 
-           {/* Items */}
-           <div className="space-y-2">
-             {features[selectedFeature].items.map((item, itemIndex) => (
-               <div 
-                 key={itemIndex} 
-                 className="flex items-start gap-4 animate-fade-in"
-                 style={{
-                   animationDelay: `${itemIndex * 0.1}s`,
-                   animationFillMode: 'both'
-                 }}
-               >
-                 <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-gradient-to-r from-slate-600 to-slate-800 mt-2 flex-shrink-0 shadow-sm"></div>
-                 <p className="text-slate-600 leading-relaxed font-medium md:text-lg">
-                   {item}
-                 </p>
-               </div>
-             ))}
-           </div>
+            {/* Items */}
+            <div className="space-y-2">
+              {feature.items.map((item, itemIndex) => (
+                <div 
+                  key={itemIndex} 
+                  className="flex items-start gap-4 animate-fade-in"
+                  style={{
+                    animationDelay: `${itemIndex * 0.1}s`,
+                    animationFillMode: 'both'
+                  }}
+                >
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-slate-600 to-slate-800 mt-2 flex-shrink-0 shadow-sm"></div>
+                  <p className="text-slate-600 leading-relaxed font-medium">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
 
-          
-         </div>
-       </div>
-     </div>
+  {/* Desktop Right Side - Selected Feature Card */}
+  <div className="hidden lg:block lg:col-span-3">
+    <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-slate-200 h-full transition-all duration-500 transform hover:shadow-2xl">
+      {/* Icon */}
+      <div className="inline-flex p-4 rounded-xl bg-slate-700 text-white mb-6">
+        <span className="text-3xl">{features[selectedFeature].icon}</span>
+      </div>
+
+      {/* Title */}
+      <h3 className=" text-xl md:text-2xl font-medium text-slate-800 mb-4">
+        {features[selectedFeature].title}
+      </h3>
+
+      {/* Items */}
+      <div className="space-y-2">
+        {features[selectedFeature].items.map((item, itemIndex) => (
+          <div 
+            key={itemIndex} 
+            className="flex items-start gap-4 animate-fade-in"
+            style={{
+              animationDelay: `${itemIndex * 0.1}s`,
+              animationFillMode: 'both'
+            }}
+          >
+            <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-gradient-to-r from-slate-600 to-slate-800 mt-2 flex-shrink-0 shadow-sm"></div>
+            <p className="text-slate-600 leading-relaxed font-medium md:text-lg">
+              {item}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
 
           <h1 className='text-center text-slate-700 mt-10 md:mt-20 mb-16 font-medium text-2xl md:text-4xl'>Our Impact</h1>
             <div className="grid md:grid-cols-2 gap-8 ">
