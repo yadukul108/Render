@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
-
-const assetSchema = new mongoose.Schema(
+const caseSchema = new mongoose.Schema(
   {
     heading: {
       type: String,
@@ -11,16 +10,19 @@ const assetSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    category: {
+    caseImage: {
       type: String,
     },
-    pdfReportLink: {
-      type: String, // Cloudinary secure URL
+    description:{
+      type:String,
+    },
+    pdfLink: {
+      type: String, 
       required: true,
-    }
+    },
   },
   { timestamps: true }
 );
 
-const Asset = mongoose.model("Asset", assetSchema);
-export default Asset;
+const Case = mongoose.model("Case", caseSchema);
+export default Case;

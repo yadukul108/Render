@@ -58,21 +58,54 @@ const Careers = () => {
   return (
     <div className="pt-[3rem]">
       {/* ---------- Hero Section ---------- */}
-      <div className="relative w-full h-screen">
-        <img src={HomeIb} alt="Newsletter Background" className="absolute inset-0 w-full h-full object-cover grey-tone" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-wide">Start your career in</h1>
-          <p className="text-3xl sm:text-4xl md:text-5xl font-medium mt-2">Allegro Capital</p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            <a href="/about">
-              <button className="bg-white text-slate-600 hover:bg-red-700 hover:text-white px-6 py-3 rounded font-medium transition duration-300 w-full sm:w-auto">About Us</button>
-            </a>
-            <a href="#apply-now">
-              <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded font-medium transition duration-300 w-full sm:w-auto">Apply Now</button>
-            </a>
-          </div>
-        </div>
+     <div className="relative w-full h-[42rem] md:h-screen">
+  {/* Background Gradient Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/70 to-red-900/60 z-2"></div>
+
+  {/* Background Image */}
+  <img
+    src={HomeIb}
+    alt="Careers Background"
+    className="absolute inset-0 w-full h-full object-cover brightness-75"
+  />
+
+  {/* Content */}
+  <div className="absolute inset-0 z-3 flex items-center justify-center">
+    <div className="text-center px-4 max-w-3xl">
+      {/* Label */}
+      <div className="inline-block bg-slate-600/20 backdrop-blur-sm border border-red-400/30 rounded-full px-4 py-2 mb-6">
+        <span className="text-white text-sm font-medium tracking-wide">CAREERS AT ALLEGRO CAPITAL</span>
       </div>
+
+      {/* Heading */}
+      <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-light leading-tight">
+        Start Your Career With
+        <span className="block text-red-400 font-medium">Allegro Capital</span>
+      </h1>
+
+      {/* Subtext */}
+      <p className="mt-6 text-slate-200 text-base sm:text-lg md:text-xl font-light leading-relaxed">
+        Join a dynamic team that values innovation, collaboration, and excellence. 
+        Shape the future of investment banking and advisory with us.
+      </p>
+
+      {/* Buttons */}
+      <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/about">
+          <button className="bg-white text-slate-600 hover:bg-red-700 hover:text-white px-6 py-3 rounded-lg font-medium transition duration-300 w-full sm:w-auto">
+            About Us
+          </button>
+        </a>
+        <a href="#apply-now">
+          <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 w-full sm:w-auto">
+            Apply Now
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 
       {/* ---------- Benefits ---------- */}
       <section className="py-16 px-4 md:px-12">
@@ -84,7 +117,7 @@ const Careers = () => {
             { icon: Briefcase,  title: 'Career Growth',        text: 'We support your development with learning, mentorship, and projects.' },
             { icon: Clock,      title: 'Global Market Exposure', text: 'Work on high‑impact financial projects and gain global insights.' },
           ].map(({ icon: Icon, title, text }, i) => (
-            <div key={i} className="bg-slate-100 shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition hover:border-b-4 hover:border-red-600 border-b-transparent">
+            <div key={i} className="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition hover:border-b-4 hover:border-red-600 border-b-transparent">
               <div className="flex justify-center mb-4"><Icon className="text-red-600" size={32} /></div>
               <h3 className="text-lg md:text-xl font-medium text-slate-800 mb-2">{title}</h3>
               <p className="text-slate-600 text-[0.9rem]">{text}</p>

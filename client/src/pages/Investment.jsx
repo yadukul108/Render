@@ -1,4 +1,4 @@
-import HomeIb from "../assets/AllegroOffice1.jpg";
+import HomeIb from "../assets/office4.jpg";
 import { Link } from 'react-router-dom';
 import CaseStudies from '../components/CaseStudy';
 import Footer from "../components/Footer"
@@ -9,22 +9,44 @@ const Investment = () => {
 
   return (
     <div className=''>
-      <div className="relative w-full h-screen">
-        <img
-          src={HomeIb} 
-          alt="Newsletter Background"
-          className="absolute inset-0 w-full h-full object-cover grey-tone"
-        />
+     <div className="relative overflow-hidden">
+  <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/70 to-red-900/60 z-2"></div>
+  <img
+    src={HomeIb}
+    alt="About Us"
+    className="object-cover w-full h-[42rem] md:h-[40rem] filter brightness-75"
+  />
+  <div className="absolute inset-0 z-3 flex items-center">
+  <div className="container mx-auto px-3 md:px-8">
+    <div className="max-w-4xl">
+      {/* Label */}
+      <div className="mb-4">
+        <div className="inline-block bg-slate-600/20 backdrop-blur-sm border border-red-400/30 rounded-full px-4 py-2 mb-6">
+          <span className="text-white text-sm font-medium tracking-wide">WELCOME TO ALLEGRO CAPITAL</span>
+        </div>
+      </div>
 
-        <div className="absolute inset-0 flex items-center justify-center">
-    <div className="bg-white/10 backdrop-blur-sm px-8 py-6 rounded-xl border border-white/10 text-white text-center">
-      <h1 className="text-4xl md:text-6xl font-medium tracking-wide">Allegro Capital</h1>
-      <p className="text-2xl md:text-3xl font-medium mt-2">Investment Advisory</p>
+      {/* Heading */}
+      <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-light mb-8 leading-tight">
+        Trusted Advisors In
+        <span className="block text-red-400 font-medium">Investment Banking</span>
+      </h1>
+
+      {/* Subtext */}
+      <p className="text-slate-200 text-base md:text-lg lg:text-xl max-w-3xl leading-relaxed font-light">
+       Allegro Capital provides tailored investment banking solutions with deep expertise and strong networks, partnering with businesses from startups to global corporations
+      </p>
+
+      <p className="mt-4 text-slate-300 text-sm md:text-base font-light max-w-2xl">
+        Guiding clients with integrity and expertise since 2002.
+      </p>
     </div>
   </div>
-      </div>
+</div>
+
+</div>
      <div className=" w-full md:w-2/3 max-w-5xl mx-auto px-4  py-15 md:py-12 ">
-      <h2 className="text-2xl md:text-3xl font-medium text-slate-800 mb-6 text-center">
+      <h2 className="text-[1.35rem] md:text-3xl font-medium text-slate-700 mb-6 text-center">
         Investment Banking at Allegro Capital
       </h2>
       <div className="text-gray-600 text-base md:text-lg space-y-5">
@@ -43,8 +65,9 @@ const Investment = () => {
       </div>
     </div>
    <div className="w-full max-w-7xl mx-auto px-4 py-12 text-slate-600">
-      <h2 className="text-2xl md:text-3xl font-medium text-center text-slate-800 mb-10">Transactions</h2>
-
+      <h2 className="text-3xl font-medium text-center text-slate-700 mb-2">Our Transactions</h2>
+      <p className="text-center mb-12 md:mb-20">Each deal represents a story of strategy, precision, and trust.
+Together, they showcase our enduring strength in investment banking.</p>
       {/* Cards */}
      <TransactionCarousal/>
 
@@ -52,9 +75,9 @@ const Investment = () => {
      <div className="mt-10 flex justify-center">
   <Link
     to="/transactions"
-          className="bg-white text-red-600 border border-red-600 px-4 py-2 rounded-xl hover:bg-red-600  hover:text-white transition"
+          className="bg-red-500 text-white border px-4 py-2 rounded-xl hover:bg-white  hover:text-red-700 transition"
   >
-    View More
+    View All Transaction
   </Link>
 </div>
     </div>

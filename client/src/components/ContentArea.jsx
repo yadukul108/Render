@@ -5,6 +5,9 @@ const ContentArea = ({ selected }) => {
   const [loading, setLoading] = useState(true);
   const isTransaction = selected === 'Transactions';
   const isNewsletter = selected === 'Newsletter';
+  const isCase = selected === 'Case Studies';
+  const isAward = selected === 'Awards & Achievements';
+  const isReports = selected === 'Asset Reports';
   const [currentPage, setCurrentPage] = useState(1);
 const itemsPerPage = 10;
 const [statusMessage, setStatusMessage] = useState('');
@@ -19,6 +22,11 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
   const [form, setForm] = useState({
     heading: '',
     year: '',
+    caseImage:'',
+    awardimageURL:'',
+    pdfLink:'',
+    category:'',
+    pdfReportLink:null,
     isFeatured:'',
     amount: '',
     mainPic: '',
@@ -42,7 +50,9 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
       let url = '';
       if (isTransaction) url = '/api/transactions/getAllTransactions';
       else if (isNewsletter) url = '/api/newsletter/getAllNewsletters';
-
+      else if(isCase) url ='/api/cases/getAllCase';
+      else if(isReports) url='/api/assets/getAllAssets';
+      else if(isAward) url='api/awards';
       const response = await fetch(url);
       if (!response.ok) throw new Error('Failed to fetch data');
       const result = await response.json();
@@ -55,26 +65,46 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
     }
   };
 
-  const handleDelete = async (id) => {
-    if (!window.confirm('Are you sure you want to delete this item?')) return;
-    try {
-      const endpoint = isTransaction
-        ? `/api/transactions/deleteTransaction/${id}`
-        : `/api/newsletter/deleteNewsletter/${id}`;
-      const res = await fetch(endpoint, { method: 'DELETE' });
-      if (!res.ok) throw new Error('Failed to delete');
-      fetchData();
-     
-    } catch (err) {
-      console.error(err);
+const handleDelete = async (id) => {
+  if (!window.confirm('Are you sure you want to delete this item?')) return;
+  try {
+    let endpoint = "";
+
+    if (isTransaction) {
+      endpoint = `/api/transactions/deleteTransaction/${id}`;
+    } else if (isNewsletter) {
+      endpoint = `/api/newsletter/deleteNewsletter/${id}`;
+    } else if (isCase) {
+      endpoint = `/api/cases/deleteCase/${id}`;
+    }else if (isAward) {
+      endpoint = `/api/awards/${id}`;
     }
-  };
+    else if (isReports) {
+      endpoint = `/api/assets/deleteAsset/${id}`;
+    }
+
+    if (!endpoint) throw new Error("No valid delete endpoint");
+
+    const res = await fetch(endpoint, { method: 'DELETE' });
+    if (!res.ok) throw new Error('Failed to delete');
+    fetchData();
+    
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 
   const handleUpdate = (item) => {
     setIsEditing(true);
     setEditId(item._id);
     setForm({
       heading: item.heading,
+      caseImage: item.caseImage,
+      awardimageURL: item.awardimageURL,
+      pdfReportLink:item.pdfReportLink,
+      category:item.category,
+      pdfLink: item.pdfLink,
       year: item.year,
       isFeatured:item.isFeatured,
       amount: item.amount || '',
@@ -125,6 +155,21 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
         ? `/api/newsletter/updateNewsletter/${editId}`
         : '/api/newsletter/createNewsletter';
     }
+    else if (isCase) {
+      url = isEditing
+        ? `/api/cases/updateCase/${editId}`
+        : '/api/cases/createCase';
+    }
+     else if (isAward) {
+      url = isEditing
+        ? `/api/awards/${editId}`
+        : '/api/awards';
+    }
+    else if (isReports) {
+      url = isEditing
+        ? `/api/assets/updateAsset/${editId}`
+        : '/api/assets/createAsset';
+    }
 
     const formData = new FormData();
     for (const key in form) {
@@ -154,6 +199,11 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
     setForm({
       heading: '',
       year: '',
+      caseImage:null,
+      category:'',
+      pdfReportLink:null,
+      awardimageURL:null,
+      pdfLink:null,
       isFeatured: '',
       amount: '',
       mainPic: null,
@@ -176,7 +226,7 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
 };
 
   useEffect(() => {
-    if (selected === 'Transactions' || selected === 'Newsletter') {
+    if (selected === 'Transactions' || selected === 'Newsletter' || selected === 'Case Studies' || selected ==='Awards & Achievements' || selected==='Asset Report') {
       fetchData();
     }
   }, [selected]);
@@ -204,12 +254,14 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
       {/* Form Section */}
       <div className="bg-white rounded-xl shadow-xl mb-8 border border-slate-200 overflow-hidden">
         <div className="bg-gradient-to-r from-slate-700 to-slate-800 px-6 py-4">
-          <h2 className="text-xl font-semibold text-white flex items-center">
-            <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-            </svg>
-            {isEditing ? 'Edit' : 'Add New'} {isTransaction ? 'Transaction' : 'Newsletter'}
-          </h2>
+        <h2 className="text-xl font-semibold text-white flex items-center">
+  <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+  </svg>
+  {isEditing ? 'Edit' : 'Add New'}{" "}
+  {isTransaction ? 'Transaction' : isNewsletter ? 'Newsletter' : isCase ? 'Case Study' : isAward? 'Awards & Achievements' : 'Asset Report'}
+</h2>
+
         </div>
 
         <form ref={formRef} onSubmit={handleSubmit} className="p-8">
@@ -253,6 +305,118 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
                 className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-100 transition-all duration-300 text-slate-700 placeholder-slate-400"
               />
             </div>
+      {isCase && (
+  <>
+    <div className="lg:col-span-2 mt-6">
+      <h3 className="text-lg font-semibold text-slate-700 mb-4 flex items-center">
+        <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
+        Case Study Files
+      </h3>
+    </div>
+
+    {/* Case Image */}
+    <div className="space-y-2">
+      <label htmlFor="caseImage" className="text-sm font-semibold text-slate-700 uppercase tracking-wide">
+        Case Image
+      </label>
+      <div className="border-2 border-dashed border-slate-300 rounded-lg p-4 hover:border-red-400 transition-colors duration-300">
+        <input
+          type="file"
+          name="caseImage"
+          accept="image/*"
+          onChange={handleChange}
+          className="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-red-50 file:text-red-700 hover:file:bg-red-100"
+        />
+      </div>
+    </div>
+
+    {/* PDF Upload */}
+    <div className="space-y-2">
+      <label htmlFor="pdfLink" className="text-sm font-semibold text-slate-700 uppercase tracking-wide">
+        Case PDF
+      </label>
+      <div className="border-2 border-dashed border-slate-300 rounded-lg p-4 hover:border-red-400 transition-colors duration-300">
+        <input
+          type="file"
+          name="pdfLink"
+          accept="application/pdf"
+          onChange={handleChange}
+          className="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-red-50 file:text-red-700 hover:file:bg-red-100"
+        />
+      </div>
+    </div>
+  </>
+)}
+ {isReports && (
+  <>
+   <div className="space-y-2">
+              <label htmlFor="category" className="text-sm font-semibold text-slate-700 uppercase tracking-wide">
+                Category <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                name="category"
+                value={form.category}
+                onChange={handleChange}
+                placeholder="Enter category..."
+                required
+                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-100 transition-all duration-300 text-slate-700 placeholder-slate-400"
+              />
+            </div>
+    <div className="lg:col-span-2 mt-6">
+      <h3 className="text-lg font-semibold text-slate-700 mb-4 flex items-center">
+        <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
+        Asset Reports
+      </h3>
+    </div>
+
+   
+
+    {/* PDF Upload */}
+    <div className="space-y-2">
+      <label htmlFor="pdfReportLink" className="text-sm font-semibold text-slate-700 uppercase tracking-wide">
+        Report PDF
+      </label>
+      <div className="border-2 border-dashed border-slate-300 rounded-lg p-4 hover:border-red-400 transition-colors duration-300">
+        <input
+          type="file"
+          name="pdfReportLink"
+          accept="application/pdf"
+          onChange={handleChange}
+          className="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-red-50 file:text-red-700 hover:file:bg-red-100"
+        />
+      </div>
+    </div>
+  </>
+)}
+{isAward && (
+  <>
+    <div className="lg:col-span-2 mt-6">
+      <h3 className="text-lg font-semibold text-slate-700 mb-4 flex items-center">
+        <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
+        Awards & Achievements
+      </h3>
+    </div>
+
+    {/* Case Image */}
+    <div className="space-y-2">
+      <label htmlFor="awardimageURL" className="text-sm font-semibold text-slate-700 uppercase tracking-wide">
+        Award Image
+      </label>
+      <div className="border-2 border-dashed border-slate-300 rounded-lg p-4 hover:border-red-400 transition-colors duration-300">
+        <input
+          type="file"
+          name="awardimageURL"
+          accept="image/*"
+          onChange={handleChange}
+          className="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-red-50 file:text-red-700 hover:file:bg-red-100"
+        />
+      </div>
+    </div>
+
+  </>
+)}
+
 
             {/* Transaction Specific Fields */}
             {isTransaction && (
@@ -473,7 +637,11 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              <span>{isEditing ? 'Update' : 'Add'} {isTransaction ? 'Transaction' : 'Newsletter'}</span>
+              <span>
+  {isEditing ? 'Update' : 'Add'}{" "}
+  {isTransaction ? 'Transaction' : isNewsletter ? 'Newsletter' : isCase ? 'Case Study': isAward?'Awards & Achievements': 'Asset Report'}
+</span>
+
             </button>
             
             {isEditing && (
@@ -485,6 +653,11 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
                   setForm({
                     heading: '',
                     year: '',
+                    category:'',
+      pdfReportLink:null,
+                    awardimageURL:null,
+                    caseImage:null,
+                    pdfLink:null,
                     isFeatured:'',
                     amount: '',
                     mainPic: null,

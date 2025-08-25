@@ -8,6 +8,7 @@ const Sidebar = ({ selected, setSelected }) => {
     "Case Studies",
     "Newsletter",
     "Awards & Achievements",
+    "Asset Reports",
   ];
 
   return (

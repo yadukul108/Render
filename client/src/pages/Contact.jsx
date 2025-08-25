@@ -35,96 +35,175 @@ const Contact = () => {
   };
 
   return (
-    <div>
-      <section className="min-h-screen flex items-center justify-center px-4 py-16">
-        <div className="w-full max-w-6xl bg-white rounded-xl grid grid-cols-1 md:grid-cols-2 overflow-hidden">
-          
-          {/* Left image block */}
-          <div className="relative w-full h-full bg-white rounded-xl shadow-lg overflow-hidden">
-            <div
-              className="h-[30rem] md:h-full bg-cover bg-center grey-tone"
-              style={{ backgroundImage: `url(${contactIMG})` }}
-            >
-              <h1 className="text-white font-medium text-3xl md:text-4xl text-center py-10">
-                Contact Us
-              </h1>
+    <div className="min-h-screen bg-gradient-to-r from-slate-900/90 via-slate-400/70 to-red-700/60 pt-[3rem]">
+     
+      {/* Main Contact Section */}
+      <section className="py-16 md:py-20 px-4 md:px-6">
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+            
+            {/* Left Info Block */}
+            <div className="space-y-8 lg:sticky lg:top-24 self-start">
+             
+
+              {/* Contact Information */}
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
+                <div className="mb-8">
+                  <div className="flex items-center gap-3 mb-4">
+                   
+                    <div>
+                      <h3 className="text-xl font-semibold text-slate-800">Office Address</h3>
+                      <p className="text-slate-600">Visit us at our location</p>
+                    </div>
+                  </div>
+                 
+                    <h4 className="font-medium text-slate-800 mb-2">Allegro Capital Pvt. Ltd.</h4>
+                    <a
+                      href="https://www.google.com/maps/dir//XH8X%2BPV4,+D'Souza+Rd,+Shanthala+Nagar,+Ashok+Nagar,+Bengaluru,+Karnataka+560025"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-red-600 hover:text-red-700 hover:underline transition-colors duration-300"
+                    >
+                      XH8X+PV4, D'Souza Rd, Ashok Nagar,<br />
+                      Bengaluru, Karnataka 560025
+                    </a>
+                 
+                </div>
+
+                <div className="space-y-6">
+                  {/* Phone */}
+                  <div className="flex items-center gap-4">
+                   
+                    <div>
+                      <p className="text-slate-800 font-medium">Phone</p>
+                      <a href="tel:+919876543210" className="text-slate-600 hover:text-red-600 transition-colors duration-300">
+                        +91 98765 43210
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div className="flex items-center gap-4">
+                    
+                    <div>
+                      <p className="text-slate-800 font-medium">Email</p>
+                      <a href="mailto:contact@allegroadvisors.com" className="text-slate-600 hover:text-red-600 transition-colors duration-300">
+                        contact@allegroadvisors.com
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Business Hours */}
+                  <div className="flex items-center gap-4">
+                   
+                    <div>
+                      <p className="text-slate-800 font-medium">Business Hours</p>
+                      <p className="text-slate-600">Mon - Fri: 9:00 AM - 6:00 PM</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="absolute bottom-0 w-full bg-slate-100 bg-opacity-70 text-slate-700 p-6 text-center">
-              <h2 className="text-xl font-medium mb-2">Allegro Capital Pvt. Ltd.</h2>
-              <a
-                href="https://www.google.com/maps/dir//XH8X%2BPV4,+D'Souza+Rd,+Shanthala+Nagar,+Ashok+Nagar,+Bengaluru,+Karnataka+560025"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-              >
-                XH8X+PV4, D'Souza Rd, Ashok Nagar, Bengaluru, Karnataka 560025
-              </a>
-              <p>+91 98765 43210</p>
-              <p>contact@allegroadvisors.com</p>
+
+            {/* Right Form Block */}
+            <div className="bg-white rounded-2xl p-8 md:p-10 shadow-xl border border-slate-200">
+              <div className="mb-8">
+                <h2 className="text-2xl md:text-3xl font-medium text-slate-800 mb-4">
+                  Send us a <span className="text-red-600">Message</span>
+                </h2>
+                <p className="text-slate-600">
+                  Fill out the form below and we'll get back to you within 24 hours.
+                </p>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Success Message */}
+                {isSubmitted && (
+                  <div className="bg-green-50 border border-green-200 rounded-xl p-4 flex items-center gap-3">
+                    <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <p className="text-green-800 font-medium">
+                      Thank you! Your message has been sent successfully.
+                    </p>
+                  </div>
+                )}
+
+                {/* Error Message */}
+                {error && (
+                  <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center gap-3">
+                    <svg className="w-5 h-5 text-red-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <p className="text-red-800 font-medium">{error}</p>
+                  </div>
+                )}
+
+                {/* Name Field */}
+                <div>
+                  <label htmlFor="name" className="block mb-3 text-slate-700 font-medium text-sm uppercase tracking-wide">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Enter your full name"
+                    className="w-full border-2 border-slate-200 px-4 py-4 rounded-xl focus:outline-none focus:border-red-500 focus:ring-4 focus:ring-red-500/10 transition-all duration-300 text-slate-800"
+                    required
+                  />
+                </div>
+
+                {/* Email Field */}
+                <div>
+                  <label htmlFor="email" className="block mb-3 text-slate-700 font-medium text-sm uppercase tracking-wide">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Enter your email address"
+                    className="w-full border-2 border-slate-200 px-4 py-4 rounded-xl focus:outline-none focus:border-red-500 focus:ring-4 focus:ring-red-500/10 transition-all duration-300 text-slate-800"
+                    required
+                  />
+                </div>
+
+                {/* Message Field */}
+                <div>
+                  <label htmlFor="message" className="block mb-3 text-slate-700 font-medium text-sm uppercase tracking-wide">
+                    Your Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    rows="6"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Tell us about your financial goals and how we can help..."
+                    className="w-full border-2 border-slate-200 px-4 py-4 rounded-xl focus:outline-none focus:border-red-500 focus:ring-4 focus:ring-red-500/10 transition-all duration-300 text-slate-800 resize-none"
+                    required
+                  ></textarea>
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
+                >
+                  Send Message
+                  <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                  </svg>
+                </button>
+              </form>
             </div>
           </div>
-
-          {/* Right form block */}
-          <form onSubmit={handleSubmit} className="p-8 md:p-12 bg-white space-y-6">
-            {isSubmitted && (
-              <div className="text-green-600 font-medium">
-                Thank you! Your message has been sent.
-              </div>
-            )}
-            {error && (
-              <div className="text-red-600 font-medium">
-                {error}
-              </div>
-            )}
-
-            <div>
-              <label htmlFor="name" className="block mb-2 text-slate-700 font-medium">Name</label>
-              <input
-                type="text"
-                id="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your name"
-                className="w-full border border-slate-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-                required
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block mb-2 text-slate-700 font-medium">Email</label>
-              <input
-                type="email"
-                id="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="you@example.com"
-                className="w-full border border-slate-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-                required
-              />
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block mb-2 text-slate-700 font-medium">Message</label>
-              <textarea
-                id="message"
-                rows="5"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Write your message here..."
-                className="w-full border border-slate-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-                required
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              className="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg transition duration-300"
-            >
-              Send Message
-            </button>
-          </form>
         </div>
       </section>
+
+    
       <Footer />
     </div>
   );

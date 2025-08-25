@@ -44,23 +44,46 @@ const [selectedFeature, setSelectedFeature] = useState(0);
   return (
     <div>
       {/* Hero Section with Background Image */}
-      <div className="relative w-full h-screen">
-        <img
-          src={HomeIb} 
-          alt="Allegro Capital Office"
-          className="absolute inset-0 w-full h-full object-cover grey-tone"
-        />
-        
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="bg-white/10 backdrop-blur-sm px-8 py-6 rounded-xl border border-white/10 text-white text-center">
-            <h1 className="text-4xl md:text-6xl font-medium tracking-wide">Allegro Capital</h1>
-            <p className="text-2xl md:text-3xl font-medium mt-2">Private Banking</p>
-          </div>
+      <div className="relative overflow-hidden">
+  <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/70 to-red-900/60 z-2"></div>
+  <img
+    src={HomeIb}
+    alt="About Us"
+    className="object-cover w-full h-[42rem] md:h-[40rem] filter brightness-75"
+  />
+  <div className="absolute inset-0 z-3 flex items-center">
+  <div className="container mx-auto px-3 md:px-8">
+    <div className="max-w-4xl">
+      {/* Label */}
+      <div className="mb-4">
+        <div className="inline-block bg-slate-600/20 backdrop-blur-sm border border-red-400/30 rounded-full px-4 py-2 mb-6">
+          <span className="text-white text-sm font-medium tracking-wide">WELCOME TO ALLEGRO CAPITAL</span>
         </div>
       </div>
 
+      {/* Heading */}
+      <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-light mb-8 leading-tight">
+        Your Partner For
+        <span className="block text-red-400 font-medium">Private Banking</span>
+      </h1>
 
-        <h1 className='text-center text-slate-700 mt-8 md:mt-16 font-medium text-2xl md:text-4xl'>Private Banking</h1>
+      {/* Subtext */}
+      <p className="text-slate-200 text-base md:text-lg lg:text-xl max-w-3xl leading-relaxed font-light">
+       Allegro Capital offers personalized private banking and wealth management services, 
+  helping individuals and families protect, grow, and transfer their wealth with confidence.
+      </p>
+
+      <p className="mt-4 text-slate-300 text-sm md:text-base font-light max-w-2xl">
+        Guiding clients with integrity and expertise since 2002.
+      </p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+        <h1 className='text-center text-slate-700 mt-8 md:mt-16 font-medium text-3xl md:text-4xl'>Private Banking</h1>
         <h1 className='text-center text-slate-600 p-1 font-medium mt-2 md:mt-6 md:text-2xl max-w-5xl mx-auto'>"Providing unbiased wealth management solutions tailored for families across generations, ensuring continuity and growth of family wealth through strategic planning and personalized advisory."</h1>
       {/* Value Proposition Towers */}
       <div className=" py-8 md:py-14 relative overflow-hidden">
@@ -132,7 +155,7 @@ const [selectedFeature, setSelectedFeature] = useState(0);
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 py-14">
-        <h1 className='text-center text-slate-700  mb-10 font-medium text-2xl md:text-4xl'>Our Features</h1>
+        <h1 className='text-center text-slate-700  mb-10 font-medium text-3xl md:text-4xl'>Our Features</h1>
          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
   {/* Desktop Layout */}
   <div className="hidden lg:block lg:col-span-2 space-y-6">
@@ -247,7 +270,7 @@ const [selectedFeature, setSelectedFeature] = useState(0);
   </div>
 </div>
 
-          <h1 className='text-center text-slate-700 mt-10 md:mt-20 mb-16 font-medium text-2xl md:text-4xl'>Our Impact</h1>
+          <h1 className='text-center text-slate-700 mt-20 md:mt-20 mb-16 font-medium text-3xl md:text-4xl'>Our Impact</h1>
             <div className="grid md:grid-cols-2 gap-8 ">
               <div className="text-center mb-4 md:mb-10 ">
                 <Users className="w-12 h-12 text-slate-700 mx-auto mb-2 md:mb-4" />

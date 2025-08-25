@@ -2,7 +2,7 @@ import React from "react";
 import HomeIb from "../assets/Office2.jpg";
 import Footer from "../components/Footer";
 import awardImage from "../assets/Awards.jpg"; // Replace with actual image
-
+import { useState,useEffect } from "react";
 const awardsData = [
   {
     year: "2024",
@@ -28,20 +28,74 @@ const awardsData = [
 ];
 
 const AwardsAchievements = () => {
+
+  const [awards, setAwards] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch awards from API
+  useEffect(() => {
+    const fetchAwards = async () => {
+      try {
+        const res = await fetch("/api/awards"); // your backend endpoint
+        if (!res.ok) throw new Error("Failed to fetch awards");
+        const data = await res.json();
+        setAwards(data); // adjust if your API wraps data inside a field like { awards: [...] }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAwards();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-slate-700">
+        Loading Awards...
+      </div>
+    );
+  }
+
   return (
     <div className="">
       {/* Header with background */}
-      <div className="relative w-full h-screen">
-        <img
-          src={HomeIb}
-          alt="Awards Background"
-          className="absolute inset-0 w-full h-full object-cover grey-tone"
-        />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
-          <h1 className="text-4xl md:text-6xl font-medium tracking-wide">Allegro Capital</h1>
-          <p className="text-3xl mt-2">Awards & Achievements</p>
-        </div>
-      </div>
+     <div className="relative w-full h-[42rem] md:h-screen">
+  {/* Gradient Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/70 to-red-900/60 z-2"></div>
+
+  {/* Background Image */}
+  <img
+    src={HomeIb}
+    alt="Awards Background"
+    className="absolute inset-0 w-full h-full object-cover brightness-75"
+  />
+
+  {/* Content */}
+  <div className="absolute inset-0 z-3 flex flex-col items-center justify-center text-center px-4">
+    {/* Label */}
+    <div className="inline-block bg-slate-600/20 backdrop-blur-sm border border-red-400/30 rounded-full px-4 py-2 mb-6">
+      <span className="text-white text-sm font-medium tracking-wide">RECOGNITION</span>
+    </div>
+
+    {/* Heading */}
+    <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-light leading-tight">
+      Allegro Capital
+    </h1>
+
+    {/* Subheading */}
+    <p className="text-red-400 text-2xl sm:text-3xl md:text-4xl mt-3 font-medium tracking-wide">
+      Awards & Achievements
+    </p>
+
+    {/* Optional Subtext */}
+    <p className="mt-6 text-slate-200 text-base sm:text-lg md:text-xl max-w-2xl">
+      Celebrated across the industry for our expertise, impact, and excellence in investment advisory.
+    </p>
+  </div>
+</div>
+
 
       {/* Awards List */}
       <div className="max-w-6xl mx-auto px-4 py-12">

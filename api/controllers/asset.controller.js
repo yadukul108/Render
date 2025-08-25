@@ -1,17 +1,17 @@
 import Asset from "../models/asset.model.js";
-import cloudinary from '../utils/cloudinary.js'; 
+import cloudinary from "../utils/cloudinary.js";
 import fs from "fs";
 
-// ✅ Upload Asset with PDF
+// ✅ Create Asset with PDF Upload
 export const createAsset = async (req, res) => {
   try {
     // PDF uploaded via Multer middleware
     const pdfFile = req.file.path;
 
-    // Upload to Cloudinary
+    // Upload to Cloudinary (PDF must be uploaded as "raw")
     const uploadResult = await cloudinary.uploader.upload(pdfFile, {
-      resource_type: "raw", // IMPORTANT for PDFs
-      folder: "assets/pdfs", // optional: keeps files organized in Cloudinary
+      resource_type: "raw",
+      folder: "assets/pdfs",
     });
 
     // Save in MongoDB
@@ -19,7 +19,7 @@ export const createAsset = async (req, res) => {
       heading: req.body.heading,
       year: req.body.year,
       category: req.body.category,
-      pdfLink: uploadResult.secure_url,
+      pdfReportLink: uploadResult.secure_url, // ✅ Required field
     });
 
     await newAsset.save();
@@ -27,19 +27,72 @@ export const createAsset = async (req, res) => {
     // Delete temp file
     fs.unlinkSync(pdfFile);
 
-    res.status(201).json({ message: "Asset created successfully", newAsset });
+    res.status(201).json({ success: true, message: "Asset created successfully", asset: newAsset });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Error uploading PDF", error });
+    res.status(500).json({ success: false, message: "Error uploading PDF", error });
   }
 };
 
 // ✅ Get All Assets
 export const getAllAssets = async (req, res) => {
   try {
-    const assets = await Asset.find().sort({ createdAt: -1 }); // latest first
-    res.status(200).json(assets);
+    const assets = await Asset.find().sort({ createdAt: -1 });
+    res.status(200).json( assets );
   } catch (error) {
     res.status(500).json({ message: "Error fetching assets", error });
+  }
+};
+
+// ✅ Update Asset
+export const updateAsset = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { heading, year, category } = req.body;
+
+    let updateData = { heading, year, category };
+
+    // If a new PDF is uploaded, replace in Cloudinary
+    if (req.file) {
+      const pdfFile = req.file.path;
+
+      const uploadResult = await cloudinary.uploader.upload(pdfFile, {
+        resource_type: "raw",
+        folder: "assets/pdfs",
+      });
+
+      updateData.pdfReportLink = uploadResult.secure_url;
+
+      fs.unlinkSync(pdfFile); // delete temp file
+    }
+
+    const updatedAsset = await Asset.findByIdAndUpdate(id, updateData, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!updatedAsset) {
+      return res.status(404).json({ success: false, message: "Asset not found" });
+    }
+
+    res.status(200).json({ success: true, asset: updatedAsset });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
+
+// ✅ Delete Asset
+export const deleteAsset = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedAsset = await Asset.findByIdAndDelete(id);
+
+    if (!deletedAsset) {
+      return res.status(404).json({ success: false, message: "Asset not found" });
+    }
+
+    res.status(200).json({ success: true, message: "Asset deleted successfully" });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
   }
 };

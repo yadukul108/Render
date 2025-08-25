@@ -28,7 +28,7 @@ const TransactionCarousal = () => {
   }, []);
 
   return (
-    <div className="w-4/5 md:w-11/12 mx-auto px-4">
+    <div className=" md:w-11/12 mx-auto px-4">
       <Swiper
         modules={[Pagination]}
         pagination={{ clickable: true }}
@@ -42,11 +42,13 @@ const TransactionCarousal = () => {
         }}
         className="mySwiper pb-10"
       >
-        {transactions.map((txn, index) => (
-          <SwiperSlide key={txn._id}>
+        {transactions
+  .filter(txn => txn.isFeatured)
+  .map((txn, index) => (
+    <SwiperSlide key={txn._id}>
             <Link
               to={`/transaction/${txn._id}`}
-              className="group block bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 max-w-sm mx-auto border border-white/20 opacity-0 animate-fade-in-up"
+              className="group block bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 w-[18rem] mx-auto border border-white/20 opacity-0 animate-fade-in-up"
               style={{ animationDelay: `${index * 200}ms` }}
             >
               {/* Image Section with Enhanced Overlay */}
@@ -55,7 +57,7 @@ const TransactionCarousal = () => {
                   src={txn.mainPic}
                   alt="Transaction"
                   loading="lazy"
-                  className="w-auto mx-auto h-auto object-cover "
+                  className="w-[15rem] mx-auto h-auto object-cover "
                 />
              
                 
@@ -64,10 +66,7 @@ const TransactionCarousal = () => {
                   {txn.year || "—"}
                 </div>
                 
-                {/* Deal Type Badge */}
-                <div className="absolute top-4 left-4 px-3 py-1 bg-red-600/90 backdrop-blur-sm rounded-full text-xs font-bold text-white shadow-lg">
-                  {txn.type_of_deal || "—"}
-                </div>
+               
                 
                 {/* Hover Arrow */}
                 <div className="absolute bottom-4 right-4 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
@@ -78,7 +77,7 @@ const TransactionCarousal = () => {
               </div>
 
               {/* Enhanced Content Section */}
-              <div className="p-6 bg-gradient-to-br from-slate-50 to-white relative">
+              <div className="p-3 bg-gradient-to-br from-slate-50 to-white relative">
                 {/* Animated Border */}
                 <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-red-500 to-red-600 group-hover:w-full transition-all duration-500 ease-out"></div>
                 

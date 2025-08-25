@@ -202,7 +202,7 @@ const People = () => {
           <h1 className="text-3xl md:text-4xl font-[500] text-slate-800 mb-4">
             Our People
           </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto mb-6" />
+         
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Meet the exceptional professionals driving innovation and excellence at Allegro Capital
           </p>

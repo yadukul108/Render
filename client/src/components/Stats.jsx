@@ -9,14 +9,14 @@ const statsData = [
 
 const Stats = () => {
   return (
-    <div className=" md:pt-12">
+    <div className=" pt-4 md:pt-12 md:mb-4">
 
     <div  className="max-w-7xl mx-auto px-6  ">
-      <h1 className=" text-2xl md:text-3xl text-slate-700 mb-10 text-center ">Key Statistics</h1>
+      <h2 className="text-3xl text-center font-medium bg-gradient-to-r from-slate-800 via-slate-700 to-slate-600 bg-clip-text text-transparent mb-10 md:mb-18">Key Statistics</h2>
       <div className="flex flex-wrap w-3/4 mx-auto justify-between gap-10">
         {statsData.map((stat, index) => (
           <div key={index} className="text-center w-full sm:w-auto">
-            <h2 className=" text-2xl md:text-3xl font-medium text-slate-700">
+            <h2 className=" text-3xl md:text-4xl font-medium text-slate-700">
               {stat.number}
               <span className="text-red-600">+</span>
             </h2>
@@ -24,7 +24,8 @@ const Stats = () => {
           </div>
         ))}
       </div>
-    </div></div>
+    </div>
+    </div>
   );
 };
 

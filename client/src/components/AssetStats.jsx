@@ -70,7 +70,7 @@ const ReturnsChart = () => {
       <div className="max-w-7xl mx-auto md:px-6">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-4xl font-medium text-slate-700 mb-4">
+          <h2 className="text-3xl md:text-4xl font-medium text-slate-700 mb-4">
             Returns since Inception
           </h2>
           

@@ -24,7 +24,7 @@ const CaseStudies= () => {
     <div className="w-full max-w-7xl mx-auto px-4 py-16  text-slate-700">
       {/* Section Header */}
       <div className="text-center mb-12">
-        <h2 className="text-2xl md:text-3xl font-medium mb-4">Case Studies</h2>
+        <h2 className="text-3xl font-medium mb-4">Case Studies</h2>
         <p className="text-base md:text-lg max-w-2xl mx-auto">
           Explore how Allegro Advisors has partnered with clients to deliver strategic outcomes
           through deep financial insight and tailored solutions.
@@ -54,10 +54,9 @@ const CaseStudies= () => {
       </div>
       <div className="mt-10 flex justify-center">
         <Link
-          to="/case-studies"
-          className="bg-white text-red-600 border border-red-600 px-4 py-2 rounded-xl hover:bg-red-600  hover:text-white transition"
-        >
-          View More
+          to="/case_study"
+           className="bg-red-500 text-white border px-4 py-2 rounded-xl hover:bg-white  hover:text-red-700 transition">
+          View All Case Studies
         </Link>
       </div>
     </div>

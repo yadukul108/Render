@@ -8,7 +8,6 @@ const MemberProfile = () => {
   const { state } = useLocation();
 
   const member = state?.member;
-
   if (!member) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
@@ -43,7 +42,7 @@ const MemberProfile = () => {
         <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden w-full max-w-6xl mx-auto transform animate-slide-up">
           
           {/* Header Section */}
-          <div className="relative bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 p-8 md:p-12">
+          <div className="relative bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 p-4 md:p-12">
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative  md:flex items-center gap-8">
               <div className="flex-shrink-0 mb-6 md:mb-0">
@@ -52,7 +51,7 @@ const MemberProfile = () => {
                   <img
                     src={Model}
                     alt={member.name}
-                    className="relative w-48 h-48 md:w-56 md:h-56 object-cover rounded-2xl shadow-2xl transform transition-all duration-500 group-hover:scale-105"
+                    className="relative w-48 h-48 md:w-56 md:h-56 object-cover rounded-2xl shadow-2xl transform transition-all duration-500 group-hover:scale-105 mx-auto"
                   />
                 </div>
               </div>
@@ -68,7 +67,7 @@ const MemberProfile = () => {
                   Allegro Capital
                 </div>
                 {member.education && (
-                  <p className="text-blue-100 italic text-lg transform animate-fade-in-up delay-400">
+                  <p className="text-blue-100 italic md:text-lg transform animate-fade-in-up delay-400">
                     {member.education}
                   </p>
                 )}
@@ -77,7 +76,7 @@ const MemberProfile = () => {
           </div>
 
           {/* Content Section */}
-          <div className="p-8 md:p-12">
+          <div className="p-4 md:p-12">
             <div className="grid gap-8 max-w-5xl mx-auto">
               
               {member.experienceLeadership && (
@@ -127,21 +126,48 @@ const MemberProfile = () => {
                   </div>
                 </section>
               )}
-
               {/* LinkedIn Section */}
-              <section className="transform animate-fade-in-up delay-1000 w-2/5 mx-auto">
-                <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-2 text-center">
-                  <div className="flex items-center justify-center mb-2">
-                    <svg className="w-6 h-6 text-white mr-2" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                    <span className="text-white font-medium">LinkedIn Profile</span>
-                  </div>
-                  <p className="text-blue-100 text-lg">
-                    {member.linkdin || "Profile not available"}
-                  </p>
-                </div>
-              </section>
+             {member.socials?.linkedin && (
+  <section className="transform animate-fade-in-up delay-1000 mx-auto">
+    <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-3 text-center">
+      <a
+          href={member.socials.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className=" hover:text-white"
+        >
+          <div className="flex items-center justify-center mb-1 space-x-2">
+        {/* LinkedIn Logo */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          className="text-white"
+          viewBox="0 0 16 16"
+        >
+          <path d="M0 1.146C0 .513.324 0 .725 0h14.55c.4 0 .725.513.725 1.146v13.708c0 
+          .633-.325 1.146-.725 1.146H.725A.723.723 0 0 1 0 14.854V1.146zm4.943 
+          12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 
+          1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248C2.962 
+          2.686 2.426 3.225 2.426 3.934c0 .694.52 1.248 1.302 
+          1.248h.015zm4.908 8.212V9.359c0-.216.016-.432.08-.586.176-.431.576-.878 
+          1.248-.878.88 0 1.232.662 1.232 1.634v3.865h2.4V9.25c0-2.22-1.184-3.252-2.765-3.252-1.274 
+          0-1.845.7-2.165 1.19h.016V6.169h-2.4c.032.7 0 7.225 0 7.225h2.4z"/>
+        </svg>
+        <span className="text-white font-medium">LinkedIn Profile</span>
+      </div>
+     
+        
+          
+        </a>
+      
+    </div>
+  </section>
+)}
+
+
+
             </div>
           </div>
         </div>

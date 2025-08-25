@@ -40,22 +40,42 @@ const [selectedFeature, setSelectedFeature] = useState(0);
   return (
     <div>
       {/* Hero Section with Background Image */}
-      <div className="relative w-full h-screen">
-        <img
-          src={HomeIb} 
-          alt="Allegro Capital Office"
-          className="absolute inset-0 w-full h-full object-cover grey-tone"
-        />
-        
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="bg-white/10 backdrop-blur-sm px-8 py-6 rounded-xl border border-white/10 text-white text-center max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-medium tracking-wide">Allegro Capital</h1>
-            <p className="text-2xl md:text-3xl font-medium mt-2">Asset Management</p>
-           
-          </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/70 to-red-900/60 z-2"></div>
+  <img
+    src={HomeIb}
+    alt="About Us"
+    className="object-cover w-full h-[42rem] md:h-[40rem] filter brightness-75"
+  />
+  <div className="absolute inset-0 z-3 flex items-center">
+  <div className="container mx-auto px-3 md:px-8">
+    <div className="max-w-4xl">
+      {/* Label */}
+      <div className="mb-4">
+        <div className="inline-block bg-slate-600/20 backdrop-blur-sm border border-red-400/30 rounded-full px-4 py-2 mb-6">
+          <span className="text-white text-sm font-medium tracking-wide">WELCOME TO ALLEGRO CAPITAL</span>
         </div>
       </div>
-<h1 className='text-center text-slate-700 mt-8 md:mt-16 font-medium text-2xl md:text-4xl '>Asset Management</h1>
+
+      {/* Heading */}
+      <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-light mb-8 leading-tight">
+        Excellence In
+        <span className="block text-red-400 font-medium">Asset Management</span>
+      </h1>
+
+      {/* Subtext */}
+      <p className="text-slate-200 text-base md:text-lg lg:text-xl max-w-3xl leading-relaxed font-light">
+       Allegro Capital provides tailored asset management solutions designed to preserve, 
+  grow, and optimize wealth. We work closely with clients to align portfolios with 
+  their long-term financial goals and risk preferences.
+      </p>
+
+      <p className="mt-4 text-slate-300 text-sm md:text-base font-light max-w-2xl">
+        Guiding clients with integrity and expertise since 2002.
+      </p>
+    </div>
+  </div>
+</div>
+<h1 className='text-center text-slate-700 mt-8 md:mt-16 font-medium text-3xl md:text-4xl '>Asset Management</h1>
       {/* Value Proposition Towers */}
        <h1 className=" md:text-2xl font-medium md:mt-6 text-slate-600 max-w-3xl mx-auto text-center p-2">"We are business owners, not traders. We use the Market to acquire great businesses at fair prices and sell when prices exceed their worth"
 </h1>
@@ -111,7 +131,7 @@ const [selectedFeature, setSelectedFeature] = useState(0);
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 py-14">
-        <h1 className='text-center text-slate-700  mb-10 font-medium text-2xl md:text-4xl'>Our Features</h1>
+        <h1 className='text-center text-slate-700  mb-10 font-medium text-3xl md:text-4xl'>Our Features</h1>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
   {/* Desktop Layout */}
   <div className="hidden lg:block lg:col-span-2 space-y-6">

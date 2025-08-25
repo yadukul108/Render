@@ -9,6 +9,8 @@ import applyRoutes from './routes/apply.route.js';
 import contactRoutes from './routes/contact.route.js';
 import cors from 'cors';
 import assetRoutes from "./routes/asset.route.js";
+import awardRoutes from "./routes/awards.route.js";
+import caseRoutes from "./routes/case.route.js";
 import downloadRoutes from "./routes/download.route.js";
 dotenv.config();
 
@@ -34,12 +36,15 @@ mongoose
 app.use("/api/download", downloadRoutes);
 
 app.use("/api/assets", assetRoutes);
+app.use("/api/cases", caseRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/newsletter', newsletterRoutes);
 app.use('/api/transactions', transactionRoutes);
 app.use('/api', applyRoutes);
 app.use('/api', contactRoutes);
+app.use("/api/awards", awardRoutes);
+
 // Error handler middleware
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;

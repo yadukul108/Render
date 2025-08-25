@@ -1,13 +1,11 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./pages/Home"
-import Media from "./pages/Media"
 import Transactions from "./pages/Transactions"
 import Careers from "./pages/Careers"
 import About from "./pages/About"
 import Navbar from "./components/Navbar"
 import Contact from './pages/Contact';
-import Footer from './components/Footer';
 import Team from "./pages/Team"
 import TransactionDetail from './components/TransactionDetail';
 import Newsletter from './pages/Newsletter';
@@ -34,7 +32,6 @@ const App = () => {
      <ScrollToTop />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/media' element={<Media />} />
         <Route path='/about' element={<About />} />
         <Route path="/contact-us" element={<Contact/>}/>
         <Route path="/newsletter" element={<Newsletter/>}/>

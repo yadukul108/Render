@@ -30,20 +30,25 @@ export default function AssetReports() {
   const [sortOrder, setSortOrder] = useState("desc");
 
   useEffect(() => {
-    const fetchAssets = async () => {
-      try {
-        const response = await fetch("/api/assets/getAllAssets");
-        const data = await response.json();
-        setAssets(data);
-      } catch (error) {
-        console.error("Error fetching assets:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchAssets = async () => {
+    try {
+      const response = await fetch("/api/assets/getAllAssets");
+      if (!response.ok) throw new Error("Failed to fetch assets");
 
-    fetchAssets();
-  }, []);
+      const data = await response.json(); // directly the array
+      setAssets(data || []); // ensure it's at least an empty array
+    } catch (error) {
+      console.error("Error fetching assets:", error);
+      setAssets([]); // fallback to empty array
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchAssets();
+}, []);
+
+
 
   const handleDownloadClick = (asset) => {
     setSelectedAsset(asset);
@@ -67,7 +72,7 @@ export default function AssetReports() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
-          pdfLink: selectedAsset.pdfLink,
+          pdfLink: selectedAsset.pdfReportLink,
         }),
       });
 
@@ -114,11 +119,11 @@ export default function AssetReports() {
       <div className="max-w-7xl mx-auto p-6">
         {/* Header */}
         <div className="mb-8 text-center">
-          <h1 className="text-2xl md:text-4xl font-medium text-slate-800">
+          <h1 className="text-3xl md:text-4xl font-medium text-slate-700">
             Asset Reports
           </h1>
           <h1 className="text-slate-600 text-[1rem] md:text-xl">
-            Manage and download your asset reports with ease
+            Study and download our asset reports with ease
           </h1>
         </div>
 

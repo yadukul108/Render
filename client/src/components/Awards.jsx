@@ -1,26 +1,47 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import AwardIB from "../assets/Awards.jpg";
-
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'; // assuming react-router is used
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const images = [
-  AwardIB, AwardIB, AwardIB, AwardIB, AwardIB,
-  AwardIB, AwardIB, AwardIB, AwardIB, AwardIB
-];
-
 const Awards = () => {
+  const [awards, setAwards] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchAwards = async () => {
+      try {
+        const res = await fetch("/api/awards");
+        if (!res.ok) throw new Error("Failed to fetch awards");
+        const data = await res.json();
+        setAwards(data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAwards();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-slate-700">
+        Loading Awards...
+      </div>
+    );
+  }
+
   return (
-    <div className=''>
-    <div className="md:py-10 px-6 max-w-7xl mx-auto ">
-      {/* Inline custom Swiper CSS */}
+    <div className="md:py-10 px-6 max-w-7xl mx-auto">
       <style>
         {`
           .swiper-button-prev,
           .swiper-button-next {
-            display: none !important;;
+            display: none !important;
           }
           .swiper-pagination-bullet {
             background-color: red !important;
@@ -33,12 +54,14 @@ const Awards = () => {
         `}
       </style>
 
-      <h2 className="text-2xl md:text-3xl font-md mb-6 text-gray-700 text-center">Awards & Achievements</h2>
+      <h2 className="text-3xl font-medium mb-6 text-gray-700 text-center">
+        Awards & Achievements
+      </h2>
+
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
         slidesPerView={1}
-        navigation
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000 }}
         loop={true}
@@ -48,22 +71,21 @@ const Awards = () => {
           1024: { slidesPerView: 3 },
         }}
       >
-        {images.map((src, index) => (
+        {awards.map((award, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-64 rounded overflow-hidden shadow-lg">
-              <img
-                src={src}
-                alt={`Award ${index + 1}`}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                <p className="text-white text-xl font-medium">Award & Achievement</p>
+            <Link to="/awards">
+              <div className="relative w-full h-64 rounded overflow-hidden shadow-lg cursor-pointer">
+                <img
+                  src={award.awardimageURL}
+                  alt={`Award ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>
-    </div></div>
+    </div>
   );
 };
 
