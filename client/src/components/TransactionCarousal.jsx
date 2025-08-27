@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 
 
-const TransactionCarousal = () => {
+const TransactionCarousal = ({ source }) => {
    const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
@@ -43,7 +43,8 @@ const TransactionCarousal = () => {
         className="mySwiper pb-10"
       >
         {transactions
-  .filter(txn => txn.isFeatured)
+  .filter(txn =>
+    source === "investment" ? txn.isInvestment : txn.isStrategy)
   .map((txn, index) => (
     <SwiperSlide key={txn._id}>
             <Link

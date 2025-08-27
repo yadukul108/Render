@@ -129,43 +129,45 @@ const Case = () => {
         {loading ? (
           <p className="text-center">Loading case studies...</p>
         ) : (
-          <div className="space-y-8 max-w-5xl mx-auto">
-            {cases.map((study) => (
-              <div
-                key={study._id}
-                className="flex flex-col md:flex-row bg-slate-100 shadow-lg rounded-xl overflow-hidden"
-              >
-                {/* Left Text Content */}
-                <div className="w-full md:w-1/2 p-6 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-medium text-slate-800 mb-2">
-                      {study.heading}
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-1">
-                      <span className="font-medium">Year:</span> {study.year}
-                    </p>
-                  </div>
-                  <div className="mt-4 flex gap-4">
-                    <button
-                      onClick={() => handleDownloadClick(study)}
-                      className="bg-red-500 text-white w-[8rem] rounded-xl py-1 cursor-pointer hover:bg-red-700 transition"
-                    >
-                      Download
-                    </button>
-                  </div>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+  {cases.map((study) => (
+    <div
+      key={study._id}
+      className="flex flex-col shadow-lg rounded-xl overflow-hidden"
+    >
+      {/* Left Text Content */}
+      <div className="p-6 flex  bg-slate-100 flex-col justify-between">
+        <div>
+          <h3 className="text-xl md:text-2xl font-medium text-slate-800 mb-2">
+            {study.heading}
+          </h3>
+          <p className="text-sm text-gray-600 mb-1">
+            <span className="font-medium">Year:</span> {study.year}
+          </p>
+          <p className="text-slate-700 ">{study.description}</p>
+        </div>
+        <div className="mt-4 flex gap-4">
+          <button
+            onClick={() => handleDownloadClick(study)}
+            className="bg-red-500 text-white w-[8rem] rounded-xl py-1 cursor-pointer hover:bg-red-700 transition"
+          >
+            Download
+          </button>
+        </div>
+      </div>
 
-                {/* Right Image */}
-                <div className="w-full md:w-1/2 h-64 md:h-auto">
-                  <img
-                    src={study.caseImage || HomeIb}
-                    alt={study.heading}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* Right Image */}
+      <div className="bg-white">
+        <img
+          src={study.caseImage || HomeIb}
+          alt={study.heading}
+          className="w-auto h-auto object-cover mx-auto"
+        />
+      </div>
+    </div>
+  ))}
+</div>
+
         )}
       </section>
 

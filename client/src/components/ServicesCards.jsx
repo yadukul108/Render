@@ -23,10 +23,18 @@ const cards = [
   },
   {
     image: FamilyIB,
-    heading: "Wealth Management",
+    heading: "Private Banking",
     description:
-      "We cater to the unique needs of affluent families, providing comprehensive wealth management, estate planning, and philanthropic advisory.",
-    link: "/about",
+      "Allegro Capital offers personalized private banking and wealth management services, helping individuals and families protect, grow, and transfer their wealth with confidence",
+    link: "/private-banking",
+    
+  },
+  {
+    image: FamilyIB,
+    heading: "Asset Management",
+    description:
+      "Allegro Capital provides tailored asset management solutions designed to preserve, grow, and optimize wealth. We work closely with clients to align portfolios with their long-term financial goals and risk preferences.",
+    link: "/asset-management",
     
   },
 ];
@@ -53,7 +61,7 @@ const ServicesCards = () => {
         </div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
           {cards.map((card, index) => (
             <div
               key={index}
@@ -62,7 +70,7 @@ const ServicesCards = () => {
               onClick={() => window.location.href = card.link}
             >
               {/* Image container with overlay */}
-              <div className="relative h-48 sm:h-52 lg:h-56 overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
                 <img
                   src={card.image}
                   alt={card.heading}
@@ -82,7 +90,7 @@ const ServicesCards = () => {
               </div>
 
               {/* Content section */}
-              <div className="p-6 sm:p-8 relative">
+              <div className="p-6 sm:p-4 relative">
                 {/* Animated border */}
                 <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-red-500 to-red-600 group-hover:w-full transition-all duration-500 ease-out"></div>
                 

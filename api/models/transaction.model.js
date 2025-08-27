@@ -60,6 +60,14 @@ const transactionSchema = new mongoose.Schema(
       type: String,
       
     },
+    isInvestment:{
+      type:Boolean,
+      default:false
+    },
+    isStrategy:{
+      type:Boolean,
+      default:false
+    }
   },
   { timestamps: true }
 );

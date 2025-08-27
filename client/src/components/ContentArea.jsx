@@ -8,6 +8,7 @@ const ContentArea = ({ selected }) => {
   const isCase = selected === 'Case Studies';
   const isAward = selected === 'Awards & Achievements';
   const isReports = selected === 'Asset Reports';
+  const isNews = selected === 'News';
   const [currentPage, setCurrentPage] = useState(1);
 const itemsPerPage = 10;
 const [statusMessage, setStatusMessage] = useState('');
@@ -23,11 +24,12 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
     heading: '',
     year: '',
     caseImage:'',
+    externalLink:'',
     awardimageURL:'',
     pdfLink:'',
     category:'',
     pdfReportLink:null,
-    isFeatured:'',
+    isFeatured:"false",
     amount: '',
     mainPic: '',
      representingPic: '',
@@ -39,6 +41,8 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
     representing:'',
     asset:'',
     party2:'',
+    isInvestment:"false",
+    isStrategy:"false",
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -53,10 +57,11 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
       else if(isCase) url ='/api/cases/getAllCase';
       else if(isReports) url='/api/assets/getAllAssets';
       else if(isAward) url='api/awards';
+      else if(isNews) url='api/news/getAllNews';
       const response = await fetch(url);
-      if (!response.ok) throw new Error('Failed to fetch data');
+      console.log(response);
       const result = await response.json();
-      setData(result);
+      setData(result || []);
     } catch (err) {
       console.error(err);
       setData([]);
@@ -82,6 +87,9 @@ const handleDelete = async (id) => {
     else if (isReports) {
       endpoint = `/api/assets/deleteAsset/${id}`;
     }
+    else if(isNews){
+      endpoint=`/api/news/deleteNews/${id}`;
+        }
 
     if (!endpoint) throw new Error("No valid delete endpoint");
 
@@ -106,6 +114,7 @@ const handleDelete = async (id) => {
       category:item.category,
       pdfLink: item.pdfLink,
       year: item.year,
+      externalLink:item.externalLink,
       isFeatured:item.isFeatured,
       amount: item.amount || '',
      mainPic: item.mainPic || '',
@@ -118,6 +127,8 @@ const handleDelete = async (id) => {
       type_of_deal: item.type_of_deal || '',
       representing: item.representing || '',
       asset: item.asset || '',
+      isInvestment:item.isInvestment,
+    isStrategy:item.isStrategy,
     });
     setTimeout(() => {
     formRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -171,6 +182,11 @@ const handleDelete = async (id) => {
         : '/api/assets/createAsset';
     }
 
+    else if (isNews) {
+      url = isEditing
+        ? `/api/news/updateNews/${editId}`
+        : '/api/news/createNews';
+    }
     const formData = new FormData();
     for (const key in form) {
       if (form[key]) formData.append(key, form[key]);
@@ -204,7 +220,8 @@ const handleDelete = async (id) => {
       pdfReportLink:null,
       awardimageURL:null,
       pdfLink:null,
-      isFeatured: '',
+      externalLink:'',
+      isFeatured: "false",
       amount: '',
       mainPic: null,
       representingPic: null,
@@ -216,6 +233,8 @@ const handleDelete = async (id) => {
       representing: '',
       asset: '',
       party2: '',
+      isInvestment:"false",
+    isStrategy:"false",
     });
     setIsEditing(false);
     setEditId(null);
@@ -226,7 +245,7 @@ const handleDelete = async (id) => {
 };
 
   useEffect(() => {
-    if (selected === 'Transactions' || selected === 'Newsletter' || selected === 'Case Studies' || selected ==='Awards & Achievements' || selected==='Asset Report') {
+    if (selected === 'Transactions' || selected === 'Newsletter' || selected === 'Case Studies' || selected ==='Awards & Achievements' || selected==='Asset Reports' || selected==='News') {
       fetchData();
     }
   }, [selected]);
@@ -259,7 +278,7 @@ const handleDelete = async (id) => {
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
   </svg>
   {isEditing ? 'Edit' : 'Add New'}{" "}
-  {isTransaction ? 'Transaction' : isNewsletter ? 'Newsletter' : isCase ? 'Case Study' : isAward? 'Awards & Achievements' : 'Asset Report'}
+  {isTransaction ? 'Transaction' : isNewsletter ? 'Newsletter' : isCase ? 'Case Study' : isAward? 'Awards & Achievements' :isReports? 'Asset Reports' :'News'}
 </h2>
 
         </div>
@@ -329,6 +348,37 @@ const handleDelete = async (id) => {
         />
       </div>
     </div>
+<div className="space-y-2">
+                  <label htmlFor="isStrategy" className="text-sm font-semibold text-slate-700 uppercase tracking-wide">
+                    Strategic Advisory Case
+                  </label>
+                  <select
+                    name="isStrategy"
+                    value={form.isStrategy}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-100 transition-all duration-300 text-slate-700 bg-white"
+                  >
+                    <option value="">Select option...</option>
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                  </select>
+                </div>
+
+<div className="space-y-2">
+                  <label htmlFor="isInvestment" className="text-sm font-semibold text-slate-700 uppercase tracking-wide">
+                    Investment Case
+                  </label>
+                  <select
+                    name="isInvestment"
+                    value={form.isInvestment}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-100 transition-all duration-300 text-slate-700 bg-white"
+                  >
+                    <option value="">Select option...</option>
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                  </select>
+                </div>
 
     {/* PDF Upload */}
     <div className="space-y-2">
@@ -347,6 +397,35 @@ const handleDelete = async (id) => {
     </div>
   </>
 )}
+{isNews && (
+  <>
+    <div className="lg:col-span-2 mt-6">
+      <h3 className="text-lg font-semibold text-slate-700 mb-4 flex items-center">
+        <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
+        News Link
+      </h3>
+    </div>
+
+    {/* External Link */}
+    <div className="space-y-2">
+      <label
+        htmlFor="externalLink"
+        className="text-sm font-semibold text-slate-700 uppercase tracking-wide"
+      >
+        External Link
+      </label>
+      <input
+        type="url"
+        name="externalLink"
+        value={form.externalLink}
+        onChange={handleChange}
+        placeholder="https://example.com/case-study"
+        className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-100 transition-all duration-300 text-slate-700 bg-white"
+      />
+    </div>
+  </>
+)}
+
  {isReports && (
   <>
    <div className="space-y-2">
@@ -451,6 +530,38 @@ const handleDelete = async (id) => {
                   <select
                     name="isFeatured"
                     value={form.isFeatured}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-100 transition-all duration-300 text-slate-700 bg-white"
+                  >
+                    <option value="">Select option...</option>
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                  </select>
+                </div>
+
+<div className="space-y-2">
+                  <label htmlFor="isStrategy" className="text-sm font-semibold text-slate-700 uppercase tracking-wide">
+                    Strategic Advisory Transaction
+                  </label>
+                  <select
+                    name="isStrategy"
+                    value={form.isStrategy}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-100 transition-all duration-300 text-slate-700 bg-white"
+                  >
+                    <option value="">Select option...</option>
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                  </select>
+                </div>
+
+<div className="space-y-2">
+                  <label htmlFor="isInvestment" className="text-sm font-semibold text-slate-700 uppercase tracking-wide">
+                    Investment Transaction
+                  </label>
+                  <select
+                    name="isInvestment"
+                    value={form.isInvestment}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-100 transition-all duration-300 text-slate-700 bg-white"
                   >
@@ -639,7 +750,7 @@ const handleDelete = async (id) => {
               </svg>
               <span>
   {isEditing ? 'Update' : 'Add'}{" "}
-  {isTransaction ? 'Transaction' : isNewsletter ? 'Newsletter' : isCase ? 'Case Study': isAward?'Awards & Achievements': 'Asset Report'}
+  {isTransaction ? 'Transaction' : isNewsletter ? 'Newsletter' : isCase ? 'Case Study': isAward?'Awards & Achievements': isReports ?'Asset Reports' :'News'}
 </span>
 
             </button>
@@ -654,11 +765,12 @@ const handleDelete = async (id) => {
                     heading: '',
                     year: '',
                     category:'',
+                    externalLink:'',
       pdfReportLink:null,
                     awardimageURL:null,
                     caseImage:null,
                     pdfLink:null,
-                    isFeatured:'',
+                    isFeatured:"false",
                     amount: '',
                     mainPic: null,
                     representingPic: null,
@@ -670,6 +782,8 @@ const handleDelete = async (id) => {
                     representing:'',
                     asset:'',
                     party2:'',
+                    isInvestment:"false",
+                    isStrategy:"false",
                   });
                 }}
                 className="flex-1 min-w-[150px] bg-slate-500 hover:bg-slate-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
@@ -711,7 +825,7 @@ const handleDelete = async (id) => {
               <thead className="bg-slate-100">
                 <tr>
                   {Object.keys(currentItems[0])
-                    .filter((key) => key !== '_id' && key !== '__v')
+                    .filter((key) => key !== '_id' && key !== '__v'&& key!=='updatedAt' && key!=='createdAt')
                     .map((key) => (
                       <th
                         key={key}
@@ -729,7 +843,7 @@ const handleDelete = async (id) => {
                 {currentItems.map((item, index) => (
                   <tr key={item._id} className={`hover:bg-slate-50 transition-colors duration-200 ${index % 2 === 0 ? 'bg-white' : 'bg-slate-25'}`}>
                     {Object.entries(item)
-                      .filter(([key]) => key !== '_id' && key !== '__v')
+                      .filter(([key]) => key !== '_id' && key !== '__v' && key!=='updatedAt'&& key!=='createdAt')
                       .map(([key, val]) => (
                         <td
                           key={key}

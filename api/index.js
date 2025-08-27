@@ -11,6 +11,8 @@ import cors from 'cors';
 import assetRoutes from "./routes/asset.route.js";
 import awardRoutes from "./routes/awards.route.js";
 import caseRoutes from "./routes/case.route.js";
+import newsRoutes from "./routes/news.route.js";
+
 import downloadRoutes from "./routes/download.route.js";
 dotenv.config();
 
@@ -44,6 +46,7 @@ app.use('/api/transactions', transactionRoutes);
 app.use('/api', applyRoutes);
 app.use('/api', contactRoutes);
 app.use("/api/awards", awardRoutes);
+app.use("/api/news", newsRoutes);
 
 // Error handler middleware
 app.use((err, req, res, next) => {

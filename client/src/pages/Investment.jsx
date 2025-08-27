@@ -64,12 +64,11 @@ const Investment = () => {
         </p>
       </div>
     </div>
-   <div className="w-full max-w-7xl mx-auto px-4 py-12 text-slate-600">
+   <div className="w-full max-w-7xl mx-auto text-center px-4  py-12 text-slate-600">
       <h2 className="text-3xl font-medium text-center text-slate-700 mb-2">Our Transactions</h2>
-      <p className="text-center mb-12 md:mb-20">Each deal represents a story of strategy, precision, and trust.
-Together, they showcase our enduring strength in investment banking.</p>
+      <p className=" mb-12 md:mb-20 md:w-2/3 md:text-lg mx-auto">Each deal reflects strategic foresight, meticulous precision, and trust. Together, they showcase our consistent performance, resilience, credibility, and enduring strength in investment banking.</p>
       {/* Cards */}
-     <TransactionCarousal/>
+     <TransactionCarousal source="investment" />
 
       {/* View More Button */}
      <div className="mt-10 flex justify-center">
@@ -81,7 +80,7 @@ Together, they showcase our enduring strength in investment banking.</p>
   </Link>
 </div>
     </div>
-    <CaseStudies/>
+    <CaseStudies source="investment"/>
     <Footer/>
     </div>
   )

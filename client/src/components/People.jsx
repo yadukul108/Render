@@ -69,18 +69,7 @@ const teamMembers = [
       github: "#",
     },
   },
-  {
-    name: "Gaurav Ahirkar",
-    designation: "Associate Vice-President",
-    education: "IIM Calcutta",
-    description: "Gaurav executes strategic research and M&A deals across sectors. He has prior experience at Cloudtail, Tata Motors, and Caterpillar, bringing a diverse and strategic perspective.",
-    image: Gaurav,
-    socials: {
-      linkedin: "https://www.linkedin.com/in/gaurav-ahirkar-239a01137/",
-      twitter: "#",
-      github: "#",
-    },
-  },
+  
   {
     name: "Mansi Misra",
     designation: "Associate",
@@ -148,12 +137,12 @@ const People = () => {
   }, [selectedMember]);
 
   const group1 = teamMembers.slice(0, 3);
-  const group2 = teamMembers.slice(3, 5);
-  const group3 = teamMembers.slice(5, 9);
+  const group2 = teamMembers.slice(3, 4);
+  const group3 = teamMembers.slice(4, 8);
 
   const MemberCard = ({ member, onClick, index }) => (
     <div
-      className="group w-80 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 animate-fade-in-up"
+      className="group w-70 mx-auto bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 animate-fade-in-up"
       onClick={onClick}
       style={{ animationDelay: `${index * 0.1}s` }}
     >
@@ -162,7 +151,7 @@ const People = () => {
         <img
           src={member.image}
           alt={member.name}
-          className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full mx-auto h-55 object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
@@ -176,7 +165,7 @@ const People = () => {
       </div>
 
       {/* Content Section */}
-      <div className="p-6 bg-gradient-to-br from-white to-slate-50">
+      <div className="p-4 bg-gradient-to-br from-white to-slate-50">
         <div className="text-center">
           <h3 className="text-xl font-bold text-slate-800 mb-2 group-hover:text-slate-900 transition-colors duration-300">
             {member.name}
@@ -247,7 +236,7 @@ const People = () => {
           {/* Associates - Last 4 Members */}
           <div className="text-center">
             <h2 className="text-2xl font-bold text-slate-700 mb-8">Associates</h2>
-            <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
+            <div className="flex flex-wrap gap-8 mx-auto">
               {group3.map((member, index) => (
                 <MemberCard 
                   key={index} 

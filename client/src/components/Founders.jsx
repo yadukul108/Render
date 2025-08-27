@@ -49,7 +49,7 @@ const MemberProfile = () => {
                 <div className="relative group">
                   <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-slate-400 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-500"></div>
                   <img
-                    src={Model}
+                    src={member.image}
                     alt={member.name}
                     className="relative w-48 h-48 md:w-56 md:h-56 object-cover rounded-2xl shadow-2xl transform transition-all duration-500 group-hover:scale-105 mx-auto"
                   />
@@ -76,12 +76,12 @@ const MemberProfile = () => {
           </div>
 
           {/* Content Section */}
-          <div className="p-4 md:p-12">
-            <div className="grid gap-8 max-w-5xl mx-auto">
+          <div className="p-2 md:p-12 bg-gradient-to-r from-slate-50 to-slate-100">
+            <div className="grid md:gap-8 max-w-5xl mx-auto">
               
               {member.experienceLeadership && (
                 <section className="group transform animate-fade-in-up delay-500">
-                  <div className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl p-6 md:p-8 hover:shadow-lg transition-all duration-500 hover:bg-gradient-to-r hover:from-slate-100 hover:to-slate-200">
+                  <div className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl p-6 md:p-8  ">
                     <h3 className="text-2xl md:text-3xl font-[500] text-slate-800 mb-4 flex items-center">
                      
                       Experience & Leadership
@@ -93,7 +93,7 @@ const MemberProfile = () => {
 
               {member.wealthInsurance && (
                 <section className="group transform animate-fade-in-up delay-600">
-                  <div className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl p-6 md:p-8 hover:shadow-lg transition-all duration-500 hover:bg-gradient-to-r hover:from-slate-100 hover:to-slate-200">
+                  <div className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl p-6 md:p-8">
                     <p className="text-slate-700 text-lg leading-relaxed">{member.wealthInsurance}</p>
                   </div>
                 </section>
@@ -101,7 +101,7 @@ const MemberProfile = () => {
 
               {member.entrepreneurship && (
                 <section className="group transform animate-fade-in-up delay-700">
-                  <div className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl p-6 md:p-8 hover:shadow-lg transition-all duration-500 hover:bg-gradient-to-r hover:from-slate-100 hover:to-slate-200">
+                  <div className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl p-6 md:p-8 ">
                     <p className="text-slate-700 text-lg leading-relaxed">{member.entrepreneurship}</p>
                   </div>
                 </section>
@@ -109,7 +109,7 @@ const MemberProfile = () => {
 
               {member.boardContribution && (
                 <section className="group transform animate-fade-in-up delay-800">
-                  <div className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl p-6 md:p-8 hover:shadow-lg transition-all duration-500 hover:bg-gradient-to-r hover:from-slate-100 hover:to-slate-200">
+                  <div className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl p-6 md:p-8 ">
                     <p className="text-slate-700 text-lg leading-relaxed">{member.boardContribution}</p>
                   </div>
                 </section>
@@ -117,7 +117,7 @@ const MemberProfile = () => {
 
               {member.educationPhilosophy && (
                 <section className="group transform animate-fade-in-up delay-900">
-                  <div className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl p-6 md:p-8 hover:shadow-lg transition-all duration-500 hover:bg-gradient-to-r hover:from-slate-100 hover:to-slate-200">
+                  <div className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl p-6 md:p-8 ">
                     <h3 className="text-2xl md:text-3xl font-[500] text-slate-800 mb-4 flex items-center">
                       
                       Education & Philosophy

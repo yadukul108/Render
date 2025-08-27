@@ -47,7 +47,7 @@ const About = () => {
 
       {/* Our Story */}
       <div className=" py-12 px-4">
-        <h2 className="text-3xl text-center font-md text-slate-700 mb-6">Our Story</h2>
+        <h2 className="text-3xl text-center font-medium text-slate-700 mb-6">Our Story</h2>
         <h1 className="max-w-3xl mx-auto md:text-xl text-center text-gray-700 mb-10">
           Allegro Capital began with a vision to empower individuals and businesses through expert financial guidance. Over the years, we have grown into a trusted partner for clients across sectors, building lasting relationships based on integrity, transparency, and results.
         </h1>

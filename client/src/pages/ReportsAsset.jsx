@@ -33,8 +33,7 @@ export default function AssetReports() {
   const fetchAssets = async () => {
     try {
       const response = await fetch("/api/assets/getAllAssets");
-      if (!response.ok) throw new Error("Failed to fetch assets");
-
+     
       const data = await response.json(); // directly the array
       setAssets(data || []); // ensure it's at least an empty array
     } catch (error) {

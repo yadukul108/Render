@@ -19,14 +19,13 @@ const caseStudies = [
   },
 ];
 
-const CaseStudies= () => {
+const CaseStudies= ({source}) => {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 py-16  text-slate-700">
-      {/* Section Header */}
-      <div className="text-center mb-12">
+      {/* Section Header */}<div className="text-center mb-12">
         <h2 className="text-3xl font-medium mb-4">Case Studies</h2>
-        <p className="text-base md:text-lg max-w-2xl mx-auto">
-          Explore how Allegro Advisors has partnered with clients to deliver strategic outcomes
+        <p className="text-base  md:w-2/3 md:text-lg mx-auto text-slate-600">
+          Explore how Allegro Capital has partnered with clients to deliver strategic outcomes
           through deep financial insight and tailored solutions.
         </p>
       </div>

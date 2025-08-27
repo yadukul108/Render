@@ -6,7 +6,7 @@ import fs from 'fs';
 
 export const createTransaction = async (req, res) => {
   try {
-    const { heading, year, amount, description, sector, type_of_deal, representing, party2, asset, isFeatured } =
+    const { heading, year, amount, description, sector, type_of_deal, representing, party2, asset, isFeatured,isInvestment,isStrategy } =
       req.body;
 
     const uploadToCloudinary = async (filePath) => {
@@ -48,6 +48,8 @@ export const createTransaction = async (req, res) => {
       representingPic,
       party2Pic,
       assetPic,
+      isInvestment,
+      isStrategy,
     });
 
     await newTransaction.save();

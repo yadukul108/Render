@@ -33,6 +33,8 @@ export const createCase = async (req, res) => {
       heading: req.body.heading,
       year: req.body.year,
       description:req.body.description,
+      isInvestment:req.body.isInvestment,
+      isStrategy:req.body.isStrategy,
       caseImage: imageUrl,
       pdfLink: pdfUrl,
     });
@@ -122,6 +124,8 @@ export const updateCase = async (req, res) => {
         heading: req.body.heading,
         year: req.body.year,
         description: req.body.description,
+        isInvestment:req.body.isInvestment,
+      isStrategy:req.body.isStrategy,
         ...(imageUrl && { caseImage: imageUrl }),
         ...(pdfUrl && { pdfLink: pdfUrl }),
       },

@@ -49,7 +49,7 @@ const Strategic = () => {
 </div>
 
     <div className="w-full md:w-2/3 max-w-5xl mx-auto px-4 py-12">
-  <h2 className="text-[1.4rem] font-medium text-slate-700 mb-6 text-center">
+  <h2 className="text-[1.4rem] md:text-3xl font-medium text-slate-700 mb-6 text-center">
     Strategic Advisory at Allegro Capital
   </h2>
   <div className="text-gray-600 text-base md:text-lg space-y-5">
@@ -68,12 +68,11 @@ const Strategic = () => {
   </div>
 </div>
 
-   <div className="w-full max-w-7xl mx-auto px-4 py-12 text-slate-600">
+   <div className="w-full max-w-7xl mx-auto text-center px-4 py-12 text-slate-600">
      <h2 className="text-3xl font-medium text-center text-slate-700 mb-2">Our Transactions</h2>
-      <p className="text-center mb-12 md:mb-20">Each deal reflects our role as trusted strategic advisors combining insight, foresight, and execution.
-Together, they showcase our enduring strength in investment banking.</p>
+      <p className="mb-12 md:mb-20 md:w-2/3 md:text-lg mx-auto">Each deal reflects our role as trusted strategic advisors, combining insight, foresight, and flawless execution</p>
       {/* Cards */}
-      <TransactionCarousal/>
+      <TransactionCarousal source="strategy"/>
 
       {/* View More Button */}
      <div className="mt-10 flex justify-center">
@@ -85,7 +84,7 @@ Together, they showcase our enduring strength in investment banking.</p>
   </Link>
 </div>
     </div>
-    <CaseStudies/>
+    <CaseStudies source="strategy"/>
     <Footer/>
     </div>
   )

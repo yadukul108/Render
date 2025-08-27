@@ -19,7 +19,7 @@ export const createAsset = async (req, res) => {
       heading: req.body.heading,
       year: req.body.year,
       category: req.body.category,
-      pdfReportLink: uploadResult.secure_url, // ✅ Required field
+      pdfReportLink: uploadResult.secure_url, 
     });
 
     await newAsset.save();
@@ -27,10 +27,10 @@ export const createAsset = async (req, res) => {
     // Delete temp file
     fs.unlinkSync(pdfFile);
 
-    res.status(201).json({ success: true, message: "Asset created successfully", asset: newAsset });
+    res.status(201).json({ success: true,  asset: newAsset });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ success: false, message: "Error uploading PDF", error });
+    res.status(500).json({ success: false, error });
   }
 };
 
@@ -40,7 +40,7 @@ export const getAllAssets = async (req, res) => {
     const assets = await Asset.find().sort({ createdAt: -1 });
     res.status(200).json( assets );
   } catch (error) {
-    res.status(500).json({ message: "Error fetching assets", error });
+    res.status(500).json({   error: err.message });
   }
 };
 

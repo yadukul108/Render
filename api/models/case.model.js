@@ -20,6 +20,14 @@ const caseSchema = new mongoose.Schema(
       type: String, 
       required: true,
     },
+    isInvestment:{
+      type:Boolean,
+      default:false
+    },
+    isStrategy:{
+      type:Boolean,
+      default:false
+    }
   },
   { timestamps: true }
 );

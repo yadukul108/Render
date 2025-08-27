@@ -1,5 +1,5 @@
 import {React,useState} from 'react';
-import { TrendingUp, Shield, Users, Star, CheckCircle, ArrowRight, Briefcase, PieChart } from 'lucide-react';
+import { TrendingUp, Shield, Users, Star, CheckCircle, ArrowRight, Briefcase, PieChart,ChartNoAxesCombined  } from 'lucide-react';
 import HomeIb from "../assets/AllegroOffice1.jpg";
 import { Link } from 'react-router-dom';
 
@@ -18,22 +18,22 @@ const Asset = () => {
       icon: <Users className="w-8 h-8" />,
     },
     {
-      title: "Health PMS",
+      title: "Dynamic allocation",
       items: [
-        "Private Banking, Mutual Funds, and PMS",
-        "Stock broking and Depository services licensed with the NSE and the CDS",
+        "We design portfolios aligned with your unique financial goals",
+        "A strategic mix of assets ensures stability and growth potential",
         "Licensed fund manager (PMS) by SEBI"
       ],
       icon: <PieChart className="w-8 h-8" />,
     },
     {
-      title: "High Growth PMS",
+      title: "Insightful Reporting",
       items: [
-        "Pioneered Fee-Based Private Banking in India",
-        "Zero commission mutual fund offering since 2019",
-        "No Brokerage charges PMS"
+        "Easy-to-read reports that simplify complex investment data",
+        "Track portfolio growth, trends, and key performance metrics",
+        "Data-driven recommendations to support smarter financial decisions"
       ],
-      icon: <Shield className="w-8 h-8" />,
+      icon: <ChartNoAxesCombined  className="w-8 h-8" />,
     }
   ];
 const [selectedFeature, setSelectedFeature] = useState(0);
