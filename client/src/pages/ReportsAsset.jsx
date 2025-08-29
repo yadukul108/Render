@@ -21,6 +21,8 @@ export default function AssetReports() {
     name: "",
     email: "",
     phone: "",
+    occupation: "",
+  purpose: "",
   });
   const [sending, setSending] = useState(false);
   const [message, setMessage] = useState("");
@@ -322,7 +324,30 @@ export default function AssetReports() {
                   onChange={handleChange}
                 />
               </div>
+<div className="flex items-center gap-2 border rounded-lg px-3 py-2">
+    <input
+      type="text"
+      name="occupation"
+      placeholder="Your Occupation"
+      className="flex-1 outline-none bg-transparent"
+      value={formData.occupation}
+      onChange={handleChange}
+      required
+    />
+  </div>
 
+  {/* Purpose */}
+  <div className="flex items-center gap-2 border rounded-lg px-3 py-2">
+    <input
+      type="text"
+      name="purpose"
+      placeholder="Purpose of Download"
+      className="flex-1 outline-none bg-transparent"
+      value={formData.purpose}
+      onChange={handleChange}
+      required
+    />
+  </div>
               {message && (
                 <p
                   className={`text-sm mt-2 ${

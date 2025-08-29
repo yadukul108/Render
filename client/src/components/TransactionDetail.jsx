@@ -47,12 +47,8 @@ const TransactionDetail = () => {
 
   return (
     <div>
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden pt-[3.5rem]">
-        {/* Background decoration */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
+      <div className="min-h-screen  relative overflow-hidden pt-[3.5rem]">
+      
 
         <div className="relative  p-4 md:p-8 max-w-7xl mx-auto">
           {/* Enhanced Header */}
@@ -87,7 +83,7 @@ const TransactionDetail = () => {
                     }}
                   >
                     {/* Card container */}
-                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:w-[15rem] mx-auto overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-white/20">
+                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:w-[15rem] mx-auto overflow-hidden  transition-all duration-500 transform hover:-translate-y-2 border border-white/20">
                       {/* Image with overlay */}
                       <div className="relative md:h-[5rem] overflow-hidden">
                         <img
@@ -119,11 +115,10 @@ const TransactionDetail = () => {
           {/* Enhanced Details Section */}
           <div className="flex flex-col md:flex-row gap-8 w-full opacity-0 animate-fade-in-up" style={{ animationDelay: '800ms' }}>
             {/* Enhanced Left Box */}
-            <div className="w-full md:w-80 xl:sticky xl:top-8 h-fit">
+            <div className="w-full md:w-80  h-fit">
+              
               <div className="bg-white/90 backdrop-blur-sm shadow-xl rounded-2xl p-4 md:p-8 border border-white/20 relative overflow-hidden">
-                {/* Background pattern */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-500/5 to-blue-500/5 rounded-full -translate-y-16 translate-x-16"></div>
-                
+              
                 {/* Logo and Client Name */}
                 <div className="relative mb-8">
                   <div className="flex items-start space-x-4 mb-6">
@@ -131,8 +126,8 @@ const TransactionDetail = () => {
                       <img src={logo} alt="Client Logo" className="w-full h-full object-contain" />
                     </div>
                     <div className="flex-1">
-                      <p className="text-slate-500 text-xs font-semibold uppercase tracking-wide mt-4">Client Name</p>
-                      <p className="text-slate-800 font-medium text-sm leading-tight">{txn.representing}</p>
+                      <p className="text-slate-500 text-sm font-semibold uppercase tracking-wide mt-4">Client Name</p>
+                      <p className="text-slate-800 font-medium  leading-tight">{txn.representing}</p>
                     </div>
                   </div>
 
@@ -150,8 +145,8 @@ const TransactionDetail = () => {
                         <div className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50/80 transition-colors duration-300">
                          
                           <div className="flex-1">
-                            <p className="text-slate-500 text-xs font-semibold uppercase tracking-wide mb-1">{label}</p>
-                            <p className="text-slate-800 font-medium text-sm">{value}</p>
+                            <p className="text-slate-500 text-sm font-semibold uppercase tracking-wide mb-1">{label}</p>
+                            <p className="text-slate-800 font-medium ">{value}</p>
                           </div>
                         </div>
                       </div>

@@ -6,7 +6,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
-
+const [isLoading, setIsLoading] = useState(false);
   const handleChange = (e) => {
     setFormData(prev => ({
       ...prev,
@@ -17,6 +17,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setIsLoading(true); // Start loading
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -31,8 +32,11 @@ const Contact = () => {
       setFormData({ name: '', email: '', message: '' });
     } catch (err) {
       setError(err.message);
+    } finally {
+      setIsLoading(false); // Stop loading regardless of success/failure
     }
   };
+
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-slate-900/90 via-slate-400/70 to-red-700/60 pt-[3rem]">
@@ -190,12 +194,19 @@ const Contact = () => {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
+                  disabled={isLoading} // disable while loading
+                  className={`w-full font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform shadow-lg flex items-center justify-center gap-2 group
+                    ${isLoading 
+                      ? "bg-slate-400 cursor-not-allowed" 
+                      : "bg-red-600 hover:bg-red-700 text-white hover:scale-105 hover:shadow-xl"
+                    }`}
                 >
-                  Send Message
-                  <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                  </svg>
+                  {isLoading ? "Sending..." : "Send Message"}
+                  {!isLoading && (
+                    <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                    </svg>
+                  )}
                 </button>
               </form>
             </div>

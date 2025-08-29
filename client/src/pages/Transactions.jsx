@@ -5,7 +5,7 @@ import Deals from '../components/Deals'
 
 const Transactions = () => {
   return (
-    <div className='font-sans pt-[3rem] w-full'>
+    <div className='font-sans pt-[3rem] w-full '>
 
       <Feature/>
       <Deals/>
@@ -16,3 +16,4 @@ const Transactions = () => {
 }
 
 export default Transactions
+ 

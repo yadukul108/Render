@@ -77,7 +77,6 @@ const extractAmount = (amountStr) => {
           <h2 className="text-2xl sm:text-2xl lg:text-3xl font-medium bg-gradient-to-r from-slate-800 via-slate-700 to-slate-600 bg-clip-text text-transparent mb-4">
             All Transaction History
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto rounded-full mb-6"></div>
           <p className="text-slate-600 md:text-lg max-w-2xl mx-auto leading-relaxed">
             Explore our comprehensive portfolio of successful deals and transactions
           </p>

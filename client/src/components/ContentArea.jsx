@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-
 const ContentArea = ({ selected }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -205,7 +204,7 @@ const handleDelete = async (id) => {
 
     // Show success message
     setStatusMessage(
-      isEditing ? 'Transaction updated successfully!' : 'Transaction created successfully!'
+      isEditing ? 'Updated successfully!' : 'Created successfully!'
     );
 
     // Clear message after 3 seconds
@@ -278,7 +277,7 @@ const handleDelete = async (id) => {
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
   </svg>
   {isEditing ? 'Edit' : 'Add New'}{" "}
-  {isTransaction ? 'Transaction' : isNewsletter ? 'Newsletter' : isCase ? 'Case Study' : isAward? 'Awards & Achievements' :isReports? 'Asset Reports' :'News'}
+  {isTransaction ? 'Transaction' : isNewsletter ? 'Newsletter' : isCase ? 'Case Study' : isAward? 'Awards & Achievements' :isReports? 'Asset Reports' : isNews?'News':''}
 </h2>
 
         </div>

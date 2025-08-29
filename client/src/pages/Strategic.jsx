@@ -85,6 +85,14 @@ const Strategic = () => {
 </div>
     </div>
     <CaseStudies source="strategy"/>
+    <div className=" mb-4 md:mb-12 flex justify-center">
+  <Link
+    to="/case_study"
+          className="bg-red-500 text-white border px-4 py-2 rounded-xl hover:bg-white  hover:text-red-700 transition"
+  >
+    View All Case Studies
+  </Link>
+</div>
     <Footer/>
     </div>
   )

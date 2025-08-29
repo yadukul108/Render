@@ -106,29 +106,92 @@ const Careers = () => {
   </div>
 </div>
 
-
       {/* ---------- Benefits ---------- */}
-      <section className="py-16 px-4 md:px-12">
-        <h2 className="text-2xl md:text-3xl font-medium text-center text-slate-800 mb-12">Benefits of working with us</h2>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
-          {[
-            { icon: DollarSign, title: 'Competitive Salary',    text: 'Get paid well for your skills! We offer competitive salary + benefits.' },
-            { icon: Users,      title: 'Collaborative Team',    text: 'Work with talented professionals in a growth‑focused environment.' },
-            { icon: Briefcase,  title: 'Career Growth',        text: 'We support your development with learning, mentorship, and projects.' },
-            { icon: Clock,      title: 'Global Market Exposure', text: 'Work on high‑impact financial projects and gain global insights.' },
-          ].map(({ icon: Icon, title, text }, i) => (
-            <div key={i} className="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition hover:border-b-4 hover:border-red-600 border-b-transparent">
-              <div className="flex justify-center mb-4"><Icon className="text-red-600" size={32} /></div>
-              <h3 className="text-lg md:text-xl font-medium text-slate-800 mb-2">{title}</h3>
-              <p className="text-slate-600 text-[0.9rem]">{text}</p>
+      <section className="py-10 px-4 md:px-12 ">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="inline-block bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              WHY CHOOSE US
             </div>
-          ))}
+            <h2 className="text-3xl md:text-4xl font-light text-slate-800 mb-4">
+              Benefits of working with us
+            </h2>
+            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+              Join a team that invests in your success and provides the foundation for exceptional career growth
+            </p>
+          </div>
+
+          {/* Benefits Grid */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              { 
+                icon: DollarSign, 
+                title: 'Competitive Salary', 
+                text: 'Get paid well for your skills! We offer competitive salary + benefits.',
+                gradient: 'from-red-500 to-red-600'
+              },
+              { 
+                icon: Users, 
+                title: 'Collaborative Team', 
+                text: 'Work with talented professionals in a growth‑focused environment.',
+                gradient: 'from-slate-600 to-slate-700'
+              },
+              { 
+                icon: Briefcase, 
+                title: 'Career Growth', 
+                text: 'We support your development with learning, mentorship, and projects.',
+                gradient: 'from-red-600 to-red-700'
+              },
+              { 
+                icon: Clock, 
+                title: 'Global Market Exposure', 
+                text: 'Work on high‑impact financial projects and gain global insights.',
+                gradient: 'from-slate-700 to-slate-800'
+              },
+            ].map(({ icon: Icon, title, text, gradient }, i) => (
+              <div 
+                key={i} 
+                className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-slate-200 hover:border-slate-300"
+              >
+                {/* Gradient accent bar */}
+                <div className={`h-1 w-full bg-gradient-to-r ${gradient}`}></div>
+                
+                {/* Card content */}
+                <div className="p-8">
+                  {/* Icon container */}
+                  <div className="relative mb-6">
+                    <div className={`w-16 h-16 bg-gradient-to-r ${gradient} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className="text-white" size={28} />
+                    </div>
+                    {/* Floating accent */}
+                    
+                  </div>
+                  
+                  {/* Title */}
+                  <h2 className="text-xl font-semibold text-slate-600 mb-3 group-hover:text-slate-700 transition-colors">
+                    {title}
+                  </h2>
+                  
+                  {/* Description */}
+                  <p className="text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors">
+                    {text}
+                  </p>
+                </div>
+
+                {/* Hover effect overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-50/0 to-slate-50/0 group-hover:from-slate-50/20 group-hover:to-slate-50/5 transition-all duration-300 pointer-events-none"></div>
+              </div>
+            ))}
+          </div>
+
+         
         </div>
       </section>
 
       {/* ---------- Application Form ---------- */}
       <section id="apply-now" className="bg-white py-16 px-4 md:px-12">
-        <h2 className="text-2xl md:text-3xl font-medium text-center text-slate-800 mb-12">Apply Now</h2>
+        <h2 className="text-3xl md:text-4xl font-medium text-center text-slate-800 mb-12">Apply Now</h2>
 
         <form onSubmit={handleSubmit} className="max-w-3xl mx-auto grid gap-6" encType="multipart/form-data">
           <div>
