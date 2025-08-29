@@ -10,7 +10,7 @@ const NewsUpdates = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch("/api/news/getAllNews");
+        const res = await fetch("https://allegro-backend.onrender.com/api/news/getAllNews");
         if (!res.ok) throw new Error("Failed to fetch news");
         const data = await res.json();
         setNewsItems(data);

@@ -12,7 +12,7 @@ const CaseStudies = ({ source }) => {
   useEffect(() => {
     const fetchCases = async () => {
       try {
-        const res = await fetch("/api/cases/getAllCase");
+        const res = await fetch("https://allegro-backend.onrender.com/api/cases/getAllCase");
         const data = await res.json();
 
         let filtered = data;

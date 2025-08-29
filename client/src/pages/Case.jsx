@@ -25,7 +25,7 @@ const Case = () => {
   useEffect(() => {
     const fetchCases = async () => {
       try {
-        const res = await fetch("/api/cases/getAllCase");
+        const res = await fetch("https://allegro-backend.onrender.com/api/cases/getAllCase");
         const data = await res.json();
         setCases(data);
       } catch (err) {
@@ -54,7 +54,7 @@ const Case = () => {
     setMessage("");
 
     try {
-      const response = await fetch("/api/download/send-pdf", {
+      const response = await fetch("https://allegro-backend.onrender.com/api/download/send-pdf", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

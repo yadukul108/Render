@@ -19,7 +19,7 @@ const [isLoading, setIsLoading] = useState(false);
     setError('');
     setIsLoading(true); // Start loading
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('https://allegro-backend.onrender.com/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

@@ -34,7 +34,7 @@ export default function AssetReports() {
   useEffect(() => {
   const fetchAssets = async () => {
     try {
-      const response = await fetch("/api/assets/getAllAssets");
+      const response = await fetch("https://allegro-backend.onrender.com/api/assets/getAllAssets");
      
       const data = await response.json(); // directly the array
       setAssets(data || []); // ensure it's at least an empty array
@@ -68,7 +68,7 @@ export default function AssetReports() {
     setMessage("");
 
     try {
-      const response = await fetch("/api/download/send-pdf", {
+      const response = await fetch("https://allegro-backend.onrender.com/api/download/send-pdf", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

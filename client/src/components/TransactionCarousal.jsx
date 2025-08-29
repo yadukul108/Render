@@ -14,7 +14,7 @@ const TransactionCarousal = ({ source }) => {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const res = await fetch('/api/transactions/getAllTransactions');
+        const res = await fetch('https://allegro-backend.onrender.com/api/transactions/getAllTransactions');
         if (!res.ok) throw new Error('Failed to fetch transactions');
         const data = await res.json();
         setTransactions(data);

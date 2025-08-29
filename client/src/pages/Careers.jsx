@@ -35,7 +35,7 @@ const Careers = () => {
   payload.append('resume', formData.resume);
 
   try {
-    const response = await fetch('/api/apply', {
+    const response = await fetch('https://allegro-backend.onrender.com/api/apply', {
       method: 'POST',
       body: payload,
     });

@@ -36,7 +36,7 @@ const AwardsAchievements = () => {
   useEffect(() => {
     const fetchAwards = async () => {
       try {
-        const res = await fetch("/api/awards"); // your backend endpoint
+        const res = await fetch("https://allegro-backend.onrender.com/api/awards"); // your backend endpoint
         if (!res.ok) throw new Error("Failed to fetch awards");
         const data = await res.json();
         setAwards(data); // adjust if your API wraps data inside a field like { awards: [...] }

@@ -51,12 +51,12 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
     setLoading(true);
     try {
       let url = '';
-      if (isTransaction) url = '/api/transactions/getAllTransactions';
-      else if (isNewsletter) url = '/api/newsletter/getAllNewsletters';
-      else if(isCase) url ='/api/cases/getAllCase';
-      else if(isReports) url='/api/assets/getAllAssets';
-      else if(isAward) url='api/awards';
-      else if(isNews) url='api/news/getAllNews';
+      if (isTransaction) url = 'https://allegro-backend.onrender.com/api/transactions/getAllTransactions';
+      else if (isNewsletter) url = 'https://allegro-backend.onrender.com/api/newsletter/getAllNewsletters';
+      else if(isCase) url ='https://allegro-backend.onrender.com/api/cases/getAllCase';
+      else if(isReports) url='https://allegro-backend.onrender.com/api/assets/getAllAssets';
+      else if(isAward) url='https://allegro-backend.onrender.com/api/awards';
+      else if(isNews) url='https://allegro-backend.onrender.com/api/news/getAllNews';
       const response = await fetch(url);
       console.log(response);
       const result = await response.json();
@@ -75,19 +75,19 @@ const handleDelete = async (id) => {
     let endpoint = "";
 
     if (isTransaction) {
-      endpoint = `/api/transactions/deleteTransaction/${id}`;
+      endpoint = `https://allegro-backend.onrender.com/api/transactions/deleteTransaction/${id}`;
     } else if (isNewsletter) {
-      endpoint = `/api/newsletter/deleteNewsletter/${id}`;
+      endpoint = `https://allegro-backend.onrender.com/api/newsletter/deleteNewsletter/${id}`;
     } else if (isCase) {
-      endpoint = `/api/cases/deleteCase/${id}`;
+      endpoint = `https://allegro-backend.onrender.com/api/cases/deleteCase/${id}`;
     }else if (isAward) {
-      endpoint = `/api/awards/${id}`;
+      endpoint = `https://allegro-backend.onrender.com/api/awards/${id}`;
     }
     else if (isReports) {
-      endpoint = `/api/assets/deleteAsset/${id}`;
+      endpoint = `https://allegro-backend.onrender.com/api/assets/deleteAsset/${id}`;
     }
     else if(isNews){
-      endpoint=`/api/news/deleteNews/${id}`;
+      endpoint=`https://allegro-backend.onrender.com/api/news/deleteNews/${id}`;
         }
 
     if (!endpoint) throw new Error("No valid delete endpoint");
@@ -158,33 +158,33 @@ const handleDelete = async (id) => {
 
     if (isTransaction) {
       url = isEditing
-        ? `/api/transactions/updateTransaction/${editId}`
-        : '/api/transactions/createTransaction';
+        ? `https://allegro-backend.onrender.com/api/transactions/updateTransaction/${editId}`
+        : 'https://allegro-backend.onrender.com/api/transactions/createTransaction';
     } else if (isNewsletter) {
       url = isEditing
-        ? `/api/newsletter/updateNewsletter/${editId}`
-        : '/api/newsletter/createNewsletter';
+        ? `https://allegro-backend.onrender.com/api/newsletter/updateNewsletter/${editId}`
+        : 'https://allegro-backend.onrender.com/api/newsletter/createNewsletter';
     }
     else if (isCase) {
       url = isEditing
-        ? `/api/cases/updateCase/${editId}`
-        : '/api/cases/createCase';
+        ? `https://allegro-backend.onrender.com/api/cases/updateCase/${editId}`
+        : 'https://allegro-backend.onrender.com/api/cases/createCase';
     }
      else if (isAward) {
       url = isEditing
-        ? `/api/awards/${editId}`
-        : '/api/awards';
+        ? `https://allegro-backend.onrender.com/api/awards/${editId}`
+        : 'https://allegro-backend.onrender.com/api/awards';
     }
     else if (isReports) {
       url = isEditing
-        ? `/api/assets/updateAsset/${editId}`
-        : '/api/assets/createAsset';
+        ? `https://allegro-backend.onrender.com/api/assets/updateAsset/${editId}`
+        : 'https://allegro-backend.onrender.com/api/assets/createAsset';
     }
 
     else if (isNews) {
       url = isEditing
-        ? `/api/news/updateNews/${editId}`
-        : '/api/news/createNews';
+        ? `https://allegro-backend.onrender.com/api/news/updateNews/${editId}`
+        : 'https://allegro-backend.onrender.com/api/news/createNews';
     }
     const formData = new FormData();
     for (const key in form) {
