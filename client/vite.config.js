@@ -6,7 +6,7 @@ export default defineConfig({
     server: {
     proxy: {
       '/api': {
-        target: 'https://allegro-backend.onrender.com',
+        target: 'http://localhost:3000',
         secure: false,
       },
     },
