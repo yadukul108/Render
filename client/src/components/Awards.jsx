@@ -13,7 +13,7 @@ const Awards = () => {
   useEffect(() => {
     const fetchAwards = async () => {
       try {
-        const res = await fetch("/api/awards");
+        const res = await fetch("https://allegro-backend.onrender.com/api/awards");
         if (!res.ok) throw new Error("Failed to fetch awards");
         const data = await res.json();
         setAwards(data);
