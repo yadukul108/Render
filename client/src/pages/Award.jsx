@@ -99,23 +99,23 @@ const AwardsAchievements = () => {
 
       {/* Awards List */}
       <div className="max-w-6xl mx-auto px-4 py-12">
-        <h1 className="text-3xl font-medium text-slate-800 mb-10">Awards & Achievements</h1>
+        <h1 className="text-3xl md:text-4xl font-medium text-slate-800 mb-10 md:mb-18 text-center">Awards & Achievements</h1>
 
         {awardsData.map((award, index) => (
           <div>
-          <div key={index} className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
+          <div key={index} className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
             {/* Left side */}
-            <div className=" w-4/5 mx-auto md:w-2/3">
-              <h2 className="text-xl md:text-2xl font-medium text-slate-700">{award.title} <span className="md:text-xl text-slate-600 ml-2">| {award.year}</span></h2>
+            <div className="  mx-auto md:w-2/3">
+              <h2 className="text-xl md:text-3xl font-medium text-slate-700">{award.title} <span className="md:text-2xl text-slate-600 ml-2">| {award.year}</span></h2>
               <p className="text-slate-600 mt-2">{award.description}</p>
             </div>
 
             {/* Right side - Image */}
-            <div className=" w-4/5 mx-auto md:w-1/3 flex justify-center">
+            <div className="  mx-auto md:w-1/3 flex justify-center">
               <img
                 src={awardImage}
                 alt="Award"
-                className="w-auto h-40 object-cover rounded-lg shadow"
+                className="w-auto h-auto object-cover rounded-lg shadow"
               />
             </div>
             

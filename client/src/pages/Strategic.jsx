@@ -69,7 +69,7 @@ const Strategic = () => {
 </div>
 
    <div className="w-full max-w-7xl mx-auto text-center px-4 py-12 text-slate-600">
-     <h2 className="text-3xl font-medium text-center text-slate-700 mb-2">Our Transactions</h2>
+     <h2 className="text-3xl md:text-4xl font-medium text-center text-slate-700 mb-2">Our Transactions</h2>
       <p className="mb-12 md:mb-20 md:w-2/3 md:text-lg mx-auto">Each deal reflects our role as trusted strategic advisors, combining insight, foresight, and flawless execution</p>
       {/* Cards */}
       <TransactionCarousal source="strategy"/>

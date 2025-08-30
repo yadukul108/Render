@@ -46,7 +46,7 @@ const Investment = () => {
 
 </div>
      <div className=" w-full md:w-2/3 max-w-5xl mx-auto px-4  py-15 md:py-12 ">
-      <h2 className="text-[1.35rem] md:text-3xl font-medium text-slate-700 mb-6 text-center">
+      <h2 className="text-[1.35rem] md:text-4xl font-medium text-slate-700 mb-6 text-center">
         Investment Banking at Allegro Capital
       </h2>
       <div className="text-gray-600 text-base md:text-lg space-y-5">
@@ -65,7 +65,7 @@ const Investment = () => {
       </div>
     </div>
    <div className="w-full max-w-7xl mx-auto text-center px-4  py-12 text-slate-600">
-      <h2 className="text-3xl font-medium text-center text-slate-700 mb-2">Our Transactions</h2>
+      <h2 className="text-3xl md:text-4xl font-medium text-center text-slate-700 mb-4">Our Transactions</h2>
       <p className=" mb-12 md:mb-20 md:w-2/3 md:text-lg mx-auto">Each deal reflects strategic foresight, meticulous precision, and trust. Together, they showcase our consistent performance, resilience, credibility, and enduring strength in investment banking.</p>
       {/* Cards */}
      <TransactionCarousal source="investment" />

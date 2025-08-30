@@ -27,7 +27,7 @@ const timelineData = [
 const Timeline = () => {
   return (
     <div className="w-full py-16 flex flex-col items-center">
-      <h3 className="text-3xl font-medium text-slate-700 mb-24 relative inline-block">
+      <h3 className="text-3xl md:text-4xl font-medium text-slate-700 mb-24 relative inline-block">
          Our Milestones
       </h3>
 

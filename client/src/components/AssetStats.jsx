@@ -189,7 +189,7 @@ const ReturnsChart = () => {
               </div>
             </div>
             <Link to="/reports">
-          <button className="mt-8 px-3 md:px-6 py-2 md:py-3 rounded-xl bg-red-600 text-white font-medium shadow-md hover:bg-red-700 transition-all">
+          <button className="mt-8 px-6 py-2 md:py-3 rounded-xl bg-red-600 text-white font-medium shadow-md hover:bg-red-700 transition-all cursor-pointer">
             View our reports
           </button>
         </Link>

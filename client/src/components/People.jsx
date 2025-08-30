@@ -142,7 +142,7 @@ const People = () => {
 
   const MemberCard = ({ member, onClick, index }) => (
     <div
-      className="group w-70 mx-auto bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 animate-fade-in-up"
+      className="group w-60 mx-auto bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 animate-fade-in-up"
       onClick={onClick}
       style={{ animationDelay: `${index * 0.1}s` }}
     >
@@ -192,9 +192,19 @@ const People = () => {
             Our People
           </h1>
          
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Meet the exceptional professionals driving innovation and excellence at Allegro Capital
-          </p>
+         <div className="max-w-3xl mx-auto space-y-4">
+        <p className="text-xl md:text-2xl font-light text-slate-700 leading-relaxed">
+          Meet the exceptional professionals driving innovation and excellence at 
+          <span className="font-semibold bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent"> Allegro Capital</span>
+        </p>
+        
+        {/* Additional descriptive text */}
+        <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+          Our diverse team of industry experts, strategic thinkers, and dedicated professionals brings decades of combined experience to deliver unparalleled financial solutions.
+        </p>
+      </div>
+
+      
         </div>
 
         {/* Team Grid */}

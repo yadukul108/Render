@@ -41,7 +41,7 @@ const cards = [
 
 const ServicesCards = () => {
   return (
-    <section className="py-20  relative overflow-hidden">
+    <section className="pt-20 pb-10  relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full blur-3xl animate-pulse"></div>
@@ -51,7 +51,7 @@ const ServicesCards = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative ">
         {/* Enhanced heading section */}
         <div className="text-center mb-10 md:mb-16 opacity-0 animate-fade-in-up">
-          <h2 className="text-3xl font-medium bg-gradient-to-r from-slate-800 via-slate-700 to-slate-600 bg-clip-text text-transparent mb-4 md:mb-4">
+          <h2 className="text-3xl md:text-4xl font-medium bg-gradient-to-r from-slate-800 via-slate-700 to-slate-600 bg-clip-text text-transparent mb-4 md:mb-4">
             Our Core Services
           </h2>
           {/* <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto rounded-full mb-3 md:mb-6"></div> */}
@@ -133,7 +133,7 @@ const ServicesCards = () => {
             <span className="text-slate-600 font-medium ">Ready to get started?</span>
             <button 
               onClick={() => window.location.href = '/contact-us'}
-              className="px-6 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-semibold"
+              className="bg-red-500 text-white border px-4 py-2 rounded-xl hover:bg-white  hover:text-red-700 transition w-2/3 md:w-48"
             >
               Contact Us
             </button>
