@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 const statsData = [
   { number: 150, label: 'Projects Completed' },
   { number: 200, label: 'Clients Served' },
-  { number: 10, label: 'Years of Experience' }
+  { number: 20, label: 'Years of Experience' }
 ];
 
 const Stats = () => {

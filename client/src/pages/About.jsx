@@ -1,6 +1,5 @@
 import React from 'react';
 import HomeIB from "../assets/office4.jpg"
-import User from "../assets/User.jpg"
 import Footer from '../components/Footer';
 import Timeline from '../components/Timeline';
 

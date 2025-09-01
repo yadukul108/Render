@@ -422,6 +422,22 @@ const handleDelete = async (id) => {
         className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-100 transition-all duration-300 text-slate-700 bg-white"
       />
     </div>
+    <div className="space-y-2">
+      <label
+        htmlFor="mediaName"
+        className="text-sm font-semibold text-slate-700 uppercase tracking-wide"
+      >
+        Channel name
+      </label>
+      <input
+        type="text"
+        name="mediaName"
+        value={form.mediaName}
+        onChange={handleChange}
+        placeholder="India Today.."
+        className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-100 transition-all duration-300 text-slate-700 bg-white"
+      />
+    </div>
   </>
 )}
 

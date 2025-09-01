@@ -10,6 +10,7 @@ const NewsUpdates = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
+        //
         const res = await fetch("https://allegro-backend.onrender.com/api/news/getAllNews");
         if (!res.ok) throw new Error("Failed to fetch news");
         const data = await res.json();
@@ -90,16 +91,17 @@ const NewsUpdates = () => {
 
               {/* Right (80%) */}
               <div className="md:w-4/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                <p className="text-xl md:text-2xl text-slate-700">
-                  {news.description}
+                <p className="text-[1rem] md:text-xl text-slate-700">
+                  {news.description} 
                 </p>
+               
                 <a
                   href={news.externalLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline font-medium"
+                  className="text-red-600 hover:underline font-medium"
                 >
-                  Learn More
+                {news.mediaName}
                 </a>
               </div>
             </div>

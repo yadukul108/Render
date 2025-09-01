@@ -68,7 +68,7 @@ const [isLoading, setIsLoading] = useState(false);
                       rel="noopener noreferrer"
                       className="text-red-600 hover:text-red-700 hover:underline transition-colors duration-300"
                     >
-                      XH8X+PV4, D'Souza Rd, Ashok Nagar,<br />
+                      Allegro Capital, 9th floor, The Residency Tower - 2, D’Souza Road, Residency Road, Ashok Nagar,<br />
                       Bengaluru, Karnataka 560025
                     </a>
                  

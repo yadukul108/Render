@@ -3,13 +3,14 @@ import News from '../models/news.model.js';
 // CREATE a news item
 export const createNews = async (req, res) => {
   try {
-    const { heading, year, description, externalLink } = req.body;
+    const { heading, year, description, externalLink,mediaName } = req.body;
 
     const newNews = new News({
       heading,
       year,
       description,
       externalLink,
+      mediaName,
     });
 
     await newNews.save();

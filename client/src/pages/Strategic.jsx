@@ -1,8 +1,5 @@
 import React from 'react'
 import HomeIb from "../assets/office3.jpg";
-import BBL from "../assets/Manipal (1).png";
-import MAGE from "../assets/Manipal (2).png";
-import Mage from "../assets/Manipal (3).png"
 import { Link } from 'react-router-dom';
 import CaseStudies from '../components/CaseStudy';
 import Footer from "../components/Footer"

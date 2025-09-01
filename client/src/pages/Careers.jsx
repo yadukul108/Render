@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 
 const Careers = () => {
   const [loading, setLoading] = useState(false);
-
+  const [successMessage, setSuccessMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -41,19 +41,19 @@ const Careers = () => {
     });
 
     const data = await response.json();
-    if (response.ok) {
-      alert(data.message);
-      setFormData({ name: '', email: '', phone: '', linkedin: '', resume: null });
-    } else {
-      alert(data.message || 'Failed to submit. Please try again.');
+   if (response.ok) {
+        setSuccessMessage('✅ Application submitted successfully!');
+        setFormData({ name: '', email: '', phone: '', linkedin: '', resume: null });
+      } else {
+        setSuccessMessage('❌ ' + (data.message || 'Failed to submit. Please try again.'));
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSuccessMessage('❌ An error occurred while submitting the form.');
+    } finally {
+      setLoading(false);
     }
-  } catch (error) {
-    console.error('Error submitting form:', error);
-    alert('An error occurred while submitting the form.');
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   return (
     <div className="pt-[3rem]">
@@ -236,7 +236,13 @@ const Careers = () => {
   ) : null}
   {loading ? 'Submitting...' : 'Submit Application'}
 </button>
-
+{successMessage && (
+              <p className={`text-xl font-medium ${
+                successMessage.startsWith('✅') ? 'text-green-600' : 'text-red-600'
+              }`}>
+                {successMessage}
+              </p>
+            )}
           </div>
         </form>
       </section>

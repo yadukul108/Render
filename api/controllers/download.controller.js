@@ -29,11 +29,11 @@ export const sendPdfLink = async (req, res) => {
         <p><a href="${pdfLink}" target="_blank">Download PDF</a></p>
         <br/>
        <p>Best regards,</p>
-    <img src="https://res.cloudinary.com/dbnutkmr7/image/upload/v1756328479/logo-dark-new_hwjg0s.png" alt="Allegro Advisors" width="120"/>
+    <img src="https://res.cloudinary.com/dbnutkmr7/image/upload/v1756754384/logo_tipemx.png" alt="Allegro Advisors" width="120"/>
 
     <p style="color:gray; font-size:12px;">
       Allegro Capital Pvt. Ltd.<br/>
-      XH8X+PV4, D'Souza Rd, Ashok Nagar,<br/>
+      The Residency Tower - 2, D’Souza Road, Residency Road, Ashok Nagar<br/>
       Bengaluru, Karnataka 560025<br/>
       📞 +91 98765 43210 | ✉️ contact@allegroadvisors.com
     </p>

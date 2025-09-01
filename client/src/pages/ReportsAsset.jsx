@@ -121,10 +121,10 @@ export default function AssetReports() {
         {/* Header */}
         <div className="mb-8 text-center">
           <h1 className="text-3xl md:text-4xl font-medium text-slate-700">
-            Asset Reports
+             Reports
           </h1>
           <h1 className="text-slate-600 text-[1rem] md:text-xl">
-            Study and download our asset reports with ease
+            Study and download our reports with ease
           </h1>
         </div>
 
@@ -257,7 +257,7 @@ export default function AssetReports() {
                 No Assets Found
               </h3>
               <p className="text-slate-600">
-                There are currently no asset reports available.
+                There are currently no reports available.
               </p>
             </div>
           )}

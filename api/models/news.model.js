@@ -18,6 +18,10 @@ const NewsSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    mediaName:{
+      type:String,
+      required: true,
+    }
   },
   { timestamps: true } // adds createdAt & updatedAt automatically
 );

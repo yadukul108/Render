@@ -54,7 +54,7 @@ const Newsletter = () => {
 
     {/* Right (80%) */}
     <div className="md:w-4/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-      <Link to={`/news/${news.slug}`} className="text-xl md:text-2xl text-slate-700 hover:underline">
+      <Link to={`/news/${news.slug}`} className="text-[1rem] md:text-xl text-slate-700 hover:underline">
         {news.description}
       </Link>
       <Link to={`/news/${news.slug}`} className="text-blue-600 hover:underline font-medium">
