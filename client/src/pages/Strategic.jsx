@@ -1,5 +1,5 @@
 import React from 'react'
-import HomeIb from "../assets/office3.jpg";
+import HomeIb from "../assets/investment.jpg";
 import { Link } from 'react-router-dom';
 import CaseStudies from '../components/CaseStudy';
 import Footer from "../components/Footer"
@@ -57,7 +57,7 @@ const Strategic = () => {
       Our approach combines deep industry knowledge, analytical rigor, and an understanding of global trends to guide clients through pivotal decisions — from organizational restructuring and capital allocation to strategic partnerships and market entry.
     </p>
     <p>
-      We collaborate with promoters, boards, and CXOs to develop and refine strategies that drive sustainable value creation. Whether navigating periods of transformation or positioning for future growth, our focus remains on delivering clarity, direction, and measurable impact.
+      We collaborate with promoters and boards, to develop and refine strategies that drive sustainable value creation. Whether navigating periods of transformation or positioning for future growth, our focus remains on delivering clarity, direction, and measurable impact.
     </p>
     <p>
       With a proven track record in advising on complex, high-stakes situations, Allegro Capital acts as a trusted partner, offering unbiased counsel and tailored solutions that align with each client’s unique goals and circumstances.

@@ -51,7 +51,27 @@ export const createCase = async (req, res) => {
 // Get all cases
 export const getAllCase = async (req, res) => {
   try {
-    const cases = await Case.find().sort({ createdAt: -1 });
+    const { source, limit, page } = req.query;
+    
+    // Build query securely
+    let query = {};
+    if (source === 'Investment') {
+      query.isInvestment = true;
+    } else if (source === 'Strategy') {
+      query.isStrategy = true;
+    }
+
+    // Pagination
+    const pageNum = parseInt(page, 10) || 1;
+    const limitNum = parseInt(limit, 10) || 0; // 0 means no limit by default to match existing frontend behavior
+    const skip = (pageNum - 1) * limitNum;
+
+    const cases = await Case.find(query)
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limitNum)
+      .lean(); // Vastly improves performance by returning plain JS objects
+
     res.status(200).json(cases);
   } catch (error) {
     res.status(500).json({ message: "Error fetching case studies", error });

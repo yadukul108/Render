@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import HomeIb from "../assets/office3.jpg";
+import HomeIb from "../assets/news.jpg";
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ const NewsUpdates = () => {
     const fetchNews = async () => {
       try {
         //
-        const res = await fetch("https://allegro-backend.onrender.com/api/news/getAllNews");
+        const res = await fetch(`/api/news/getAllNews`);
         if (!res.ok) throw new Error("Failed to fetch news");
         const data = await res.json();
         setNewsItems(data);

@@ -144,10 +144,10 @@ const ReturnsChart = () => {
                     <div className="md:text-lg font-medium text-slate-800">{currentPMS.inceptionSince}</div>
                   </div>
                   
-                  <div className="bg-slate-50 rounded-lg p-2 md:p-4">
+                  {/* <div className="bg-slate-50 rounded-lg p-2 md:p-4">
                     <h1 className="text-xl md:text-2xl text-slate-600 font-medium">Size</h1>
                     <div className="md:text-lg font-medium text-slate-800">{currentPMS.size}</div>
-                  </div>
+                  </div> */}
                   
                   <div className="bg-slate-50 rounded-lg p-2 md:p-4 ">
                     <h1 className="text-xl md:text-2xl text-slate-600 font-medium">Strategy</h1>

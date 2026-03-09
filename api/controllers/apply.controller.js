@@ -4,6 +4,15 @@ import Applicant from '../models/apply.model.js';
 
 dotenv.config();
 
+// Reuse a single SMTP transport across all requests (avoids re-creating TLS connections)
+const transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
 export const handleApplication = async (req, res) => {
   const { name, email, phone, linkedin } = req.body;
   const resume = req.file; // parsed by Multer
@@ -48,17 +57,11 @@ export const handleApplication = async (req, res) => {
       });
     }
 
-    /* ---------- 3. Set up Nodemailer ---------- */
-    const transporter = nodemailer.createTransport({
-      service: 'Gmail',
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+    /* ---------- 3. Respond instantly ---------- */
+    res.status(200).json({ message: 'Application submitted successfully' });
 
-    /* ---------- 4. E-mail HR ---------- */
-    await transporter.sendMail({
+    /* ---------- 4. Send emails in the background (fire-and-forget) ---------- */
+    const hrMail = transporter.sendMail({
       from: `"Allegro Careers" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
       subject: `New Application from ${name}`,
@@ -77,29 +80,30 @@ export const handleApplication = async (req, res) => {
       ],
     });
 
-    /* ---------- 5. Confirmation mail to applicant ---------- */
-    await transporter.sendMail({
-  from: process.env.EMAIL_USER,
-  to: email,
-  subject: 'Allegro Advisors – Application Received',
-  html: `
-    <p>Dear ${name},</p>
-    <p>Thank you for applying. We’ve received your application and will get back to you shortly.</p>
-    <br/>
-    <p>Best regards,</p>
-    <img src="https://res.cloudinary.com/dbnutkmr7/image/upload/v1756328479/logo-dark-new_hwjg0s.png" alt="Allegro Advisors" width="120"/>
+    const applicantMail = transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: 'Allegro Advisors – Application Received',
+      html: `
+        <p>Dear ${name},</p>
+        <p>Thank you for applying. We've received your application and will get back to you shortly.</p>
+        <br/>
+        <p>Best regards,</p>
+        <img src="https://res.cloudinary.com/dbnutkmr7/image/upload/v1756328479/logo-dark-new_hwjg0s.png" alt="Allegro Advisors" width="120"/>
+        <p style="color:gray; font-size:12px;">
+          Allegro Capital Pvt. Ltd.<br/>
+          XH8X+PV4, D'Souza Rd, Ashok Nagar,<br/>
+          Bengaluru, Karnataka 560025<br/>
+          📞 +91 98765 43210 | ✉️ contact@allegroadvisors.com
+        </p>
+      `,
+    });
 
-    <p style="color:gray; font-size:12px;">
-      Allegro Capital Pvt. Ltd.<br/>
-      XH8X+PV4, D'Souza Rd, Ashok Nagar,<br/>
-      Bengaluru, Karnataka 560025<br/>
-      📞 +91 98765 43210 | ✉️ contact@allegroadvisors.com
-    </p>
-  `,
-});
+    // Send both emails in parallel, log errors silently
+    Promise.all([hrMail, applicantMail]).catch((err) => {
+      console.error('❌ Background email error:', err.message);
+    });
 
-
-    res.status(200).json({ message: 'Application submitted successfully' });
   } catch (err) {
     console.error('❌ Application Error:', err);
     res.status(500).json({
@@ -108,3 +112,4 @@ export const handleApplication = async (req, res) => {
     });
   }
 };
+

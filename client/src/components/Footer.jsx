@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Twitter, Linkedin, Instagram,ChartNoAxesCombined } from 'lucide-react';
+import { Linkedin,ChartNoAxesCombined } from 'lucide-react';
 import logo from "../assets/logo.png"
 import {Link }from "react-router-dom"
 const Footer = () => {
@@ -62,9 +62,7 @@ const Footer = () => {
       {/* Social Media Section */}
       <div className="py-3 mt-6">
         <div className="flex justify-center space-x-6">
-          <a href="https://facebook.com" className="text-red-600" aria-label="Facebook"><Facebook size={20} /></a>
-          <a href="https://twitter.com" className="text-red-600" aria-label="Twitter"><Twitter size={20} /></a>
-          <a href="https://linkedin.com" className="text-red-600" aria-label="LinkedIn"><Linkedin size={20} /></a>
+        <a href="https://linkedin.com" className="text-red-600" aria-label="LinkedIn"><Linkedin size={20} /></a>
           {/* <a href="https://instagram.com" className="text-red-600" aria-label="Instagram"><Instagram size={20} /></a> */}
         </div>
       </div>

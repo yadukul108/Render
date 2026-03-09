@@ -62,15 +62,14 @@ const [selectedFeature, setSelectedFeature] = useState(0);
       </div>
 
       {/* Heading */}
-      <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-light mb-8 leading-tight">
-        Your Partner For
+      <h1 className="text-white text-4xl md:text-6xl lg:text-6xl font-light mb-8 leading-tight">
+        Trusted Advisor to HNIs & Family Offices
         <span className="block text-red-400 font-medium">Private Banking</span>
       </h1>
 
       {/* Subtext */}
       <p className="text-slate-200 text-base md:text-lg lg:text-xl max-w-3xl leading-relaxed font-light">
-       Allegro Capital offers personalized private banking and wealth management services, 
-  helping individuals and families protect, grow, and transfer their wealth with confidence.
+       We provide bespoke investment and wealth management services to HNIs and Family Offices to protect and grow their wealth
       </p>
 
       <p className="mt-4 text-slate-300 text-sm md:text-base font-light max-w-2xl">
@@ -84,7 +83,7 @@ const [selectedFeature, setSelectedFeature] = useState(0);
 
 
         <h1 className='text-center text-slate-700 mt-8 md:mt-16 font-medium text-3xl md:text-4xl'>Private Banking</h1>
-        <h1 className='text-center text-slate-600 p-1 font-medium mt-2 md:mt-6 md:text-2xl max-w-5xl mx-auto'>"Providing unbiased wealth management solutions tailored for families across generations, ensuring continuity and growth of family wealth through strategic planning and personalized advisory."</h1>
+        <h1 className='text-center text-slate-600 p-1 font-medium mt-2 md:mt-6 md:text-2xl max-w-5xl mx-auto'>"Providing unbiased wealth management solutions tailored for families across generations, ensuring continuity and growth of individual and family wealth through bespoke solutions and execution services"</h1>
       {/* Value Proposition Towers */}
       <div className=" py-8 md:py-14 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
@@ -155,7 +154,7 @@ const [selectedFeature, setSelectedFeature] = useState(0);
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 py-14">
-        <h1 className='text-center text-slate-700  mb-10 font-medium text-3xl md:text-4xl'>Our Features</h1>
+        <h1 className='text-center text-slate-700  mb-10 font-medium text-3xl md:text-4xl'>Our Offerings</h1>
          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
   {/* Desktop Layout */}
   <div className="hidden lg:block lg:col-span-2 space-y-6">
@@ -280,7 +279,7 @@ const [selectedFeature, setSelectedFeature] = useState(0);
 
               <div className="text-center mb-10">
                 <TrendingUp className="w-12 h-12 text-slate-700 mx-auto mb-2 md:mb-4" />
-                <h1 className="text-3xl md:text-5xl font-medium text-slate-700 mb-2">$50M+</h1>
+                <h1 className="text-3xl md:text-5xl font-medium text-slate-700 mb-2">$3Bn+</h1>
                 <p className="text-slate-600 text-sm uppercase tracking-wide">Assets Under Advisement</p>
               </div>
             </div>

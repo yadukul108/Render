@@ -1,12 +1,13 @@
-
-import HomeIB from "../assets/office4.jpg"
+import HomeIB from "../assets/Home.jpg"
 import {Link} from "react-router-dom"
 import Cards from '../components/Cards'
 import ServicesCards from '../components/ServicesCards'
-import Awards from '../components/Awards'
+import React, { useRef, lazy, Suspense } from 'react';
 import Stats from '../components/Stats'
 import Footer from '../components/Footer'
-import React, { useRef } from 'react';
+
+// Lazy-load Awards to reduce initial bundle and delay loading until needed
+const Awards = lazy(() => import('../components/Awards'));
 import { motion } from "framer-motion";
  
 const Home = () => {
@@ -40,7 +41,7 @@ const Home = () => {
 
               {/* Description */}
               <p className="text-slate-200 text-base md:text-lg lg:text-xl max-w-3xl leading-relaxed font-light mb-8 animate-fade-in-up animation-delay-400">
-                Allegro Capital is a leading healthcare investment bank in India, providing 
+                Allegro Capital is a leading investment bank in India, providing 
                 comprehensive financial solutions to meet the diverse needs of our clients.
               </p>
 
@@ -81,7 +82,13 @@ const Home = () => {
  <div ref={serviceRef} className="">
   <ServicesCards />
 </div>
-  <Awards/>
+  <Suspense fallback={
+    <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="h-64 rounded-lg bg-gray-200/80 animate-pulse" />
+    </div>
+  }>
+    <Awards />
+  </Suspense>
  <Footer/>
     </div>
   )

@@ -23,5 +23,8 @@ const awardSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+awardSchema.index({ year: -1 });
+awardSchema.index({ createdAt: -1 });
+
 const Award = mongoose.model("Award", awardSchema);
 export default Award;

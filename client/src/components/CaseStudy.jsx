@@ -1,38 +1,30 @@
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
+import { useGetCasesQuery } from "../redux/apiSlice";
 
 const CaseStudies = ({ source }) => {
-  const [cases, setCases] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { data = [], isLoading: loading, isError } = useGetCasesQuery();
 
-  useEffect(() => {
-    const fetchCases = async () => {
-      try {
-        const res = await fetch("https://allegro-backend.onrender.com/api/cases/getAllCase");
-        const data = await res.json();
+  const cases = useMemo(() => {
+    const src = source?.toLowerCase();
+    if (src === "investment") {
+      return data.filter((c) => c.isInvestment === true);
+    } else if (src === "strategy") {
+      return data.filter((c) => c.isStrategy === true);
+    }
+    return data;
+  }, [data, source]);
 
-        let filtered = data;
-        if (source === "Investment") {
-          filtered = data.filter((c) => c.isInvestment === true);
-        }
-
-        setCases(filtered);
-      } catch (err) {
-        console.error("Error fetching cases:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCases();
-  }, [source]);
+  if (isError) {
+    return <div className="text-center py-10 text-red-500">Failed to load case studies.</div>;
+  }
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 py-4 text-slate-700">
+    <div className="w-full max-w-7xl mx-auto px-4 py-4 md:mt-20 text-slate-700">
       {/* Section Header */}
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-medium mb-4">Case Studies</h2>
@@ -121,7 +113,7 @@ const CaseStudies = ({ source }) => {
         <p className="text-center text-slate-500">No case studies found.</p>
       )}
 
-      <style jsx>{`
+      <style>{`
         @keyframes fade-in-up {
           from {
             opacity: 0;

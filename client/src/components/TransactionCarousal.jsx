@@ -1,31 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules"; // ✅ Import Pagination module
 import "swiper/css";
 import "swiper/css/pagination"; // ✅ Import Pagination styles
 
 import { Link } from "react-router-dom";
+import { useGetTransactionsQuery } from '../redux/apiSlice';
 
 
 
 const TransactionCarousal = ({ source }) => {
-   const [transactions, setTransactions] = useState([]);
+  const { data: transactions = [], isLoading, isError } = useGetTransactionsQuery();
 
-  useEffect(() => {
-    const fetchTransactions = async () => {
-      try {
-        const res = await fetch('https://allegro-backend.onrender.com/api/transactions/getAllTransactions');
-        if (!res.ok) throw new Error('Failed to fetch transactions');
-        const data = await res.json();
-        setTransactions(data);
-      } catch (err) {
-        console.error(err);
-        setTransactions([]);
-      }
-    };
+  if (isLoading) {
+    return <div className="text-center py-10 text-slate-500">Loading transactions...</div>;
+  }
 
-    fetchTransactions();
-  }, []);
+  if (isError) {
+    return <div className="text-center py-10 text-red-500">Failed to load transactions.</div>;
+  }
 
   return (
     <div className=" md:w-11/12 mx-auto px-4">
@@ -43,8 +36,12 @@ const TransactionCarousal = ({ source }) => {
         className="mySwiper pb-10"
       >
         {transactions
-  .filter(txn =>
-    source === "investment" ? txn.isInvestment : txn.isStrategy)
+  .filter(txn => {
+    const src = source?.toLowerCase();
+    if (src === "investment") return txn.isInvestment;
+    if (src === "strategy") return txn.isStrategy;
+    return true; // no source = show all
+  })
   .map((txn, index) => (
     <SwiperSlide key={txn._id}>
             <Link
@@ -142,7 +139,7 @@ const TransactionCarousal = ({ source }) => {
         ))}
       </Swiper>
 
-      <style jsx>{`
+      <style>{`
         @keyframes fade-in-up {
           from {
             opacity: 0;

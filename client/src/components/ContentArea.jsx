@@ -51,12 +51,12 @@ const totalPages = Math.ceil(data.length / itemsPerPage);
     setLoading(true);
     try {
       let url = '';
-      if (isTransaction) url = 'https://allegro-backend.onrender.com/api/transactions/getAllTransactions';
-      else if (isNewsletter) url = 'https://allegro-backend.onrender.com/api/newsletter/getAllNewsletters';
-      else if(isCase) url ='https://allegro-backend.onrender.com/api/cases/getAllCase';
-      else if(isReports) url='https://allegro-backend.onrender.com/api/assets/getAllAssets';
-      else if(isAward) url='https://allegro-backend.onrender.com/api/awards';
-      else if(isNews) url='https://allegro-backend.onrender.com/api/news/getAllNews';
+      if (isTransaction) url = `/api/transactions/getAllTransactions`;
+      else if (isNewsletter) url = `/api/newsletter/getAllNewsletters`;
+      else if(isCase) url =`/api/cases/getAllCase`;
+      else if(isReports) url=`/api/assets/getAllAssets`;
+      else if(isAward) url=`/api/awards`;
+      else if(isNews) url=`/api/news/getAllNews`;
       const response = await fetch(url);
       console.log(response);
       const result = await response.json();
@@ -75,19 +75,19 @@ const handleDelete = async (id) => {
     let endpoint = "";
 
     if (isTransaction) {
-      endpoint = `https://allegro-backend.onrender.com/api/transactions/deleteTransaction/${id}`;
+      endpoint = `/api/transactions/deleteTransaction/${id}`;
     } else if (isNewsletter) {
-      endpoint = `https://allegro-backend.onrender.com/api/newsletter/deleteNewsletter/${id}`;
+      endpoint = `/api/newsletter/deleteNewsletter/${id}`;
     } else if (isCase) {
-      endpoint = `https://allegro-backend.onrender.com/api/cases/deleteCase/${id}`;
+      endpoint = `/api/cases/deleteCase/${id}`;
     }else if (isAward) {
-      endpoint = `https://allegro-backend.onrender.com/api/awards/${id}`;
+      endpoint = `/api/awards/${id}`;
     }
     else if (isReports) {
-      endpoint = `https://allegro-backend.onrender.com/api/assets/deleteAsset/${id}`;
+      endpoint = `/api/assets/deleteAsset/${id}`;
     }
     else if(isNews){
-      endpoint=`https://allegro-backend.onrender.com/api/news/deleteNews/${id}`;
+      endpoint=`/api/news/deleteNews/${id}`;
         }
 
     if (!endpoint) throw new Error("No valid delete endpoint");
@@ -158,33 +158,33 @@ const handleDelete = async (id) => {
 
     if (isTransaction) {
       url = isEditing
-        ? `https://allegro-backend.onrender.com/api/transactions/updateTransaction/${editId}`
-        : 'https://allegro-backend.onrender.com/api/transactions/createTransaction';
+        ? `/api/transactions/updateTransaction/${editId}`
+        : `/api/transactions/createTransaction`;
     } else if (isNewsletter) {
       url = isEditing
-        ? `https://allegro-backend.onrender.com/api/newsletter/updateNewsletter/${editId}`
-        : 'https://allegro-backend.onrender.com/api/newsletter/createNewsletter';
+        ? `/api/newsletter/updateNewsletter/${editId}`
+        : `/api/newsletter/createNewsletter`;
     }
     else if (isCase) {
       url = isEditing
-        ? `https://allegro-backend.onrender.com/api/cases/updateCase/${editId}`
-        : 'https://allegro-backend.onrender.com/api/cases/createCase';
+        ? `/api/cases/updateCase/${editId}`
+        : `/api/cases/createCase`;
     }
      else if (isAward) {
       url = isEditing
-        ? `https://allegro-backend.onrender.com/api/awards/${editId}`
-        : 'https://allegro-backend.onrender.com/api/awards';
+        ? `/api/awards/${editId}`
+        : `/api/awards`;
     }
     else if (isReports) {
       url = isEditing
-        ? `https://allegro-backend.onrender.com/api/assets/updateAsset/${editId}`
-        : 'https://allegro-backend.onrender.com/api/assets/createAsset';
+        ? `/api/assets/updateAsset/${editId}`
+        : `/api/assets/createAsset`;
     }
 
     else if (isNews) {
       url = isEditing
-        ? `https://allegro-backend.onrender.com/api/news/updateNews/${editId}`
-        : 'https://allegro-backend.onrender.com/api/news/createNews';
+        ? `/api/news/updateNews/${editId}`
+        : `/api/news/createNews`;
     }
     const formData = new FormData();
     for (const key in form) {

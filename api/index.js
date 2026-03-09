@@ -51,11 +51,22 @@ app.use("/api/visitor",visitorRoutes);
 // Error handler middleware
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
-  const message = err.message || 'Internal Server Error';
+  
+  // Use a generic message in production to prevent leaking sensitive schema/DB details
+  const isProduction = process.env.NODE_ENV === 'production';
+  const message = isProduction && statusCode === 500 
+    ? 'Internal Server Error' 
+    : err.message || 'Internal Server Error';
+
+  // Log full error internally for debugging
+  console.error(`[Error] ${statusCode}: ${err.message}`, err.stack);
+
   res.status(statusCode).json({
     success: false,
     statusCode,
     message,
+    // Only send stack trace in development
+    ...( !isProduction && { stack: err.stack } )
   });
 });
 

@@ -63,7 +63,27 @@ export const createTransaction = async (req, res) => {
 // GET all transactions
 export const getAllTransactions = async (req, res) => {
   try {
-    const transactions = await Transaction.find().sort({ createdAt: -1 });
+    const { source, limit, page } = req.query;
+    
+    // Build query securely
+    let query = {};
+    if (source === 'investment') {
+      query.isInvestment = true;
+    } else if (source === 'strategy') {
+      query.isStrategy = true;
+    }
+
+    // Pagination
+    const pageNum = parseInt(page, 10) || 1;
+    const limitNum = parseInt(limit, 10) || 0; // 0 means no limit by default to match existing frontend behavior
+    const skip = (pageNum - 1) * limitNum;
+
+    const transactions = await Transaction.find(query)
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limitNum)
+      .lean(); // Vastly improves performance by returning plain JS objects
+
     res.status(200).json(transactions);
   } catch (err) {
     res.status(500).json({ error: err.message });

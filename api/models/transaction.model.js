@@ -72,6 +72,10 @@ const transactionSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+transactionSchema.index({ createdAt: -1 });
+transactionSchema.index({ isInvestment: 1, createdAt: -1 });
+transactionSchema.index({ isStrategy: 1, createdAt: -1 });
+
 const Transaction = mongoose.model('Transaction', transactionSchema);
 
 export default Transaction;

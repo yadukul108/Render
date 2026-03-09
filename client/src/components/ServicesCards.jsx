@@ -1,4 +1,5 @@
 import React from 'react';
+import { useInView } from 'react-intersection-observer';
 
 import { Link } from 'react-router-dom'; 
 import PrivateIB from '../assets/Office2.jpg';
@@ -40,8 +41,13 @@ const cards = [
 ];
 
 const ServicesCards = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <section className="pt-20 pb-10  relative overflow-hidden">
+    <section ref={ref} className="pt-20 pb-10  relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full blur-3xl animate-pulse"></div>
@@ -50,7 +56,7 @@ const ServicesCards = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative ">
         {/* Enhanced heading section */}
-        <div className="text-center mb-10 md:mb-16 opacity-0 animate-fade-in-up">
+        <div className={`text-center mb-10 md:mb-16 opacity-0 ${inView ? 'animate-fade-in-up' : ''}`}>
           <h2 className="text-3xl md:text-4xl font-medium bg-gradient-to-r from-slate-800 via-slate-700 to-slate-600 bg-clip-text text-transparent mb-4 md:mb-4">
             Our Core Services
           </h2>
@@ -65,7 +71,7 @@ const ServicesCards = () => {
           {cards.map((card, index) => (
             <div
               key={index}
-              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 opacity-0 animate-fade-in-up cursor-pointer"
+              className={`group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 opacity-0 ${inView ? 'animate-fade-in-up' : ''} cursor-pointer`}
               style={{ animationDelay: `${index * 200}ms` }}
               onClick={() => window.location.href = card.link}
             >
@@ -128,7 +134,7 @@ const ServicesCards = () => {
         </div>
 
         {/* Bottom CTA section */}
-        <div className="text-center mt-8 md:mt-16 opacity-0 animate-fade-in-up" style={{ animationDelay: '800ms' }}>
+        <div className={`text-center mt-8 md:mt-16 opacity-0 ${inView ? 'animate-fade-in-up' : ''}`} style={{ animationDelay: '800ms' }}>
           <div className="flex flex-col md:inline-flex items-center gap-4 py-2 md:px-8 md:py-4 ">
             <span className="text-slate-600 font-medium ">Ready to get started?</span>
             <button 
@@ -141,43 +147,6 @@ const ServicesCards = () => {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        .animate-fade-in-up {
-          animation: fade-in-up 0.8s ease-out forwards;
-        }
-        
-        .line-clamp-3 {
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-        
-        @media (max-width: 768px) {
-          .animate-fade-in-up {
-            animation-delay: 0ms !important;
-          }
-        }
-        
-        @media (prefers-reduced-motion: reduce) {
-          .animate-fade-in-up,
-          .group:hover {
-            animation: none;
-            transition: none;
-          }
-        }
-      `}</style>
     </section>
   );
 };

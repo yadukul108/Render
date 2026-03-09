@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import HomeIb from '../assets/AllegroOffice1.jpg';
+import HomeIb from '../assets/home.jpg';
 import { DollarSign, Users, Briefcase, Clock } from 'lucide-react';
 import Footer from '../components/Footer';
 
@@ -35,7 +35,7 @@ const Careers = () => {
   payload.append('resume', formData.resume);
 
   try {
-    const response = await fetch('https://allegro-backend.onrender.com/api/apply', {
+    const response = await fetch(`/api/apply`, {
       method: 'POST',
       body: payload,
     });
@@ -54,6 +54,14 @@ const Careers = () => {
       setLoading(false);
     }
   };
+
+  const isFormValid =
+  formData.name.trim() !== '' &&
+  formData.email.trim() !== '' &&
+  formData.phone.trim() !== '' &&
+  formData.linkedin.trim() !== '' &&
+  formData.resume !== null;
+
 
   return (
     <div className="pt-[3rem]">
@@ -123,14 +131,9 @@ const Careers = () => {
           </div>
 
           {/* Benefits Grid */}
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
-              { 
-                icon: DollarSign, 
-                title: 'Competitive Salary', 
-                text: 'Get paid well for your skills! We offer competitive salary + benefits.',
-                gradient: 'from-red-500 to-red-600'
-              },
+              
               { 
                 icon: Users, 
                 title: 'Collaborative Team', 
@@ -195,33 +198,35 @@ const Careers = () => {
 
         <form onSubmit={handleSubmit} className="max-w-3xl mx-auto grid gap-6" encType="multipart/form-data">
           <div>
-            <label className="block mb-2 text-slate-700 font-medium">Full Name</label>
+            <label className="block mb-2 required text-slate-700 font-medium">Full Name</label>
             <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="Your full name" className="w-full border border-slate-300 px-4 py-3 rounded-lg" />
           </div>
           <div>
-            <label className="block mb-2 text-slate-700 font-medium">Email Address</label>
+            <label className="block mb-2 required text-slate-700 font-medium">Email Address</label>
             <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="you@example.com" className="w-full border border-slate-300 px-4 py-3 rounded-lg" />
           </div>
           <div>
-            <label className="block mb-2 text-slate-700 font-medium">Phone Number</label>
+            <label className="block mb-2 required text-slate-700 font-medium">Phone Number</label>
             <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required placeholder="+91 9876543210" className="w-full border border-slate-300 px-4 py-3 rounded-lg" />
           </div>
           <div>
-            <label className="block mb-2 text-slate-700 font-medium">Upload Resume</label>
+            <label className="block mb-2 required text-slate-700 font-medium">Upload Resume</label>
             <input type="file" name="resume" onChange={handleChange} required className="w-full border border-slate-300 px-4 py-2 rounded-lg file:bg-red-600 file:text-white file:border-none file:px-4 file:py-2 file:rounded file:cursor-pointer" />
           </div>
           <div>
-            <label className="block mb-2 text-slate-700 font-medium">LinkedIn URL</label>
-            <input type="url" name="linkedin" value={formData.linkedin} onChange={handleChange} placeholder="https://linkedin.com/in/yourname" className="w-full border border-slate-300 px-4 py-3 rounded-lg" />
+            <label className="block mb-2 required text-slate-700 font-medium">LinkedIn URL</label>
+            <input type="url" name="linkedin" value={formData.linkedin} onChange={handleChange} required placeholder="https://linkedin.com/in/yourname" className="w-full border border-slate-300 px-4 py-3 rounded-lg" />
           </div>
 
           
           <div className="text-center">
            <button
   type="submit"
-  disabled={loading}
+  disabled={loading || !isFormValid}
   className={`${
-    loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-red-600 hover:bg-red-700'
+    loading || !isFormValid
+      ? 'bg-gray-400 cursor-not-allowed'
+      : 'bg-red-600 hover:bg-red-700'
   } text-white font-medium px-4 py-2 rounded-lg transition duration-300 flex items-center justify-center`}
 >
   {loading ? (

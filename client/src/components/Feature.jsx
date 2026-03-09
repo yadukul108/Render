@@ -10,7 +10,7 @@ const Feature = () => {
   useEffect(() => {
     const fetchDeals = async () => {
       try {
-        const res = await fetch('https://allegro-backend.onrender.com/api/transactions/getAllTransactions');
+        const res = await fetch(`/api/transactions/getAllTransactions`);
         const data = await res.json();
         
         // Filter only featured deals
@@ -215,7 +215,7 @@ const Feature = () => {
       </div>
 
       {/* Custom CSS for animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes slideInRight {
           from {
             opacity: 0;

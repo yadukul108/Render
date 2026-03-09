@@ -9,9 +9,9 @@ const cards = [
   },
   {
     icon: BarChart3,
-    title: "Global Reach",
+    title: "Extensive Experience",
     description:
-      "With a presence in key financial hubs worldwide, we offer seamless cross-border solutions.",
+      "Veteran leadership with a proven track record of executing complex transactions, backed by deep industry networks.",
   },
   {
     icon: Users,

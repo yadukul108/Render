@@ -11,7 +11,7 @@ const TransactionDetail = () => {
   useEffect(() => {
     const fetchTransaction = async () => {
       try {
-        const res = await fetch(`https://allegro-backend.onrender.com/api/transactions/getTransactionById/${id}`);
+        const res = await fetch(`/api/transactions/getTransactionById/${id}`);
         if (!res.ok) throw new Error('Transaction not found');
         const data = await res.json();
         setTxn(data);
@@ -236,7 +236,7 @@ const TransactionDetail = () => {
       
       <Footer />
 
-      <style jsx>{`
+      <style>{`
         @keyframes fade-in-up {
           from {
             opacity: 0;

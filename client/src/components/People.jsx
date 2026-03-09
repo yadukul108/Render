@@ -5,7 +5,9 @@ import { Linkedin } from "lucide-react";
 import Krushi from "../assets/Krushi_Bandi.jpeg"
 import Abhisekh from "../assets/Abhisekh_Shetty.jpeg"
 import Anmol from "../assets/Anmol_Garg.jpeg"
-import Ayush from "../assets/Ayush_Pansari.jpeg"
+import Ayush from "../assets/ayushallegro.jpeg"
+import Kunal from "../assets/kunalalegro.jpeg"
+import Rohit from "../assets/Rohitallegro.jpeg"
 import Gaurav from "../assets/Gaurav_Anirkar.jpeg"
 import { useNavigate } from "react-router-dom";
 
@@ -14,13 +16,13 @@ const teamMembers = [
     name: "Kunal Kashyap",
     designation: "Founder, Chairman & CEO",
     education: "Chartered Accountant",
-    description: null,
+    description: "25+ years of Investment Banking experience",
     experienceLeadership: "Founder, Chairman & CEO of Allegro Capital. With over 30 years of experience, Kunal has led Allegro's evolution into a multi-vertical financial services powerhouse since founding it in 2002. He previously held leadership positions at Arthur Andersen and co-founded Celstream Technologies and Andante Foods.",
     wealthInsurance: "Spearheaded Allegro's wealth management arm, managing ₹1,000+ crore in assets across HNIs, family offices, and professionals. He also scaled Allegro's insurance advisory platform for life and general insurance solutions.",
     entrepreneurship: "Co-founded Celstream Technologies (product engineering) and Andante Foods (premium foods business), reflecting his focus on innovation and long-term value creation.",
     boardContribution: "Held independent board roles in companies like GSK Consumer Healthcare, MetLife India, Cambridge Solutions, and Mereo BioPharma. Currently on the board of Mazumdar Shaw Medical Foundation, contributing to healthcare innovation.",
     educationPhilosophy: "Chartered Accountant by qualification. Combines technical depth with strategic foresight and client trust.",
-    image: Person,
+    image: Kunal,
     socials: {
       linkedin: "#",
       twitter: "#",
@@ -30,12 +32,12 @@ const teamMembers = [
   {
     name: "Rohit Meher",
     designation: "Director",
-    education: "IIM Ahmedabad, Ujjain Engineering College",
-    description: null,
+    education: "IIM Ahmedabad",
+    description: "17+ years of Investment Banking experience",
     experienceLeadership: "Director at Allegro Capital with over 13 years of investment banking experience. He has led and executed 25+ high-value transactions worth more than $2.5 billion, spanning sectors such as healthcare, industrials, and infrastructure. Rohit brings a hands-on leadership style to complex deal structuring, negotiation, and closure. Prior to Allegro, he was part of ICICI Bank's Investment Banking team, where he gained deep experience in M&A, structured finance, and capital markets.",
     boardContribution: "Rohit is a trusted advisor to entrepreneurs, boards, and institutional investors. He is known for his ability to synthesize financial insights with strategic foresight. His work regularly influences boardroom decision-making, especially in high-growth and transformational phases of companies. He has been involved in key governance-level discussions and brings integrity and precision to all board-level interactions.",
     educationPhilosophy: "Rohit holds an MBA from IIM Ahmedabad and a B.E. from Ujjain Engineering College. He combines engineering logic with financial acumen to provide sharp, actionable advice. He is widely regarded for his methodical approach, mentorship of junior professionals, and ability to see the big picture while diving deep into transaction details.",
-    image: Person,
+    image: Rohit,
     socials: {
       linkedin: "https://www.linkedin.com/in/rohit-mehar-629a8aa/",
       twitter: "#",
@@ -45,8 +47,8 @@ const teamMembers = [
   {
     name: "Abhishek Shetty",
     designation: "Director",
-    education: "IIM Calcutta, RV College of Engineering",
-    description: null,
+    education: "IIM Calcutta",
+    description: "16+ years of Investment Banking experience",
     experienceLeadership: "Abhishek has been with Allegro Capital since 2009, making him one of the firm's longest-serving professionals. As a Director, he has played a pivotal role in establishing Allegro's reputation in healthcare, life sciences, and consumer sectors. His deep sectoral knowledge and client-first approach have helped close several marquee transactions. Prior to Allegro, he worked as an ASIC Design Engineer at Cisco, giving him a unique blend of technical and financial expertise.",
     boardContribution: "Over the years, Abhishek has advised board members, CXOs, and founders on strategic capital raises, mergers, and acquisitions, collectively valued at over $4 billion. He is known for his credibility in the boardroom, where his calm demeanor, analytical rigor, and long-term orientation stand out. He has contributed to defining capital structures and strategic roadmaps in high-impact engagements.",
     educationPhilosophy: "Abhishek is an alumnus of IIM Calcutta and RV College of Engineering. His engineering background enhances his ability to bring structured thinking and innovation to financial strategy. He is a firm believer in integrity, trust-building, and lifelong learning. He also mentors younger professionals and believes in creating a supportive team culture anchored in excellence.",
@@ -60,8 +62,8 @@ const teamMembers = [
   {
     name: "Ayush Pansari",
     designation: "Vice-President",
-    education: "Chartered Accountant, CFA Charter Holder, University of Calcutta",
-    description: "Ayush has led 25+ M&A and fundraising transactions worth over $3B. With prior experience at KPMG, he brings strong analytical expertise and client-focused execution.",
+    education: "Chartered Accountant, CFA",
+    description: "10+ years of Investment Banking experience",
     image: Ayush,
     socials: {
       linkedin: "https://www.linkedin.com/in/ayush-pansari-12009a4b/",
@@ -177,6 +179,9 @@ const People = () => {
           <p className="text-slate-600 text-sm italic">
             {member.education}
           </p>
+          <p className="text-slate-600 text-sm italic pt-4">
+            {member.description}
+          </p>
         </div>
       </div>
     </div>
@@ -195,13 +200,13 @@ const People = () => {
          <div className="max-w-3xl mx-auto space-y-4">
         <p className="text-xl md:text-2xl font-light text-slate-700 leading-relaxed">
           Meet the exceptional professionals driving innovation and excellence at 
-          <span className="font-semibold bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent"> Allegro Capital</span>
+          <span className="font-semibold bg-gradient-to-r from-red-500 to-red-500 bg-clip-text text-transparent"> Allegro Capital</span>
         </p>
         
         {/* Additional descriptive text */}
-        <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+        {/* <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
           Our diverse team of industry experts, strategic thinkers, and dedicated professionals brings decades of combined experience to deliver unparalleled financial solutions.
-        </p>
+        </p> */}
       </div>
 
       
@@ -244,7 +249,7 @@ const People = () => {
           </div>
 
           {/* Associates - Last 4 Members */}
-          <div className="text-center">
+          {/* <div className="text-center">
             <h2 className="text-2xl font-bold text-slate-700 mb-8">Associates</h2>
             <div className="flex flex-wrap gap-8 mx-auto">
               {group3.map((member, index) => (
@@ -256,7 +261,7 @@ const People = () => {
                 />
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -328,7 +333,7 @@ const People = () => {
       )}
 
       {/* Custom CSS for animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes fade-in {
           from { opacity: 0; }
           to { opacity: 1; }

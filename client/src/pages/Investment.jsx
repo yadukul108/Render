@@ -1,8 +1,30 @@
-import HomeIb from "../assets/office4.jpg";
+import HomeIb from "../assets/investment.jpg";
 import { Link } from 'react-router-dom';
 import CaseStudies from '../components/CaseStudy';
 import Footer from "../components/Footer"
+import Cards from "../components/Cards";
 import TransactionCarousal from "../components/TransactionCarousal";
+
+const cards = [
+  {
+    heading: "# 1",
+    title: "Investment Bank",
+    description:
+      "Top Transaction Advisor in Healthcare & Lifesciences - Venture Intelligence League Tables 2020",
+  },
+  {
+    heading: "Top 5",
+    title: "Investment Bank",
+    description:
+      "Leading advisor in Healthcare & Lifesciences domain across Private Equity and Mergers & Acquisitions for the last 5yrs",
+  },
+  {
+    heading: "# 1",
+    title: "Investment Bank",
+    description:
+      "Top Transaction Advisor in Real Estate Mergers & Acquisitions - Venture Intelligence League Tables 2020",
+  },
+];
 const Investment = () => {
    
 
@@ -27,19 +49,19 @@ const Investment = () => {
       </div>
 
       {/* Heading */}
-      <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-light mb-8 leading-tight">
-        Trusted Advisors In
+      <h1 className="text-white text-4xl md:text-6xl lg:text-6xl font-light mb-8 leading-tight">
+        Trusted Advisors to businesses in India from 2002
         <span className="block text-red-400 font-medium">Investment Banking</span>
       </h1>
 
       {/* Subtext */}
       <p className="text-slate-200 text-base md:text-lg lg:text-xl max-w-3xl leading-relaxed font-light">
-       Allegro Capital provides tailored investment banking solutions with deep expertise and strong networks, partnering with businesses from startups to global corporations
+        We partner with businesses operating in India to provide comprehensive investment banking solutions through deep industry expertise and strong networks across corporates and financial institutions
       </p>
 
-      <p className="mt-4 text-slate-300 text-sm md:text-base font-light max-w-2xl">
+      {/* <p className="mt-4 text-slate-300 text-sm md:text-base font-light max-w-2xl">
         Guiding clients with integrity and expertise since 2002.
-      </p>
+      </p> */}
     </div>
   </div>
 </div>
@@ -54,16 +76,38 @@ const Investment = () => {
           Investment Banking has been a cornerstone of Allegro Capital since its inception. With deep sector knowledge, a collaborative mindset, global insights, and a results-oriented approach, we offer solutions that deliver value for all stakeholders involved.
         </p>
         <p>
-          Our team seamlessly supports clients across a range of industries and geographies, drawing on extensive market experience and strong investor relationships. Whether navigating growth strategies or complex transactions, we ensure precision and efficiency at every stage.
+          Our team seamlessly supports clients across a range of industries and geographies, drawing on extensive market experience and strong investor relationships. Whether navigating growth strategies or complex transactions, we strive to deliver value at every stage.
         </p>
         <p>
-          From early-stage capital raises to large-scale, strategic deals, Allegro Capital partners with companies across the business lifecycle — from emerging enterprises to multinational corporations. Our entrepreneurial spirit drives us to build meaningful, long-term relationships with our clients.
+          From growth capital raises to strategic deals, we partner across the business lifecycle — from emerging enterprises to multinational corporations. Our entrepreneurial spirit drives us to build meaningful, long-term relationships with our clients.
         </p>
         <p>
           With a strong focus on tailored outcomes, we specialize in crafting bespoke solutions for business owners, investors, and boards. Our proven expertise in cross-border transactions and our in-depth understanding of regulatory frameworks position us to execute optimal strategies across markets.
         </p>
       </div>
     </div>
+      <section className="py-12">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {cards.map((card, index) => (
+            <div
+              key={index}
+              className="group bg-white rounded-xl  p-6 "
+            >
+              <div className="flex items-center gap-2 mb-4 text-red-700 font-bold text-lg">
+                {card.heading}
+              </div>
+              <p className="text-[1rem] md:text-lg font-medium text-slate-600  mb-2">
+                {card.title}
+              </p>
+              <p className="text-sm text-slate-500 ">
+                {card.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
    <div className="w-full max-w-7xl mx-auto text-center px-4  py-12 text-slate-600">
       <h2 className="text-3xl md:text-4xl font-medium text-center text-slate-700 mb-4">Our Transactions</h2>
       <p className=" mb-12 md:mb-20 md:w-2/3 md:text-lg mx-auto">Each deal reflects strategic foresight, meticulous precision, and trust. Together, they showcase our consistent performance, resilience, credibility, and enduring strength in investment banking.</p>

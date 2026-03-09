@@ -14,11 +14,14 @@ export const submitContactForm = async (req, res) => {
   const { name, email, message } = req.body;
 
   try {
-    // Save to DB (optional)
+    // Save to DB
     const contactEntry = new Contact({ name, email, message });
     await contactEntry.save();
 
-    // Send Email to HR
+    // Respond instantly after DB save
+    res.status(200).json({ message: 'Message sent successfully' });
+
+    // Send Email to HR in the background (fire-and-forget)
     const mailOptions = {
       from: `"${name}" <${email}>`,
       to: process.env.EMAIL_USER,
@@ -32,9 +35,10 @@ export const submitContactForm = async (req, res) => {
       `,
     };
 
-    await transporter.sendMail(mailOptions);
+    transporter.sendMail(mailOptions).catch((err) => {
+      console.error('❌ Background contact email error:', err.message);
+    });
 
-    res.status(200).json({ message: 'Message sent successfully' });
   } catch (error) {
     console.error('Contact Form Error:', error);
     res.status(500).json({ message: 'Failed to send message', error });

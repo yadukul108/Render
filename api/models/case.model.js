@@ -32,5 +32,9 @@ const caseSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+caseSchema.index({ createdAt: -1 });
+caseSchema.index({ isInvestment: 1, createdAt: -1 });
+caseSchema.index({ isStrategy: 1, createdAt: -1 });
+
 const Case = mongoose.model("Case", caseSchema);
 export default Case;

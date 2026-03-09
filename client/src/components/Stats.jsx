@@ -2,7 +2,7 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 
 const statsData = [
-  { number: 150, label: 'Projects Completed' },
+  { number: 150, label: 'Deals Completed' },
   { number: 200, label: 'Clients Served' },
   { number: 20, label: 'Years of Experience' }
 ];

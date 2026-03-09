@@ -33,7 +33,18 @@ export const createAward = async (req, res) => {
 // Get All Awards
 export const getAwards = async (req, res) => {
   try {
-    const awards = await Award.find().sort({ year: -1 });
+    const { limit, page } = req.query;
+
+    const pageNum = parseInt(page, 10) || 1;
+    const limitNum = parseInt(limit, 10) || 0;
+    const skip = (pageNum - 1) * limitNum;
+
+    const awards = await Award.find()
+      .sort({ year: -1 })
+      .skip(skip)
+      .limit(limitNum)
+      .lean(); // Vastly improves performance by returning plain JS objects
+
     res.status(200).json(awards);
   } catch (error) {
     res.status(500).json({ message: error.message });

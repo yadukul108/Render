@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeIb from "../assets/AllegroOffice1.jpg";
+import HomeIb from "../assets/news.jpg";
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import {newsItems} from "../NewsData"

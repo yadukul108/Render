@@ -1,7 +1,7 @@
 import React from "react";
 import People from "../components/People";
 import Footer from "../components/Footer"
-import HomeIB from "../assets/office4.jpg"
+import HomeIB from "../assets/case.jpg"
 const OurPeople = () => {
   return (
     <div>
@@ -35,15 +35,14 @@ const OurPeople = () => {
         <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-light mb-4 leading-tight">
           Meet Our Team
           <span className="block text-red-400 font-medium">
-            Passionate. Proactive. Expert.
+            Passionate. Proactive. 
           </span>
         </h1>
 
         {/* Subtext */}
         <p className="text-slate-200 text-base md:text-lg lg:text-xl max-w-3xl leading-relaxed font-light">
-          At Allegro Capital, our strength lies in the synergy of our people.
-          Every member brings depth, energy, and a relentless pursuit of
-          excellence to ensure our clients thrive.
+        At Allegro Capital, we believe our true strength is our people.
+        Every team member brings their own depth, energy, and drive for excellence and together, we channel that passion into helping our clients grow and succeed.
         </p>
       </div>
     </div>
