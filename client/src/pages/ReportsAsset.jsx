@@ -68,7 +68,8 @@ export default function AssetReports() {
     setMessage("");
 
     try {
-      const response = await fetch("http://localhost:3000/api/download/send-pdf", {
+      const API_BASE = import.meta.env.VITE_API_URL || '';
+      const response = await fetch(`${API_BASE}/api/download/send-pdf`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

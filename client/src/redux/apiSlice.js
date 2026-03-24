@@ -1,6 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const API_BASE_URL = '/api'; // Use relative URL so Vite Proxy handles development, and relative works natively in production deployments.
+const API_BASE_URL = import.meta.env.VITE_API_URL 
+  ? `${import.meta.env.VITE_API_URL.replace(/\/api$/, '')}/api`
+  : '/api'; // falls back to Vite proxy in local dev
 
 export const apiSlice = createApi({
   reducerPath: 'api',
