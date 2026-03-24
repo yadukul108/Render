@@ -18,7 +18,8 @@ const Deals = () => {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const res = await fetch(`/api/transactions/getAllTransactions`);
+        const API_BASE = import.meta.env.VITE_API_URL || '';
+        const res = await fetch(`${API_BASE}/api/transactions/getAllTransactions`);
         if (!res.ok) throw new Error('Failed to fetch transactions');
         const data = await res.json();
         setTransactions(data);

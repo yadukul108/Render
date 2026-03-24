@@ -35,7 +35,8 @@ const Careers = () => {
   payload.append('resume', formData.resume);
 
   try {
-    const response = await fetch(`/api/apply`, {
+    const API_BASE = import.meta.env.VITE_API_URL || '';
+    const response = await fetch(`${API_BASE}/api/apply`, {
       method: 'POST',
       body: payload,
     });

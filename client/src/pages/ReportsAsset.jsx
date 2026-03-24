@@ -34,7 +34,8 @@ export default function AssetReports() {
   useEffect(() => {
   const fetchAssets = async () => {
     try {
-      const response = await fetch(`/api/assets/getAllAssets`);
+      const API_BASE = import.meta.env.VITE_API_URL || '';
+      const response = await fetch(`${API_BASE}/api/assets/getAllAssets`);
      
       const data = await response.json(); // directly the array
       setAssets(data || []); // ensure it's at least an empty array

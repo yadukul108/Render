@@ -9,7 +9,8 @@ export default function Visitor() {
   useEffect(() => {
     const fetchVisitors = async () => {
       try {
-        const res = await fetch(`/api/visitor`); // adjust if needed
+        const API_BASE = import.meta.env.VITE_API_URL || '';
+        const res = await fetch(`${API_BASE}/api/visitor`); // adjust if needed
         const data = await res.json();
         setVisitors(data.visitors || []);
       } catch (err) {

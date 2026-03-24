@@ -25,7 +25,8 @@ const Case = () => {
   useEffect(() => {
     const fetchCases = async () => {
       try {
-        const res = await fetch(`/api/cases/getAllCase`);
+        const API_BASE = import.meta.env.VITE_API_URL || '';
+        const res = await fetch(`${API_BASE}/api/cases/getAllCase`);
         const data = await res.json();
         setCases(data);
       } catch (err) {

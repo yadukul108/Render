@@ -25,7 +25,8 @@ const SignIn = () => {
     }
     try {
       dispatch(signInStart());
-      const res = await fetch(`/api/auth/signin`, {
+      const API_BASE = import.meta.env.VITE_API_URL || '';
+      const res = await fetch(`${API_BASE}/api/auth/signin`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

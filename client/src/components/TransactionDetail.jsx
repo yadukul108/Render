@@ -11,7 +11,8 @@ const TransactionDetail = () => {
   useEffect(() => {
     const fetchTransaction = async () => {
       try {
-        const res = await fetch(`/api/transactions/getTransactionById/${id}`);
+        const API_BASE = import.meta.env.VITE_API_URL || '';
+        const res = await fetch(`${API_BASE}/api/transactions/getTransactionById/${id}`);
         if (!res.ok) throw new Error('Transaction not found');
         const data = await res.json();
         setTxn(data);

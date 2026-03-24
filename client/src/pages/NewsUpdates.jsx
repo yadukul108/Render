@@ -11,7 +11,8 @@ const NewsUpdates = () => {
     const fetchNews = async () => {
       try {
         //
-        const res = await fetch(`/api/news/getAllNews`);
+        const API_BASE = import.meta.env.VITE_API_URL || '';
+        const res = await fetch(`${API_BASE}/api/news/getAllNews`);
         if (!res.ok) throw new Error("Failed to fetch news");
         const data = await res.json();
         setNewsItems(data);
