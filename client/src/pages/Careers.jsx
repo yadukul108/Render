@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import HomeIb from '../assets/home.jpg';
+import HomeIb from '../assets/Home.jpg';
 import { DollarSign, Users, Briefcase, Clock } from 'lucide-react';
 import Footer from '../components/Footer';
 
