@@ -44,6 +44,11 @@ mongoose.connection.on('disconnected', () => {
 });
 
 
+// Health check for pingers (keeps Render awake)
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // Routes
 
 
