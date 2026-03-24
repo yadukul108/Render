@@ -22,14 +22,26 @@ app.use(express.json());
 app.use(cors());
 
 // MongoDB Connection
-mongoose
-  .connect(process.env.MONGO)
-  .then(() => {
-    console.log('MongoDB is connected');
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+mongoose.set('strictQuery', false); // Prepare for Mongoose 7/8 changes
+
+mongoose.connect(process.env.MONGO, {
+  serverSelectionTimeoutMS: 5000, // Timeout after 5s instead of 30s
+})
+.then(() => {
+  console.log('✅ MongoDB is connected successfully to:', mongoose.connection.name);
+})
+.catch((err) => {
+  console.error('❌ MongoDB initial connection error:', err.message);
+});
+
+// Explicit listeners for better production visibility
+mongoose.connection.on('error', err => {
+  console.error('❌ MongoDB runtime error:', err);
+});
+
+mongoose.connection.on('disconnected', () => {
+  console.warn('⚠️ MongoDB disconnected');
+});
 
 
 // Routes
